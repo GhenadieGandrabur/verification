@@ -1,9 +1,9 @@
 <?php
 
-namespace Ninja;
+namespace Main;
 
 interface Routes
 {
     public function getRoutes(): array;
-    public function getAuthentication(): \Ninja\Authentication;
+    public function getAuthentication(): \Main\Authentication;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ninja;
+namespace Main;
 
 class EntryPoint
 {
@@ -8,7 +8,7 @@ class EntryPoint
     private $method;
     private $routes;
 
-    public function __construct(string $route, string $method, \Ninja\Routes $routes)
+    public function __construct(string $route, string $method, \Main\Routes $routes)
     {
         $this->route = $route;
         $this->routes = $routes;
