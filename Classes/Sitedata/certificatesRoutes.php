@@ -2,110 +2,49 @@
 
 namespace Sitedata;
 
-class Certificates implements \Main\Routes
+class certificatesRoutes implements \Main\Routes
 {
-    private $authorsTable;
-    private $jokesTable;
-    private $authentication;
-
-    public function __construct()
+    public function getRoutes()
     {
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
-        $this->jokesTable = new \Ninja\DatabaseTable($pdo, 'joke', 'id');
-        $this->authorsTable = new \Ninja\DatabaseTable($pdo, 'author', 'id');
-        $this->authentication = new \Ninja\Authentication($this->authorsTable, 'email', 'password');
-    }
+        // $jokesTable = new \Main\DatabaseTable($pdo, 'joke', 'id');
+        $CertificateTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
 
-    public function getRoutes(): array
-    {
-        $jokeController = new \Ijdb\Controllers\Joke($this->jokesTable, $this->authorsTable, $this->authentication);
-        $authorController = new \Ijdb\Controllers\Register($this->authorsTable);
-        $loginController = new \Ijdb\Controllers\Login($this->authentication);
+        $CertificateController = new \Sitedata\Controllers\Certificate($CertificateTable);
 
         $routes = [
-            'author/register' => [
-                'GET' => [
-                    'controller' => $authorController,
-                    'action' => 'registrationForm'
-                ],
-                'POST' => [
-                    'controller' => $authorController,
-                    'action' => 'registerUser'
-                ]
-            ],
-            'author/success' => [
-                'GET' => [
-                    'controller' => $authorController,
-                    'action' => 'success'
-                ]
-            ],
             'joke/edit' => [
                 'POST' => [
-                    'controller' => $jokeController,
+                    'controller' => $CertificateController,
                     'action' => 'saveEdit'
                 ],
                 'GET' => [
-                    'controller' => $jokeController,
+                    'controller' =>  $CertificateController,
                     'action' => 'edit'
-                ],
-                'login' => true
+                ]
 
             ],
             'joke/delete' => [
                 'POST' => [
-                    'controller' => $jokeController,
+                    'controller' => $CertificateController,
                     'action' => 'delete'
-                ],
-                'login' => true
+                ]
             ],
             'joke/list' => [
                 'GET' => [
-                    'controller' => $jokeController,
+                    'controller' => $CertificateController,
                     'action' => 'list'
-                ]
-            ],
-            'login/error' => [
-                'GET' => [
-                    'controller' => $loginController,
-                    'action' => 'error'
-                ]
-            ],
-            'login/success' => [
-                'GET' => [
-                    'controller' => $loginController,
-                    'action' => 'success'
-                ]
-            ],
-            'login' => [
-                'GET' => [
-                    'controller' => $loginController,
-                    'action' => 'loginForm'
-                ],
-                'POST' => [
-                    'controller' => $loginController,
-                    'action' => 'processLogin'
                 ]
             ],
             '' => [
                 'GET' => [
-                    'controller' => $jokeController,
-                    'action' => 'home'
+                    'controller' => $CertificateController,
+                    'action' => 'list'
                 ]
-            ],
-            'logout' => [
-                'GET' => [
-                    'controller' => $loginController,
-                    'action' => 'logout'
-                ]
-            ],
+            ]
         ];
 
         return $routes;
-    }
-
-    public function getAuthentication(): \Ninja\Authentication
-    {
-        return $this->authentication;
     }
 }

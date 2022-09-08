@@ -22,3 +22,6 @@ nav li {
     text-align: center;
     padding: 1em;
 }
+
+th,td { border: 1px solid black;}
+table {width: 100%;}

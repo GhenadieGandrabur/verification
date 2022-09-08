@@ -4,6 +4,6 @@ namespace Main;
 
 interface Routes
 {
-    public function getRoutes(): array;
-    public function getAuthentication(): \Main\Authentication;
+    public function getRoutes();
+   // public function getAuthentication(): \Main\Authentication;
 }

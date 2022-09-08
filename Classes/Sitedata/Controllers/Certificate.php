@@ -27,7 +27,7 @@ class Certificate
 
             $certificates[] = [
                 'id' => $certificate['id'],
-                'date' => $certificate['date'],
+                'certificatedate' => $certificate['certificatedate'],
                 'numberplate' => $certificate['numberplate'],
                 'owner' => $certificate['owner'],
                 'brand' => $certificate['brand'],
@@ -35,19 +35,20 @@ class Certificate
             ];
         }
 
-        $title = 'Cerificate';
+        $title = '-=Cerificate=-';
 
         $totalCertificates = $this->CertificateTable->total();
 
        
 
         return [
-                'template' => 'jokes.html.php',
+                'template' => 'certificates.html.php',
                 'title' => $title,
                 'variables' => [
-                    'totalJokes' => $totalJokes,
-                    'jokes' => $jokes,
-                    'userId' => $author['id'] ?? null
+
+                'totalCertificates' => $totalCertificates,
+                'certificates' => $certificates
+                    
                 ]
             ];
     }

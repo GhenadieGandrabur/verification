@@ -39,29 +39,19 @@ class EntryPoint
 
         $routes = $this->routes->getRoutes();
 
-        $authentication = $this->routes->getAuthentication();
+        $controller = $routes[$this->route][$this->method]['controller'];
+        $action = $routes[$this->route][$this->method]['action'];
 
-        if (isset($routes[$this->route]['login']) && isset($routes[$this->route]['login']) && !$authentication->isLoggedIn()) {
-            header('location: /login/error');
+        $page = $controller->$action();
+
+        $title = $page['title'];
+
+        if (isset($page['variables'])) {
+            $output = $this->loadTemplate($page['template'], $page['variables']);
         } else {
-            $controller = $routes[$this->route][$this->method]['controller'];
-            $action = $routes[$this->route][$this->method]['action'];
-            $page = $controller->$action();
-
-            $title = $page['title'];
-
-            if (isset($page['variables'])) {
-                $output = $this->loadTemplate($page['template'], $page['variables']);
-            } else {
-                $output = $this->loadTemplate($page['template']);
-            }
-
-            echo $this->loadTemplate('layout.html.php', [
-                'loggedIn' =>
-                $authentication->isLoggedIn(),
-                'output' => $output,
-                'title' => $title
-            ]);
+            $output = $this->loadTemplate($page['template']);
         }
+
+        include  __DIR__ . '/../../templates/layout.html.php';
     }
 }
