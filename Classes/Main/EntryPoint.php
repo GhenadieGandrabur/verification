@@ -37,11 +37,10 @@ class EntryPoint
     public function run()
     {
 
-        $routes = $this->routes->getRoutes();
+        $routes = $this->routes->getRoutes();        
 
-        $controller = $routes[$this->route][$this->method]['controller'];
-        $action = $routes[$this->route][$this->method]['action'];
-
+        $controller = $routes[$this->route][$this->method]['controller'];        
+        $action = $routes[$this->route][$this->method]['action'];        
         $page = $controller->$action();
 
         $title = $page['title'];
@@ -51,7 +50,6 @@ class EntryPoint
         } else {
             $output = $this->loadTemplate($page['template']);
         }
-
         include  __DIR__ . '/../../templates/layout.html.php';
     }
 }

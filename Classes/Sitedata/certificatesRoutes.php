@@ -2,44 +2,61 @@
 
 namespace Sitedata;
 
-class certificatesRoutes implements \Main\Routes
+class CertificatesRoutes implements \Main\Routes
 {
     public function getRoutes()
     {
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
-        // $jokesTable = new \Main\DatabaseTable($pdo, 'joke', 'id');
-        $CertificateTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
+        $certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
+        $usersTable = new \Main\DatabaseTable($pdo, 'users', 'id');
 
-        $CertificateController = new \Sitedata\Controllers\Certificate($CertificateTable);
+        $certificatesController = new \Sitedata\Controllers\Certificate($certificatesTable);
+        $usersController = new \Sitedata\Controllers\Users($usersTable);
 
         $routes = [
+            'author/register' => [
+                'GET' => [
+                    'controller' => $usersController,
+                    'action' => 'registrationForm'
+                ],
+                'POST' => [
+                    'controller' => $usersController,
+                    'action' => 'registerUser'
+                ]
+            ],
+            'author/success' => [
+                'GET' => [
+                    'controller' => $usersController,
+                    'action' => 'success'
+                ]
+            ],
             'joke/edit' => [
                 'POST' => [
-                    'controller' => $CertificateController,
+                    'controller' => $usersController,
                     'action' => 'saveEdit'
                 ],
                 'GET' => [
-                    'controller' =>  $CertificateController,
+                    'controller' => $usersController,
                     'action' => 'edit'
                 ]
 
             ],
             'joke/delete' => [
                 'POST' => [
-                    'controller' => $CertificateController,
+                    'controller' => $usersController,
                     'action' => 'delete'
                 ]
             ],
-            'joke/list' => [
+            'users/list' => [
                 'GET' => [
-                    'controller' => $CertificateController,
+                    'controller' => $usersController,
                     'action' => 'list'
                 ]
             ],
             '' => [
                 'GET' => [
-                    'controller' => $CertificateController,
+                    'controller' => $certificatesController,
                     'action' => 'list'
                 ]
             ]

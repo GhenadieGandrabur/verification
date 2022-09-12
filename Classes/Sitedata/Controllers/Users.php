@@ -3,51 +3,41 @@
 namespace Sitedata\Controllers;
 use \Main\DatabaseTable;
 
-
-class Certificate
+class Users
 {
-    
-    private $CertificateTable;
-    
 
-    public function __construct(DatabaseTable $CertificateTable)
+    private $UsersTable;
+
+    public function __construct(DatabaseTable $UsersTable)
     {
-        $this->CertificateTable = $CertificateTable;
+        $this->UsersTable = $UsersTable;
        
     }
 
     public function list()
     {
-        $result = $this->CertificateTable->findAll();
+        $result = $this->UsersTable->findAll();
 
-        $certificates = [];
-        foreach ($result as $certificate) {
-    
-
-            $certificates[] = [
-                'id' => $certificate['id'],
-                'date' => $certificate['date'],
-                'numberplate' => $certificate['numberplate'],
-                'owner' => $certificate['owner'],
-                'brand' => $certificate['brand'],
-                'weight' => $certificate['weight']
+        $users = [];
+        foreach ($result as $user) {
+            $users[] = [
+                'id' => $user['id'],
+                'date' => $user['date'],
+                'name' => $user['name'],
+                'priority' => $user['priority']                
             ];
         }
 
-        $title = '-=Cerificate=-';
+        $title = 'Users';
 
-        $totalCertificates = $this->CertificateTable->total();
-
-       
+        $totalUsers = $this->UsersTable->total();
 
         return [
-                'template' => 'certificates.html.php',
+                'template' => 'users.html.php',
                 'title' => $title,
                 'variables' => [
-
-                'totalCertificates' => $totalCertificates,
-                'certificates' => $certificates
-                    
+                'totalUsers' => $totalUsers,
+                'users' => $users                    
                 ]
             ];
     }
@@ -114,7 +104,5 @@ class Certificate
             ]
         ];
     }
-
-   
     
 }

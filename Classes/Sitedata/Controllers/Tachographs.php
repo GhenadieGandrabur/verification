@@ -2,50 +2,50 @@
 
 namespace Sitedata\Controllers;
 use \Main\DatabaseTable;
+//use \Main\Authentication;
 
 
-class Certificate
+class Tachographs
 {
-    
-    private $CertificateTable;
-    
+    //private $authorsTable;
+    private $TachographsTable;
+    //private $authentication;
 
-    public function __construct(DatabaseTable $CertificateTable)
+    public function __construct(DatabaseTable $TachographsTable)
     {
-        $this->CertificateTable = $CertificateTable;
+        $this->TachographsTable = $TachographsTable;
        
     }
 
     public function list()
     {
-        $result = $this->CertificateTable->findAll();
+        $result = $this->TachographsTable->findAll();
 
-        $certificates = [];
-        foreach ($result as $certificate) {
-    
+        $tachographs = [];
+        foreach ($result as $tachograph) {
+           // $author = $this->authorsTable->findById($joke['authorId']);
 
             $certificates[] = [
-                'id' => $certificate['id'],
-                'date' => $certificate['date'],
-                'numberplate' => $certificate['numberplate'],
-                'owner' => $certificate['owner'],
-                'brand' => $certificate['brand'],
-                'weight' => $certificate['weight']
+                'id' => $tachograph['id'],
+                'date' => $tachograph['date'],
+                'type' => $tachograph['type'],
+                'number' => $tachograph['number']
+                
             ];
         }
 
-        $title = '-=Cerificate=-';
+        $title = 'tahographs';
 
-        $totalCertificates = $this->CertificateTable->total();
+        $totalTachographs = $this->TachographsTable->total();
 
        
 
         return [
-                'template' => 'certificates.html.php',
+                'template' => 'tachographs.html.php',
                 'title' => $title,
                 'variables' => [
 
-                'totalCertificates' => $totalCertificates,
+                'totalCertificates' => $totalTachographs,
                 'certificates' => $certificates
                     
                 ]

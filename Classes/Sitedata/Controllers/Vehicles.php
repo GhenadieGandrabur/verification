@@ -2,52 +2,49 @@
 
 namespace Sitedata\Controllers;
 use \Main\DatabaseTable;
+//use \Main\Authentication;
 
 
-class Certificate
+class Vehicles
 {
-    
-    private $CertificateTable;
-    
+    //private $authorsTable;
+    private $VehiclesTable;
+    //private $authentication;
 
-    public function __construct(DatabaseTable $CertificateTable)
+    public function __construct(DatabaseTable $VehiclesTable)
     {
-        $this->CertificateTable = $CertificateTable;
+        $this->VehiclesTable = $VehiclesTable;
        
     }
 
     public function list()
     {
-        $result = $this->CertificateTable->findAll();
+        $result = $this->VehiclesTable->findAll();
 
-        $certificates = [];
-        foreach ($result as $certificate) {
-    
+        $vehicles = [];
+        foreach ($result as $Vehicle) {
+           // $author = $this->authorsTable->findById($joke['authorId']);
 
-            $certificates[] = [
-                'id' => $certificate['id'],
-                'date' => $certificate['date'],
-                'numberplate' => $certificate['numberplate'],
-                'owner' => $certificate['owner'],
-                'brand' => $certificate['brand'],
-                'weight' => $certificate['weight']
+            $vehicles[] = [
+                'id' => $Vehicle['id'],
+                'date' => $Vehicle['date'],
+                'number' => $Vehicle['number'],
+                'owner' => $Vehicle['owner']                
             ];
         }
 
-        $title = '-=Cerificate=-';
+        $title = 'Vehicles';
 
-        $totalCertificates = $this->CertificateTable->total();
+        $totalVehicles = $this->VehiclesTable->total();
 
        
 
         return [
-                'template' => 'certificates.html.php',
+                'template' => 'vehicles.html.php',
                 'title' => $title,
                 'variables' => [
-
-                'totalCertificates' => $totalCertificates,
-                'certificates' => $certificates
-                    
+                'totalVehicles' => $totalVehicles,
+                'vehicles' => $vehicles                    
                 ]
             ];
     }
@@ -114,7 +111,5 @@ class Certificate
             ]
         ];
     }
-
-   
     
 }
