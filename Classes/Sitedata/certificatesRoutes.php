@@ -10,56 +10,20 @@ class CertificatesRoutes implements \Main\Routes
 
         $certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
         $usersTable = new \Main\DatabaseTable($pdo, 'users', 'id');
+        $vehiclesTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
+        $tachographsTable = new \Main\DatabaseTable($pdo, 'tachographs', 'id');
 
         $certificatesController = new \Sitedata\Controllers\Certificate($certificatesTable);
         $usersController = new \Sitedata\Controllers\Users($usersTable);
+        $vehiclesController = new \Sitedata\Controllers\Vehicles($vehiclesTable);
+        $tachographsController = new \Sitedata\Controllers\Tachographs($tachographsTable);
 
         $routes = [
-            'author/register' => [
-                'GET' => [
-                    'controller' => $usersController,
-                    'action' => 'registrationForm'
-                ],
-                'POST' => [
-                    'controller' => $usersController,
-                    'action' => 'registerUser'
-                ]
-            ],
-            'author/success' => [
-                'GET' => [
-                    'controller' => $usersController,
-                    'action' => 'success'
-                ]
-            ],
-            'joke/edit' => [
-                'POST' => [
-                    'controller' => $usersController,
-                    'action' => 'saveEdit'
-                ],
-                'GET' => [
-                    'controller' => $usersController,
-                    'action' => 'edit'
-                ]
-
-            ],
-            'joke/delete' => [
-                'POST' => [
-                    'controller' => $usersController,
-                    'action' => 'delete'
-                ]
-            ],
-            'users/list' => [
-                'GET' => [
-                    'controller' => $usersController,
-                    'action' => 'list'
-                ]
-            ],
-            '' => [
-                'GET' => [
-                    'controller' => $certificatesController,
-                    'action' => 'list'
-                ]
-            ]
+            
+            '' => ['GET' => ['controller' => $certificatesController,'action' => 'list']],
+            'vehicles/list'=>['GET'=>['controller'=> $vehiclesController, 'action'=>'list']],
+            'users/list' => ['GET' => ['controller' => $usersController,'action' => 'list' ]],
+            'tachographs/list' => ['GET' => ['controller' => $tachographsController,'action' => 'list' ]]
         ];
 
         return $routes;

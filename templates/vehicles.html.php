@@ -1,6 +1,6 @@
 <br>
 <br>
-
+<h2>Vehicles</h2>
 <p><?= $totalVehicles ?> vehicles in DB</p>
 <table>
 

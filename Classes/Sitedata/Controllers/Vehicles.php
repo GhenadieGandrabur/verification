@@ -7,9 +7,9 @@ use \Main\DatabaseTable;
 
 class Vehicles
 {
-    //private $authorsTable;
+    
     private $VehiclesTable;
-    //private $authentication;
+    
 
     public function __construct(DatabaseTable $VehiclesTable)
     {
@@ -29,15 +29,13 @@ class Vehicles
                 'id' => $Vehicle['id'],
                 'date' => $Vehicle['date'],
                 'number' => $Vehicle['number'],
-                'owner' => $Vehicle['owner']                
+                'owner' => $Vehicle['owner']
             ];
         }
 
         $title = 'Vehicles';
 
-        $totalVehicles = $this->VehiclesTable->total();
-
-       
+        $totalVehicles = $this->VehiclesTable->total();       
 
         return [
                 'template' => 'vehicles.html.php',

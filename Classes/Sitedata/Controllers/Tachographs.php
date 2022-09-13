@@ -25,9 +25,9 @@ class Tachographs
         foreach ($result as $tachograph) {
            // $author = $this->authorsTable->findById($joke['authorId']);
 
-            $certificates[] = [
+            $tachographs[] = [
                 'id' => $tachograph['id'],
-                'date' => $tachograph['date'],
+                'modele' => $tachograph['modele'],
                 'type' => $tachograph['type'],
                 'number' => $tachograph['number']
                 
@@ -45,8 +45,8 @@ class Tachographs
                 'title' => $title,
                 'variables' => [
 
-                'totalCertificates' => $totalTachographs,
-                'certificates' => $certificates
+                'totalTachographs' => $totalTachographs,
+                'tachographs' => $tachographs
                     
                 ]
             ];

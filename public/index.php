@@ -2,7 +2,7 @@
 try {
     include __DIR__ . '/../includes/autoload.php';
 
-   $route = ltrim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
+    $route = ltrim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
 
     $entryPoint = new \Main\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Sitedata\CertificatesRoutes());
     $entryPoint->run();
