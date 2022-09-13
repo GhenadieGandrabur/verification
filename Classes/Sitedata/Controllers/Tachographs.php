@@ -7,7 +7,7 @@ use \Main\DatabaseTable;
 
 class Tachographs
 {
-    //private $authorsTable;
+    //private $employeesTable;
     private $TachographsTable;
     //private $authentication;
 
@@ -23,7 +23,7 @@ class Tachographs
 
         $tachographs = [];
         foreach ($result as $tachograph) {
-           // $author = $this->authorsTable->findById($joke['authorId']);
+           // $employee = $this->employeesTable->findById($joke['employeeId']);
 
             $tachographs[] = [
                 'id' => $tachograph['id'],
@@ -62,11 +62,11 @@ class Tachographs
     public function delete()
     {
 
-        $author = $this->authentication->getUser();
+        $employee = $this->authentication->getUser();
 
         $joke = $this->jokesTable->findById($_POST['id']);
 
-        if ($joke['authorId'] != $author['id']) {
+        if ($joke['employeeId'] != $employee['id']) {
             return;
         }
 
@@ -76,19 +76,19 @@ class Tachographs
     }
     public function saveEdit()
     {
-        $author = $this->authentication->getUser();
+        $employee = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
             $joke = $this->jokesTable->findById($_GET['id']);
 
-            if ($joke['authorId'] != $author['id']) {
+            if ($joke['employeeId'] != $employee['id']) {
                 return;
             }
         }
 
         $joke = $_POST['joke'];
         $joke['jokedate'] = new \DateTime();
-        $joke['authorId'] = $author['id'];
+        $joke['employeeId'] = $employee['id'];
 
         $this->jokesTable->save($joke);
 
@@ -97,7 +97,7 @@ class Tachographs
 
     public function edit()
     {
-        $author = $this->authentication->getUser();
+        $employee = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
             $joke = $this->jokesTable->findById($_GET['id']);
@@ -110,7 +110,7 @@ class Tachographs
             'title' => $title,
             'variables' => [
                 'joke' => $joke ?? null,
-                'userId' => $author['id'] ?? null
+                'userId' => $employee['id'] ?? null
             ]
         ];
     }

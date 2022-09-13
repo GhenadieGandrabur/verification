@@ -1,4 +1,4 @@
-<?php if ($userId == $usersdata['authorId']) : ?>
+<?php if ($userId == $usersdata['employeeId']) : ?>
     <form action="" method="post">
         <input type="hidden" name="$user['id']" value="<?= $usersdata['id'] ?? '' ?>">
         <label for="name">

@@ -4,49 +4,49 @@ namespace Sitedata;
 
 class CertificatesRoutes implements \Main\Routes
 {
-    private $authorsTable;
-    private $jokesTable;
+    private $employeesTable;
+    private $certificatesTable;
     private $authentication;
 
     public function __construct()
     {
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
-        $this->jokesTable = new \Main\DatabaseTable($pdo, 'Certificate', 'id');
-        $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
-        $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
+        $this->certificatesTable = new \Main\DatabaseTable($pdo, 'Certificate', 'id');
+        $this->employeesTable = new \Main\DatabaseTable($pdo, 'employee', 'id');
+        $this->authentication = new \Main\Authentication($this->employeesTable, 'email', 'password');
     }
 
     public function getRoutes(): array
     {
-        $jokeController = new \Sitedata\Controllers\Certificate($this->jokesTable, $this->authorsTable, $this->authentication);
-        $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
+        $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->employeesTable, $this->authentication);
+        $employeeController = new \Sitedata\Controllers\Register($this->employeesTable);
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
 
         $routes = [
-            'author/register' => [
+            'employee/register' => [
                 'GET' => [
-                    'controller' => $authorController,
+                    'controller' => $employeeController,
                     'action' => 'registrationForm'
                 ],
                 'POST' => [
-                    'controller' => $authorController,
+                    'controller' => $employeeController,
                     'action' => 'registerUser'
                 ]
             ],
-            'author/success' => [
+            'employee/success' => [
                 'GET' => [
-                    'controller' => $authorController,
+                    'controller' => $employeeController,
                     'action' => 'success'
                 ]
             ],
             'joke/edit' => [
                 'POST' => [
-                    'controller' => $jokeController,
+                    'controller' => $certificatesController,
                     'action' => 'saveEdit'
                 ],
                 'GET' => [
-                    'controller' => $jokeController,
+                    'controller' => $certificatesController,
                     'action' => 'edit'
                 ],
                 'login' => true
@@ -54,14 +54,14 @@ class CertificatesRoutes implements \Main\Routes
             ],
             'joke/delete' => [
                 'POST' => [
-                    'controller' => $jokeController,
+                    'controller' => $certificatesController,
                     'action' => 'delete'
                 ],
                 'login' => true
             ],
             'joke/list' => [
                 'GET' => [
-                    'controller' => $jokeController,
+                    'controller' => $certificatesController,
                     'action' => 'list'
                 ]
             ],
@@ -93,12 +93,8 @@ class CertificatesRoutes implements \Main\Routes
                     'action' => 'processLogin'
                 ]
             ],
-            '' => [
-                'GET' => [
-                    'controller' => $jokeController,
-                    'action' => 'home'
-                ]
-            ]
+            'certificates/list' => ['GET' => ['controller' => $certificatesController, 'action' => 'list']],
+            '' => ['GET' => ['controller' => $certificatesController, 'action' => 'home']]
         ];
 
         return $routes;

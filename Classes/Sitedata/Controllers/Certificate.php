@@ -1,60 +1,61 @@
 <?php
 
 namespace Sitedata\Controllers;
-use \Main\DatabaseTable;
 
+use \Main\DatabaseTable;
+use \Main\Authentication;
 
 class Certificate
 {
-    
-    private $CertificateTable;
-    
+    private $empoyeeTable;
+    private $certificatesTable;
 
-    public function __construct(DatabaseTable $CertificateTable)
+    public function __construct(DatabaseTable $certificatesTable, DatabaseTable $empoyeeTable, Authentication $authentication)
     {
-        $this->CertificateTable = $CertificateTable;
-       
+        $this->certificatesTable = $certificatesTable;
+        $this->empoyeeTable = $empoyeeTable;
+        $this->authentication = $authentication;
     }
 
     public function list()
     {
-        $result = $this->CertificateTable->findAll();
+        $result = $this->certificatesTable->findAll();
 
         $certificates = [];
         foreach ($result as $certificate) {
-    
+            $empoyee = $this->empoyeeTable->findById($certificate['$empoyeeId']);
 
             $certificates[] = [
                 'id' => $certificate['id'],
-                'date' => $certificate['date'],
                 'numberplate' => $certificate['numberplate'],
-                'owner' => $certificate['owner'],
-                'brand' => $certificate['brand'],
-                'weight' => $certificate['weight']
+                'date' => $certificate['date'],
+                'name' => $empoyee['name'],
+                'email' => $empoyee['email'],
+                '$empoyeeId' => $empoyee['id']
             ];
         }
 
-        $title = '-=Cerificate=-';
 
-        $totalCertificates = $this->CertificateTable->total();
+        $title = 'Joke list';
 
-       
+        $totalCertificates = $this->certificatesTable->total();
+
+        $empoyee = $this->authentication->getUser();
 
         return [
-                'template' => 'certificates.html.php',
-                'title' => $title,
-                'variables' => [
-
-                'totalCertificates' => $totalCertificates,
-                'certificates' => $certificates
-                    
-                ]
-            ];
+            'template' => 'certificates.html.php',
+            'title' => $title,
+            'variables' => [
+                'totalJokes' => $totalCertificates,
+                'certificates' => $certificates,
+                'userId' => $empoyee['id'] ?? null
+            ]
+        ];
     }
 
     public function home()
     {
-        $title = 'Internet Joke Database';
+        $title = 'Certificates';
 
         return ['template' => 'home.html.php', 'title' => $title];
     }
@@ -62,45 +63,48 @@ class Certificate
     public function delete()
     {
 
-        $author = $this->authentication->getUser();
+        $empoyee = $this->authentication->getUser();
 
-        $joke = $this->jokesTable->findById($_POST['id']);
+        $certificate = $this->certificatesTable->findById($_POST['id']);
 
-        if ($joke['authorId'] != $author['id']) {
+        if ($certificate['$empoyeeId'] != $empoyee['id']) {
             return;
         }
 
-        $this->jokesTable->delete($_POST['id']);
+
+        $this->certificatesTable->delete($_POST['id']);
 
         header('location: /joke/list');
     }
+
     public function saveEdit()
     {
-        $author = $this->authentication->getUser();
+        $empoyee = $this->authentication->getUser();
+
 
         if (isset($_GET['id'])) {
-            $joke = $this->jokesTable->findById($_GET['id']);
+            $certificate = $this->certificatesTable->findById($_GET['id']);
 
-            if ($joke['authorId'] != $author['id']) {
+            if ($certificate['$empoyeeId'] != $empoyee['id']) {
                 return;
             }
         }
 
-        $joke = $_POST['joke'];
-        $joke['jokedate'] = new \DateTime();
-        $joke['authorId'] = $author['id'];
+        $certificate = $_POST['joke'];
+        $certificate['jokedate'] = new \DateTime();
+        $certificate['$empoyeeId'] = $empoyee['id'];
 
-        $this->jokesTable->save($joke);
+        $this->certificatesTable->save($certificate);
 
         header('location: /joke/list');
     }
 
     public function edit()
     {
-        $author = $this->authentication->getUser();
+        $empoyee = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
-            $joke = $this->jokesTable->findById($_GET['id']);
+            $certificate = $this->certificatesTable->findById($_GET['id']);
         }
 
         $title = 'Edit joke';
@@ -109,12 +113,9 @@ class Certificate
             'template' => 'editjoke.html.php',
             'title' => $title,
             'variables' => [
-                'joke' => $joke ?? null,
-                'userId' => $author['id'] ?? null
+                'joke' => $certificate ?? null,
+                'userId' => $empoyee['id'] ?? null
             ]
         ];
     }
-
-   
-    
 }
