@@ -3,6 +3,7 @@
 <br>
 <h4>Users</h4>
 <p><?= $totalUsers ?> users in DB</p>
+<a href="/edit/users">New user</a>
 <table>
 
     <th>ID</th><th>Date</th><th>Name</th><th>Priority</th>

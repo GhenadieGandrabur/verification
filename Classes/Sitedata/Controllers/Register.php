@@ -1,8 +1,8 @@
 <?php
 
-namespace Ijdb\Controllers;
+namespace Sitedata\Controllers;
 
-use \Ninja\DatabaseTable;
+use \Main\DatabaseTable;
 
 class Register{
     private $authorsTable;

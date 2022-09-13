@@ -2,30 +2,110 @@
 
 namespace Sitedata;
 
-class CertificatesRoutes implements \Main\Routes
+class SitedataRoutes implements \Main\Routes
 {
-    public function getRoutes()
+    private $authorsTable;
+    private $jokesTable;
+    private $authentication;
+
+    public function __construct()
     {
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
-        $certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
-        $usersTable = new \Main\DatabaseTable($pdo, 'users', 'id');
-        $vehiclesTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
-        $tachographsTable = new \Main\DatabaseTable($pdo, 'tachographs', 'id');
+        $this->jokesTable = new \Main\DatabaseTable($pdo, 'joke', 'id');
+        $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
+        $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
+    }
 
-        $certificatesController = new \Sitedata\Controllers\Certificate($certificatesTable);
-        $usersController = new \Sitedata\Controllers\Users($usersTable);
-        $vehiclesController = new \Sitedata\Controllers\Vehicles($vehiclesTable);
-        $tachographsController = new \Sitedata\Controllers\Tachographs($tachographsTable);
+    public function getRoutes(): array
+    {
+        $jokeController = new \Sitedata\Controllers\Certificate($this->jokesTable, $this->authorsTable, $this->authentication);
+        $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
+        $loginController = new \Sitedata\Controllers\Login($this->authentication);
 
         $routes = [
-            
-            '' => ['GET' => ['controller' => $certificatesController,'action' => 'list']],
-            'vehicles/list'=>['GET'=>['controller'=> $vehiclesController, 'action'=>'list']],
-            'users/list' => ['GET' => ['controller' => $usersController,'action' => 'list' ]],
-            'tachographs/list' => ['GET' => ['controller' => $tachographsController,'action' => 'list' ]]
+            'author/register' => [
+                'GET' => [
+                    'controller' => $authorController,
+                    'action' => 'registrationForm'
+                ],
+                'POST' => [
+                    'controller' => $authorController,
+                    'action' => 'registerUser'
+                ]
+            ],
+            'author/success' => [
+                'GET' => [
+                    'controller' => $authorController,
+                    'action' => 'success'
+                ]
+            ],
+            'joke/edit' => [
+                'POST' => [
+                    'controller' => $jokeController,
+                    'action' => 'saveEdit'
+                ],
+                'GET' => [
+                    'controller' => $jokeController,
+                    'action' => 'edit'
+                ],
+                'login' => true
+
+            ],
+            'joke/delete' => [
+                'POST' => [
+                    'controller' => $jokeController,
+                    'action' => 'delete'
+                ],
+                'login' => true
+            ],
+            'joke/list' => [
+                'GET' => [
+                    'controller' => $jokeController,
+                    'action' => 'list'
+                ]
+            ],
+            'login/error' => [
+                'GET' => [
+                    'controller' => $loginController,
+                    'action' => 'error'
+                ]
+            ],
+            'login/success' => [
+                'GET' => [
+                    'controller' => $loginController,
+                    'action' => 'success'
+                ]
+            ],
+            'logout' => [
+                'GET' => [
+                    'controller' => $loginController,
+                    'action' => 'logout'
+                ]
+            ],
+            'login' => [
+                'GET' => [
+                    'controller' => $loginController,
+                    'action' => 'loginForm'
+                ],
+                'POST' => [
+                    'controller' => $loginController,
+                    'action' => 'processLogin'
+                ]
+            ],
+            '' => [
+                'GET' => [
+                    'controller' => $jokeController,
+                    'action' => 'home'
+                ]
+            ]
         ];
 
         return $routes;
+    }
+
+    public function getAuthentication(): \Main\Authentication
+    {
+        return $this->authentication;
     }
 }

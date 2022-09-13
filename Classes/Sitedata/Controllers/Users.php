@@ -2,15 +2,18 @@
 
 namespace Sitedata\Controllers;
 use \Main\DatabaseTable;
+use \Main\Authentication;
 
 class Users
 {
 
     private $UsersTable;
+    private $authentication;
 
-    public function __construct(DatabaseTable $UsersTable)
+    public function __construct(DatabaseTable $UsersTable, Authentication $authentication)
     {
         $this->UsersTable = $UsersTable;
+        $this->authentication = $authentication;
        
     }
 
@@ -42,65 +45,66 @@ class Users
             ];
     }
 
-    public function home()
+    /*public function home()
     {
         $title = 'Internet Joke Database';
 
         return ['template' => 'home.html.php', 'title' => $title];
-    }
+    }*/
 
     public function delete()
     {
 
-        $author = $this->authentication->getUser();
+        $user = $this->authentication->getUser();
 
-        $joke = $this->jokesTable->findById($_POST['id']);
+        $usersdata = $this->UsersTable->findById($_POST['id']);
 
-        if ($joke['authorId'] != $author['id']) {
+        if ($usersdata['userId'] != $user['id']) {
             return;
         }
 
-        $this->jokesTable->delete($_POST['id']);
+        $this->UsersTable->delete($_POST['id']);
 
-        header('location: /joke/list');
+        header('location: /users/list');
     }
     public function saveEdit()
     {
-        $author = $this->authentication->getUser();
+        $user = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
-            $joke = $this->jokesTable->findById($_GET['id']);
+            $usersdata = $this->UsersTable->findById($_GET['id']);
 
-            if ($joke['authorId'] != $author['id']) {
+            if ($usersdata['userId'] != $user['id']) {
                 return;
             }
         }
 
-        $joke = $_POST['joke'];
-        $joke['jokedate'] = new \DateTime();
-        $joke['authorId'] = $author['id'];
+        $usersdata = $_POST['users'];        
+        $usersdata['userId'] = $user['id'];
+        $usersdata['name'] = $user['name'];
+        $usersdata['priority'] = $user['priority'];
 
-        $this->jokesTable->save($joke);
+        $this->UsersTable->save($usersdata);
 
-        header('location: /joke/list');
+        header('location: /users/list');
     }
 
     public function edit()
     {
-        $author = $this->authentication->getUser();
+        $user = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
-            $joke = $this->jokesTable->findById($_GET['id']);
+            $usersdata = $this->UsersTable->findById($_GET['id']);
         }
 
         $title = 'Edit joke';
 
         return [
-            'template' => 'editjoke.html.php',
+            'template' => 'edituser.html.php',
             'title' => $title,
             'variables' => [
-                'joke' => $joke ?? null,
-                'userId' => $author['id'] ?? null
+                'joke' => $usersdata ?? null,
+                'userId' => $user['id'] ?? null
             ]
         ];
     }

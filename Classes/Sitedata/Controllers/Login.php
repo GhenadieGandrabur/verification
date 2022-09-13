@@ -1,6 +1,6 @@
 <?php
 
-namespace Ijdb\Controllers;
+namespace Sitedata\Controllers;
 
 class Login
 {

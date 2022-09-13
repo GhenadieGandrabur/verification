@@ -23,7 +23,7 @@ class Authentication
         if (!empty($user) && password_verify($password, $user[0][$this->passwordColumn])) {
             session_regenerate_id();
             $_SESSION['username'] = $username;
-            $_SESSION['password'] = $user[0][$this->passwordColumn];           
+            $_SESSION['password'] = $user[0][$this->passwordColumn];
             return true;
         } else {
             return false;
@@ -32,7 +32,6 @@ class Authentication
 
     public function isLoggedIn()
     {
-
         if (empty($_SESSION['username'])) {
             return false;
         }
@@ -45,10 +44,11 @@ class Authentication
             return false;
         }
     }
+
     public function getUser()
     {
-        if ($this->isLoggedIn()) 
-        {return $this->users->find($this->usernameColumn, strtolower($_SESSION['username']))[0];
+        if ($this->isLoggedIn()) {
+            return $this->users->find($this->usernameColumn, strtolower($_SESSION['username']))[0];
         } else {
             return false;
         }
