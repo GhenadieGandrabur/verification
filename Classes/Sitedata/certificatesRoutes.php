@@ -2,7 +2,7 @@
 
 namespace Sitedata;
 
-class SitedataRoutes implements \Main\Routes
+class CertificatesRoutes implements \Main\Routes
 {
     private $authorsTable;
     private $jokesTable;
@@ -12,7 +12,7 @@ class SitedataRoutes implements \Main\Routes
     {
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
-        $this->jokesTable = new \Main\DatabaseTable($pdo, 'joke', 'id');
+        $this->jokesTable = new \Main\DatabaseTable($pdo, 'Certificate', 'id');
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
     }
