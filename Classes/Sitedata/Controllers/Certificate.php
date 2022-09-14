@@ -7,13 +7,14 @@ use \Main\Authentication;
 
 class Certificate
 {
-    private $empoyeeTable;
+    private $employeeTable;
     private $certificatesTable;
+    private $authentication;
 
-    public function __construct(DatabaseTable $certificatesTable, DatabaseTable $empoyeeTable, Authentication $authentication)
+    public function __construct(DatabaseTable $certificatesTable, DatabaseTable $employeeTable, Authentication $authentication)
     {
         $this->certificatesTable = $certificatesTable;
-        $this->empoyeeTable = $empoyeeTable;
+        $this->employeeTable = $employeeTable;
         $this->authentication = $authentication;
     }
 
@@ -23,32 +24,28 @@ class Certificate
 
         $certificates = [];
         foreach ($result as $certificate) {
-            $empoyee = $this->empoyeeTable->findById($certificate['$empoyeeId']);
+            $employee = $this->employeeTable->findById($certificate['employeeId']);
 
             $certificates[] = [
                 'id' => $certificate['id'],
-                'numberplate' => $certificate['numberplate'],
                 'date' => $certificate['date'],
-                'name' => $empoyee['name'],
-                'email' => $empoyee['email'],
-                '$empoyeeId' => $empoyee['id']
+                'numberplate' => $certificate['numberplate'],
+                'owner' => $certificate['owner'],
+                'name' => $employee['name'],
+               
             ];
         }
 
-
-        $title = 'Joke list';
+        $title = '-=Certificates=-';
 
         $totalCertificates = $this->certificatesTable->total();
 
-        $empoyee = $this->authentication->getUser();
+        $employee = $this->authentication->getUser();
 
         return [
             'template' => 'certificates.html.php',
             'title' => $title,
-            'variables' => [
-                'totalJokes' => $totalCertificates,
-                'certificates' => $certificates,
-                'userId' => $empoyee['id'] ?? null
+            'variables' => ['totalCertificates' => $totalCertificates, 'certificates' => $certificates, 'userId' => $employee['id'] ?? null
             ]
         ];
     }
@@ -63,11 +60,11 @@ class Certificate
     public function delete()
     {
 
-        $empoyee = $this->authentication->getUser();
+        $employee = $this->authentication->getUser();
 
         $certificate = $this->certificatesTable->findById($_POST['id']);
 
-        if ($certificate['$empoyeeId'] != $empoyee['id']) {
+        if ($certificate['$employeeId'] != $employee['id']) {
             return;
         }
 
@@ -79,20 +76,20 @@ class Certificate
 
     public function saveEdit()
     {
-        $empoyee = $this->authentication->getUser();
+        $employee = $this->authentication->getUser();
 
 
         if (isset($_GET['id'])) {
             $certificate = $this->certificatesTable->findById($_GET['id']);
 
-            if ($certificate['$empoyeeId'] != $empoyee['id']) {
+            if ($certificate['$employeeId'] != $employee['id']) {
                 return;
             }
         }
 
-        $certificate = $_POST['joke'];
-        $certificate['jokedate'] = new \DateTime();
-        $certificate['$empoyeeId'] = $empoyee['id'];
+        $certificate = $_POST['certificates'];
+        $certificate['date'] = new \DateTime();
+        $certificate['$employeeId'] = $employee['id'];
 
         $this->certificatesTable->save($certificate);
 
@@ -101,7 +98,7 @@ class Certificate
 
     public function edit()
     {
-        $empoyee = $this->authentication->getUser();
+        $employee = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
             $certificate = $this->certificatesTable->findById($_GET['id']);
@@ -114,7 +111,7 @@ class Certificate
             'title' => $title,
             'variables' => [
                 'joke' => $certificate ?? null,
-                'userId' => $empoyee['id'] ?? null
+                'userId' => $employee['id'] ?? null
             ]
         ];
     }

@@ -12,7 +12,7 @@ class CertificatesRoutes implements \Main\Routes
     {
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
-        $this->certificatesTable = new \Main\DatabaseTable($pdo, 'Certificate', 'id');
+        $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
         $this->employeesTable = new \Main\DatabaseTable($pdo, 'employee', 'id');
         $this->authentication = new \Main\Authentication($this->employeesTable, 'email', 'password');
     }
@@ -40,7 +40,7 @@ class CertificatesRoutes implements \Main\Routes
                     'action' => 'success'
                 ]
             ],
-            'joke/edit' => [
+            'certificate/edit' => [
                 'POST' => [
                     'controller' => $certificatesController,
                     'action' => 'saveEdit'
@@ -52,7 +52,7 @@ class CertificatesRoutes implements \Main\Routes
                 'login' => true
 
             ],
-            'joke/delete' => [
+            'certificate/delete' => [
                 'POST' => [
                     'controller' => $certificatesController,
                     'action' => 'delete'
@@ -93,8 +93,8 @@ class CertificatesRoutes implements \Main\Routes
                     'action' => 'processLogin'
                 ]
             ],
-            'certificates/list' => ['GET' => ['controller' => $certificatesController, 'action' => 'list']],
-            '' => ['GET' => ['controller' => $certificatesController, 'action' => 'home']]
+            'certificates/list' => ['GET' => ['controller' => $certificatesController, 'action' => 'list'], 'login' => true],
+            '' =>                  ['GET' => ['controller' => $certificatesController, 'action' => 'home']]
         ];
 
         return $routes;

@@ -57,8 +57,7 @@ class  EntryPoint
             }
 
             echo $this->loadTemplate('layout.html.php', [
-                'loggedIn' =>
-                $authentication->isLoggedIn(),
+                'loggedIn' => $authentication->isLoggedIn(),
                 'output' => $output,
                 'title' => $title
             ]);
