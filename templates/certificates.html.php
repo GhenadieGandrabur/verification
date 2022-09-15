@@ -1,5 +1,4 @@
-<br>
-<br>
+
 <h3>Certificates of verification</h3>
 <p><?= $totalCertificates ?> certificates in DB</p>
 <table class="forwindow">

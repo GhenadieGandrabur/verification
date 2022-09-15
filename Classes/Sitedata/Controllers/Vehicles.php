@@ -2,7 +2,7 @@
 
 namespace Sitedata\Controllers;
 use \Main\DatabaseTable;
-//use \Main\Authentication;
+use \Main\Authentication;
 
 
 class Vehicles
@@ -101,7 +101,7 @@ class Vehicles
         $title = 'Edit joke';
 
         return [
-            'template' => 'editjoke.html.php',
+            'template' => 'certificatesEdit.html.php',
             'title' => $title,
             'variables' => [
                 'joke' => $joke ?? null,

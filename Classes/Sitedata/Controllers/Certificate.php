@@ -107,7 +107,7 @@ class Certificate
         $title = 'Edit joke';
 
         return [
-            'template' => 'editjoke.html.php',
+            'template' => 'certificatesEdit.html.php',
             'title' => $title,
             'variables' => [
                 'joke' => $certificate ?? null,

@@ -1,7 +1,4 @@
-<br>
-<br>
-<br>
-<br>
+
 <?php
 if (isset($error)) :
     echo '<div class="errors">' . $error . '</div>';

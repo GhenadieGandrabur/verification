@@ -6,6 +6,7 @@ use \Main\DatabaseTable;
 
 class Register{
     private $employeesTable;
+    
     public function __construct(DatabaseTable $employeesTable)
     {
         $this->employeesTable = $employeesTable;

@@ -2,7 +2,7 @@
 <br>
 <h2>Vehicles</h2>
 <p><?= $totalVehicles ?> vehicles in DB</p>
-<table>
+<table class="forwindow">
 
     <th>ID</th><th>Date</th><th>Number</th><th>Owner</th>
     <tr>

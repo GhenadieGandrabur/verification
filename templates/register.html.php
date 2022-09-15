@@ -1,8 +1,3 @@
-<br>
-<br>
-<br>
-<br>
-<br>
 <?php
 if (!empty($errors)) :
 ?>
@@ -21,15 +16,17 @@ if (!empty($errors)) :
 <?php
 endif;
 ?>
-<form action="" method="post">
-    <label for="email">Your email address</label>
-    <input name="employee[email]" id="email" type="text" value="<?= $employee['email'] ?? '' ?>"><br>
+<div style="width: 30px; margin:0 auto;">
+    <form action="" method="post">
+        <label for="email">Your email address</label>
+        <input name="employee[email]" id="email" type="text" value="<?= $employee['email'] ?? '' ?>"><br>
 
-    <label for="name">Your name</label>
-    <input name="employee[name]" id="name" type="text" value="<?= $employee['name'] ?? '' ?>"><br>
+        <label for="name">Your name</label>
+        <input name="employee[name]" id="name" type="text" value="<?= $employee['name'] ?? '' ?>"><br>
 
-    <label for="password">Password</label>
-    <input name="employee[password]" id="password" type="password" value="<?= $employee['password'] ?? '' ?>"><br>
+        <label for="password">Password</label>
+        <input name="employee[password]" id="password" type="password" value="<?= $employee['password'] ?? '' ?>"><br>
 
-    <input type="submit" name="submit" v alue="Register account">
-</form>
+        <input type="submit" name="submit" v alue="Register account">
+    </form>
+</div>

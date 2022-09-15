@@ -1,15 +1,15 @@
 <br>
 <br>
 
-<p><?= $totalTachographs ?> tachograps in DB</p>
-<table>
+<p><?= $totaltaho ?> tachograps in DB</p>
+<table class="forwindow">
 
     <th>ID</th>
     <th>modele</th>
     <th>Type</th>
     <th>Number</th>
     <tr>
-        <?php foreach ($tachographs as $taho) : ?>
+        <?php foreach ($tahos as $taho) : ?>
 
             <td> <?= htmlspecialchars($taho['id'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($taho['modele'], ENT_QUOTES, 'UTF-8') ?></td>
