@@ -31,7 +31,7 @@ class Certificate
                 'date' => $certificate['date'],
                 'numberplate' => $certificate['numberplate'],
                 'owner' => $certificate['owner'],
-                'name' => $employee['name'],
+                'employeeId' => $certificate['employeeId']
                
             ];
         }
@@ -45,7 +45,8 @@ class Certificate
         return [
             'template' => 'certificates.html.php',
             'title' => $title,
-            'variables' => ['totalCertificates' => $totalCertificates, 'certificates' => $certificates, 'userId' => $employee['id'] ?? null
+            'variables' => ['totalCertificates' => $totalCertificates,
+             'certificates' => $certificates, 'userId' => $employee['id'] ?? null
             ]
         ];
     }
@@ -76,24 +77,23 @@ class Certificate
 
     public function saveEdit()
     {
-        $employee = $this->authentication->getUser();
-
+        $author = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
-            $certificate = $this->certificatesTable->findById($_GET['id']);
+            $joke = $this->certificatesTable->findById($_GET['id']);
 
-            if ($certificate['$employeeId'] != $employee['id']) {
+            if ($joke['authorId'] != $author['id']) {
                 return;
             }
         }
 
-        $certificate = $_POST['certificates'];
-        $certificate['date'] = new \DateTime();
-        $certificate['$employeeId'] = $employee['id'];
+        $joke = $_POST['joke'];
+        $joke['date'] = new \DateTime();
+        $joke['employeeId'] = $author['id'];
 
-        $this->certificatesTable->save($certificate);
+        $this->certificatesTable->save($joke);
 
-        header('location: /joke/list');
+        header('location: /certificates/list');
     }
 
     public function edit()

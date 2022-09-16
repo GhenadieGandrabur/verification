@@ -10,7 +10,7 @@
             <td> <?= htmlspecialchars($certificate['date'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($certificate['numberplate'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($certificate['owner'], ENT_QUOTES, 'UTF-8') ?></td>           
-            <td> <?= htmlspecialchars($certificate['name'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td> <?= htmlspecialchars($certificate['employeeId'], ENT_QUOTES, 'UTF-8') ?></td>
     </tr>
 <?php endforeach; ?>
 </table>

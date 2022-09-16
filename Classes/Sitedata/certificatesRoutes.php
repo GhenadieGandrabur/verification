@@ -46,7 +46,7 @@ class CertificatesRoutes implements \Main\Routes
                     'action' => 'success'
                 ]
             ],
-            'certificate/edit' => [
+            'certificates/edit' => [
                 'POST' => [
                     'controller' => $certificatesController,
                     'action' => 'saveEdit'

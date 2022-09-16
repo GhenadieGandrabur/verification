@@ -24,14 +24,14 @@ nav li {
 }
 
 .forwindow  {width: 100%;}
-.forwindow th{background-color: rgb(2, 24, 24);color:#f2f2f2}
-.forwindow td{border: 1px black solid; padding-left: 10px;}
+.forwindow th{background-color:#cccccc; color:#000000}
+.forwindow td{border: 1px #cccccc solid; padding-left: 10px;}
 
 
 
 .navbar {
     overflow: hidden;
-    background-color: #333;
+    background-color: #cccccc;
     
     top: 0;
     width: 100%;
@@ -42,7 +42,7 @@ nav li {
 .navbar a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: #000000;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;

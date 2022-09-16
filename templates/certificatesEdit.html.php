@@ -1,14 +1,8 @@
-<?php if ($userId == $joke['authorId']) : ?>
-    <form action="" method="post">
-        <input type="hidden" name="joke[id]" value="<?= $joke['id'] ?? '' ?>">
-        <label for="joketext">Type your joke here:
-        </label>
-        <textarea id="joketext" name="joke[joketext]" rows="3" cols="40"><?= $joke['joketext'] ?? '' ?>
-     </textarea>
-        <input type="submit" name="submit" value="Save">
-    </form>
-<?php else : ?>
-
-    <p>You may only edit jokes that you posted.</p>
-
-<?php endif; ?>
+  <h1></h1>
+  <form action="" method="post">
+      <input type="" name="joke[id]" value="<?= $joke['id'] ?? '' ?>" placeholder="id">
+      <input type="" name="joke[date]" value="<?= date("Y/m/d")  ?? '' ?>" placeholder="date">      
+      <input id="numberplate" name="joke[numberplate]" placeholder="numer"><?= $joke['numberplate'] ?? '' ?>
+      <input id="owner" name="joke[owner]" placeholder="owner"><?= $joke['owner'] ?? '' ?>     
+      <input type="submit" name="submit" value="Save">
+  </form>
