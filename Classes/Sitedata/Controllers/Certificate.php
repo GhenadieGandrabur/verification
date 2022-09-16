@@ -31,7 +31,7 @@ class Certificate
                 'date' => $certificate['date'],
                 'numberplate' => $certificate['numberplate'],
                 'owner' => $certificate['owner'],
-                'employeeId' => $certificate['employeeId']
+                'name' => $employee['name'],
                
             ];
         }
@@ -45,8 +45,8 @@ class Certificate
         return [
             'template' => 'certificates.html.php',
             'title' => $title,
-            'variables' => ['totalCertificates' => $totalCertificates,
-             'certificates' => $certificates, 'userId' => $employee['id'] ?? null
+            'variables' => ['totalCertificates' => $totalCertificates, 
+            'certificates' => $certificates, 'userId' => $employee['id'] ?? null
             ]
         ];
     }
@@ -77,23 +77,24 @@ class Certificate
 
     public function saveEdit()
     {
-        $author = $this->authentication->getUser();
+        $employee = $this->authentication->getUser();
+
 
         if (isset($_GET['id'])) {
-            $joke = $this->certificatesTable->findById($_GET['id']);
+            $certificate = $this->certificatesTable->findById($_GET['id']);
 
-            if ($joke['authorId'] != $author['id']) {
+            if ($certificate['$employeeId'] != $employee['id']) {
                 return;
             }
         }
 
-        $joke = $_POST['joke'];
-        $joke['date'] = new \DateTime();
-        $joke['employeeId'] = $author['id'];
+        $certificate = $_POST['certificate'];
+        $certificate['date'] = new \DateTime();
+        $certificate['$employeeId'] = $employee['id'];
 
-        $this->certificatesTable->save($joke);
+        $this->certificatesTable->save($certificate);
 
-        header('location: /certificates/list');
+        header('location: /certuficates/list');
     }
 
     public function edit()
@@ -110,7 +111,7 @@ class Certificate
             'template' => 'certificatesEdit.html.php',
             'title' => $title,
             'variables' => [
-                'joke' => $certificate ?? null,
+                'certificate' => $certificate ?? null,
                 'userId' => $employee['id'] ?? null
             ]
         ];
