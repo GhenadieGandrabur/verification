@@ -5,11 +5,11 @@ namespace Sitedata\Controllers;
 use \Main\DatabaseTable;
 
 class Register{
-    private $employeesTable;
+    private $authorsTable;
     
-    public function __construct(DatabaseTable $employeesTable)
+    public function __construct(DatabaseTable $authorsTable)
     {
-        $this->employeesTable = $employeesTable;
+        $this->authorsTable = $authorsTable;
     }
 
     public function registrationForm(){
@@ -22,44 +22,44 @@ class Register{
 
     public function registerUser()
     {
-        $employee = $_POST['employee'];
+        $author = $_POST['author'];
         $valid = true;
         $errors = [];
-        if (empty($employee['name']))
+        if (empty($author['name']))
         {
             $valid = false;
             $errors[] = 'Name cannot be blank.';
         }
-        if(empty($employee['email']))
+        if(empty($author['email']))
         {
             $valid = false;
             $errors[] = "Email cannot be blank";
-        } else if (filter_var($employee['email'], FILTER_VALIDATE_EMAIL) == false) {
+        } else if (filter_var($author['email'], FILTER_VALIDATE_EMAIL) == false) {
             $valid = false;
             $errors[] = 'Invalid email address';
         } else {
-            $employee['email'] = strtolower($employee['email']);            
-            if (count($this->employeesTable->find('email', $employee['email'])) > 0) {
+            $author['email'] = strtolower($author['email']);            
+            if (count($this->authorsTable->find('email', $author['email'])) > 0) {
                 $valid = false;
                 $errors[] = 'That email address is already registered';
             }
         }
 
 
-        if(empty($employee['password']))
+        if(empty($author['password']))
         {
             $valid = false;
             $errors[] = 'Password cannot be blank';
         }
         if ($valid == true) {            
-            $employee['password'] = password_hash($employee['password'], PASSWORD_DEFAULT);          
-            $this->employeesTable->save($employee);
-            header('Location: /employee/success');
+            $author['password'] = password_hash($author['password'], PASSWORD_DEFAULT);          
+            $this->authorsTable->save($author);
+            header('Location: /author/success');
         }else{
             return [
                 'template' => 'register.html.php',
                 'title' => 'Register an account',
-                'variables' => ['errors' => $errors, 'employee' => $employee ]
+                'variables' => ['errors' => $errors, 'author' => $author ]
             ];
         }
     }

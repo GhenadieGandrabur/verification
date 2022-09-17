@@ -4,7 +4,7 @@ namespace Sitedata\Controllers;
 use \Main\DatabaseTable;
 use \Main\Authentication;
 
-class Employee
+class Author
 {
 
     private $UsersTable;

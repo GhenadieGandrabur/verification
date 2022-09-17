@@ -4,7 +4,7 @@ namespace Sitedata;
 
 class CertificatesRoutes implements \Main\Routes
 {
-    private $employeesTable;
+    private $authorsTable;
     private $certificatesTable;
     private $vehiclesTable;
     private $authentication;
@@ -14,37 +14,37 @@ class CertificatesRoutes implements \Main\Routes
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
-        $this->employeesTable = new \Main\DatabaseTable($pdo, 'employee', 'id');
+        $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->vehiclesTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
         $this->tahoTable = new \Main\DatabaseTable($pdo, 'taho', 'id');
         $this->vehiclesownersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
-        $this->authentication = new \Main\Authentication($this->employeesTable, 'email', 'password');
+        $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
     }
 
     public function getRoutes(): array
     {
-        $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->employeesTable, $this->authentication);
-        $employeeController = new \Sitedata\Controllers\Register($this->employeesTable);
-        $userController = new \Sitedata\Controllers\Employee($this->employeesTable, $this->authentication);
+        $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->authorsTable, $this->authentication);
+        $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
+        $userController = new \Sitedata\Controllers\Author($this->authorsTable, $this->authentication);
         $vehiclesController = new \Sitedata\Controllers\Vehicles($this->vehiclesTable);
         $vehiclesownersController = new \Sitedata\Controllers\Vehiclesowners($this->vehiclesownersTable, $this->authentication);
         $tahoController = new \Sitedata\Controllers\Taho($this->tahoTable);
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
 
         $routes = [
-            'employee/register' => [
+            'author/register' => [
                 'GET' => [
-                    'controller' => $employeeController,
+                    'controller' => $authorController,
                     'action' => 'registrationForm'
                 ],
                 'POST' => [
-                    'controller' => $employeeController,
+                    'controller' => $authorController,
                     'action' => 'registerUser'
                 ]
             ],
-            'employee/success' => [
+            'author/success' => [
                 'GET' => [
-                    'controller' => $employeeController,
+                    'controller' => $authorController,
                     'action' => 'success'
                 ]
             ],

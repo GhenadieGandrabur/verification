@@ -23,7 +23,7 @@ class Vehicles
 
         $vehicles = [];
         foreach ($result as $Vehicle) {
-           // $employee = $this->employeesTable->findById($joke['employeeId']);
+           // $author = $this->authorsTable->findById($joke['authorId']);
 
             $vehicles[] = [
                 'id' => $Vehicle['id'],
@@ -57,11 +57,11 @@ class Vehicles
     public function delete()
     {
 
-        $employee = $this->authentication->getUser();
+        $author = $this->authentication->getUser();
 
         $joke = $this->jokesTable->findById($_POST['id']);
 
-        if ($joke['employeeId'] != $employee['id']) {
+        if ($joke['authorId'] != $author['id']) {
             return;
         }
 
@@ -71,19 +71,19 @@ class Vehicles
     }
     public function saveEdit()
     {
-        $employee = $this->authentication->getUser();
+        $author = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
             $joke = $this->jokesTable->findById($_GET['id']);
 
-            if ($joke['employeeId'] != $employee['id']) {
+            if ($joke['authorId'] != $author['id']) {
                 return;
             }
         }
 
         $joke = $_POST['joke'];
         $joke['jokedate'] = new \DateTime();
-        $joke['employeeId'] = $employee['id'];
+        $joke['authorId'] = $author['id'];
 
         $this->jokesTable->save($joke);
 
@@ -92,7 +92,7 @@ class Vehicles
 
     public function edit()
     {
-        $employee = $this->authentication->getUser();
+        $author = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
             $joke = $this->jokesTable->findById($_GET['id']);
@@ -105,7 +105,7 @@ class Vehicles
             'title' => $title,
             'variables' => [
                 'joke' => $joke ?? null,
-                'userId' => $employee['id'] ?? null
+                'userId' => $author['id'] ?? null
             ]
         ];
     }

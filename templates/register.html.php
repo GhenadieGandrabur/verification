@@ -19,13 +19,13 @@ endif;
 <div style="width: 30px; margin:0 auto;">
     <form action="" method="post">
         <label for="email">Your email address</label>
-        <input name="employee[email]" id="email" type="text" value="<?= $employee['email'] ?? '' ?>"><br>
+        <input name="author[email]" id="email" type="text" value="<?= $author['email'] ?? '' ?>"><br>
 
         <label for="name">Your name</label>
-        <input name="employee[name]" id="name" type="text" value="<?= $employee['name'] ?? '' ?>"><br>
+        <input name="author[name]" id="name" type="text" value="<?= $author['name'] ?? '' ?>"><br>
 
         <label for="password">Password</label>
-        <input name="employee[password]" id="password" type="password" value="<?= $employee['password'] ?? '' ?>"><br>
+        <input name="author[password]" id="password" type="password" value="<?= $author['password'] ?? '' ?>"><br>
 
         <input type="submit" name="submit" v alue="Register account">
     </form>

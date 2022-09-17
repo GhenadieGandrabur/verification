@@ -18,7 +18,7 @@
     </tr>
     <tr>
         <td>
-            or <a href="/employee/register">Click here to register an account</a>
+            or <a href="/author/register">Click here to register an account</a>
         </td>
     </tr>
 </table>

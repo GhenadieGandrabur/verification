@@ -7,7 +7,7 @@ use \Main\Authentication;
 
 class Taho
 {
-    //private $employeesTable;
+    //private $authorsTable;
     private $tahoTable;
     private $authentication;
 
@@ -23,7 +23,7 @@ class Taho
 
         $tahos = [];
         foreach ($result as $taho) {
-           // $employee = $this->employeesTable->findById($joke['employeeId']);
+           // $author = $this->authorsTable->findById($joke['authorId']);
 
             $tahos[] = [
                 'id' => $taho['id'],
@@ -62,11 +62,11 @@ class Taho
     public function delete()
     {
 
-        $employee = $this->authentication->getUser();
+        $author = $this->authentication->getUser();
 
         $joke = $this->jokesTable->findById($_POST['id']);
 
-        if ($joke['employeeId'] != $employee['id']) {
+        if ($joke['authorId'] != $author['id']) {
             return;
         }
 
@@ -87,7 +87,7 @@ class Taho
         $taho = $_POST['taho'];
       //  $taho['date'] = new \DateTime();
         $taho['modele'] = $_POST['modele'];
-        //$joke['employeeId'] = $employee['id'];
+        //$joke['authorId'] = $author['id'];
 
         $this->tahoTable->save($taho);
 
@@ -96,7 +96,7 @@ class Taho
 
     public function edit()
     {
-       /* $employee = $this->authentication->getUser();
+       /* $author = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {*/
             $taho = $this->tahoTable->findById($_GET['id']);
@@ -109,7 +109,7 @@ class Taho
             'title' => $title,
             'variables' => [
                 'taho' => $taho ?? null,
-                //'userId' => $employee['id'] ?? null
+                //'userId' => $author['id'] ?? null
             ]
         ];
     }
