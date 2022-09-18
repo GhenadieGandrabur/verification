@@ -6,8 +6,7 @@
     <a href="/taho/list">Tahographs</a>
     <a href="/users/list">Users</a>
     <?php if ($loggedIn) : ?>
-        <li><a href="/logout">Log out</a>
-        </li>
+        <li><a href="/logout">Log out</a></li>
     <?php else : ?>
         <li><a href="/login">Log in</a></li>
     <?php endif; ?>

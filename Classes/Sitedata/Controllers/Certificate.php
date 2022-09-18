@@ -31,8 +31,7 @@ class Certificate
                 'date' => $certificate['date'],
                 'vehicle' => $certificate['vehicle'],
                 'taho' => $certificate['taho'],
-                'authorId' => $holder['name']              
-               
+                'authorId' => $holder['name']               
             ];
         }
 
@@ -63,40 +62,38 @@ class Certificate
     public function delete()
     {
 
-        $holder = $this->authentication->getUser();
+        $author = $this->authentication->getUser();
 
         $certificate = $this->certificatesTable->findById($_POST['id']);
 
-        if ($certificate['$holderId'] != $holder['id']) {
+        if ($certificate['authorId'] != $author['id']) {
             return;
         }
 
-
         $this->certificatesTable->delete($_POST['id']);
 
-        header('location: /joke/list');
+        header('location: /certificates/list');
     }
 
     public function saveEdit()
     {
-        $holder = $this->authentication->getUser();
-
+        $author = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
-            $certificate = $this->certificatesTable->findById($_GET['id']);
+            $verification = $this->certificatesTable->findById($_GET['id']);
 
-            if ($certificate['$holderId'] != $holder['id']) {
+            if ($verification['authorId'] != $author['id']) {
                 return;
             }
         }
 
-        $certificate = $_POST['certificate'];
-        $certificate['date'] = new \DateTime();
-        $certificate['$holderId'] = $holder['id'];
+        $verification = $_POST['verification'];
+        $verification['date'] = new \DateTime();
+        $verification['authorId'] = $author['id'];
 
-        $this->certificatesTable->save($certificate);
+        $this->certificatesTable->save($verification);
 
-        header('location: /certuficates/list');
+        header('location: /certificates/list');
     }
 
     public function edit()

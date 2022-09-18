@@ -21,7 +21,10 @@ nav li {
     display: table-cell;
     text-align: center;
     padding: 1em;
+    list-style-type: square;
 }
+
+li{list-style-type: none;}
 
 .forwindow  {width: 100%;}
 .forwindow th{background-color:#cccccc; color:#000000}
@@ -60,5 +63,6 @@ nav li {
     height: 1500px;
     /* Used in this example to enable scrolling */
 }
+tr:hover{background-color: #d9d9d9;}
 
 

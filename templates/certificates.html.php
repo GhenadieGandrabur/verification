@@ -1,17 +1,35 @@
-
 <h3>Certificates of verification</h3>
 <p><?= $totalCertificates ?> certificates in DB</p>
+<h3><a href="/certificates/edit">New certificat</a></h3>
+
 <table class="forwindow">
 
-    <th>ID</th><th>Date</th><th>Vehicol</th><th>Tahograf</th><th>Autor</th>
-    <tr>
-        <?php foreach ($certificates as $certificate) : ?>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Vehicol</th>
+    <th>Tahograf</th>
+    <th>Autor</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <?php foreach ($certificates as $certificate) : ?>
+        <tr>
             <td> <?= htmlspecialchars($certificate['id'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($certificate['date'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($certificate['vehicle'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?= htmlspecialchars($certificate['taho'], ENT_QUOTES, 'UTF-8') ?></td>           
-            <td> <?= htmlspecialchars($certificate['authorId'], ENT_QUOTES, 'UTF-8') ?></td>           
-            
-    </tr>
-<?php endforeach; ?>
+            <td> <?= htmlspecialchars($certificate['taho'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td> <?= htmlspecialchars($certificate['authorId'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td>
+                <?php if ($userId == $certificate['authorId']) : ?>
+                    <a href="/certificate/edit?id=<?= $certificate['id'] ?>"> Edit</a>
+                <?php endif; ?>
+            </td>
+            <td>
+                <form action="/certificates/delete" method="post">
+                    <input type="hidden" name="id" value="<?= $certificate['id'] ?>">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+
+        </tr>
+    <?php endforeach; ?>
 </table>

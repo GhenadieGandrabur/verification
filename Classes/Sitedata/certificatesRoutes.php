@@ -102,6 +102,8 @@ class CertificatesRoutes implements \Main\Routes
                 ]
             ],
             'certificates/list' => ['GET' => ['controller' => $certificatesController, 'action' => 'list'], 'login' => true],
+            'certificates/edit' => ['GET' => ['controller' => $certificatesController, 'action' => 'saveEdit'], 'login' => true],
+            'certificates/delete' => ['GET' => ['controller' => $certificatesController, 'action' => 'delete'], 'login' => true],
             'vehicles/list' => ['GET' => ['controller' => $vehiclesController, 'action' => 'list'], 'login' => true],
             'taho/list' => ['GET' => ['controller' => $tahoController, 'action' => 'list'], 'login' => true],
             'taho/edit' => ['GET' => ['controller' => $tahoController, 'action' => 'saveEdit'], 'login' => true],
