@@ -28,7 +28,7 @@ li{list-style-type: none;}
 
 .forwindow  {width: 100%;}
 .forwindow th{background-color:#cccccc; color:#000000}
-.forwindow td{border: 1px #cccccc solid; padding-left: 10px;}
+.forwindow td{border: 1px #000000 solid; padding-left: 10px;}
 
 
 
@@ -63,6 +63,12 @@ li{list-style-type: none;}
     height: 1500px;
     /* Used in this example to enable scrolling */
 }
-tr:hover{background-color: #d9d9d9;}
+tr:hover{background-color: #999999;}
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 
 

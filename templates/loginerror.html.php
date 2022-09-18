@@ -1,4 +1,4 @@
-<table style="width: 30%; margin:0 auto;">
+<table style="width: 30%; margin:0 auto; border:0">
     <tr>
         <td>
             <h2>You are not logged in</h2>

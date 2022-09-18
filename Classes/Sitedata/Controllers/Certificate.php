@@ -31,7 +31,8 @@ class Certificate
                 'date' => $certificate['date'],
                 'vehicle' => $certificate['vehicle'],
                 'taho' => $certificate['taho'],
-                'authorId' => $holder['name']               
+                'authorId' => $holder['id'],              
+                'name' => $holder['name']               
             ];
         }
 
@@ -80,38 +81,38 @@ class Certificate
         $author = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
-            $verification = $this->certificatesTable->findById($_GET['id']);
+            $certificate = $this->certificatesTable->findById($_GET['id']);
 
-            if ($verification['authorId'] != $author['id']) {
+            if ($certificate['authorId'] != $author['id']) {
                 return;
             }
         }
 
-        $verification = $_POST['verification'];
-        $verification['date'] = new \DateTime();
-        $verification['authorId'] = $author['id'];
+        $certificate = $_POST['certificate'];
+        $certificate['date'] = new \DateTime();
+        $certificate['authorId'] = $author['id'];
 
-        $this->certificatesTable->save($verification);
+        $this->certificatesTable->save($certificate);
 
         header('location: /certificates/list');
     }
 
     public function edit()
     {
-        $holder = $this->authentication->getUser();
+        $author = $this->authentication->getUser();
 
         if (isset($_GET['id'])) {
             $certificate = $this->certificatesTable->findById($_GET['id']);
         }
 
-        $title = 'Edit joke';
+        $title = 'Edit certificates';
 
         return [
             'template' => 'certificatesEdit.html.php',
             'title' => $title,
             'variables' => [
                 'certificate' => $certificate ?? null,
-                'userId' => $holder['id'] ?? null
+                'userId' => $author['id'] ?? null
             ]
         ];
     }
