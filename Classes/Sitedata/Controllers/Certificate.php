@@ -30,7 +30,9 @@ class Certificate
                 'id' => $certificate['id'],
                 'date' => $certificate['date'],
                 'vehicle' => $certificate['vehicle'],
-                'taho' => $certificate['taho'],
+                'proprietar' => $certificate['proprietar'],
+                'k_vechi' => $certificate['k_vechi'],
+                'k_nou' => $certificate['k_nou'],
                 'authorId' => $holder['id'],              
                 'name' => $holder['name']               
             ];

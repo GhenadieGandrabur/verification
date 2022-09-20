@@ -7,7 +7,7 @@
     <th>ID</th>
     <th>Date</th>
     <th>Vehicol</th>
-    <th>Tahograf</th>
+    <th>Proprietar</th>
     <th>Autor</th>
     <th>Edit</th>
     <th>Delete</th>
@@ -18,7 +18,7 @@
             <td> <?= htmlspecialchars($certificate['id'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?php $date = new DateTime($certificate['date']); echo $date->format('d.m. Y'); ?></td>
             <td> <?= htmlspecialchars($certificate['vehicle'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?= htmlspecialchars($certificate['taho'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td> <?= htmlspecialchars($certificate['proprietar'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($certificate['name'], ENT_QUOTES, 'UTF-8') ?></td>
             <td>               
                     <a href="/certificates/edit?id=<?= $certificate['id'] ?>"> Edit</a>

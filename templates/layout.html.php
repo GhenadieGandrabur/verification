@@ -13,10 +13,13 @@
 </head>
 
 <body>
+    <div class="container-fluid">
 
-    <?php include 'adminmenu.html.php' ?>
-
-    <?= $output ?>
+        
+        <?php include 'adminmenu.html.php' ?>
+        
+        <?= $output ?>
+    </div>
 
 
 

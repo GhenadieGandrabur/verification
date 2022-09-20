@@ -7,20 +7,18 @@
         
 
   {
-            "name": "Launch currently open script",
-            "type": "php",
-            "request": "launch",
-            "program": "${file}",
-            "cwd": "${fileDirname}",
-            "port": 9001,
-            "runtimeExecutable": "c:\\xampp\\php\\php.exe",
-            "runtimeArgs": ["-dxdebug.start_with_request=yes" ],
-            "env": {
+    "name": "Launch currently open script",
+    "type": "php",
+     "request": "launch",
+    "program": "${file}",
+    "cwd": "${fileDirname}",
+    "port": 9001,
+    "runtimeExecutable": "c:\\xampp\\php\\php.exe",
+    "runtimeArgs": ["-dxdebug.start_with_request=yes" ],
+    "env": {
                 "XDEBUG_MODE": "debug,develop",
                 "XDEBUG_CONFIG": "client_port=${port}"
             }
-        }
-
-    
+     }
     ]
 }
