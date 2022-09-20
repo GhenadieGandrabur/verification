@@ -33,6 +33,15 @@ class Certificate
                 'proprietar' => $certificate['proprietar'],
                 'k_vechi' => $certificate['k_vechi'],
                 'k_nou' => $certificate['k_nou'],
+                'k_nou' => $certificate['k_nou'],
+                'k_nou' => $certificate['w_nou'],
+                'k_nou' => $certificate['w_nou'],
+                'odometrupina' => $certificate['odometrupina'],
+                'odometrudupa' => $certificate['odometrudupa'],
+                'lungimeacircomferentii' => $certificate['lungimeacircomferentii'],
+                'limitatordeviteza' => $certificate['limitatordeviteza'],
+                'valabilitate' => $certificate['valabilitate'],
+                'baterea' => $certificate['baterea'],
                 'authorId' => $holder['id'],              
                 'name' => $holder['name']               
             ];
@@ -65,13 +74,13 @@ class Certificate
     public function delete()
     {
 
-        $author = $this->authentication->getUser();
+       /* $author = $this->authentication->getUser();
 
         $certificate = $this->certificatesTable->findById($_POST['id']);
 
         if ($certificate['authorId'] != $author['id']) {
             return;
-        }
+        }*/
 
         $this->certificatesTable->delete($_POST['id']);
 
@@ -82,13 +91,9 @@ class Certificate
     {
         $author = $this->authentication->getUser();
 
-        if (isset($_GET['id'])) {
-            $certificate = $this->certificatesTable->findById($_GET['id']);
-
-            if ($certificate['authorId'] != $author['id']) {
-                return;
-            }
-        }
+      /*  if (isset($_GET['id'])) {
+            $certificate = $this->certificatesTable->findById($_GET['id']);           
+        }*/
 
         $certificate = $_POST['certificate'];
         $certificate['date'] = new \DateTime();
@@ -103,7 +108,7 @@ class Certificate
     {
         $author = $this->authentication->getUser();
 
-        if (isset($_GET['id'])) {
+       if (isset($_GET['id'])) {
             $certificate = $this->certificatesTable->findById($_GET['id']);
         }
 

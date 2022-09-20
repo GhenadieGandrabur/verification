@@ -32,65 +32,21 @@ class CertificatesRoutes implements \Main\Routes
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
 
         $routes = [
-            'author/register' => [
-                'GET' => [
-                    'controller' => $authorController,
-                    'action' => 'registrationForm'
-                ],
-                'POST' => [
-                    'controller' => $authorController,
-                    'action' => 'registerUser'
-                ]
-            ],
-            'author/success' => [
-                'GET' => [
-                    'controller' => $authorController,
-                    'action' => 'success'
-                ]
-            ],
-            'certificates/edit' => [
-                'POST' => [
-                    'controller' => $certificatesController,
-                    'action' => 'saveEdit'
-                ],
-                'GET' => [
-                    'controller' => $certificatesController,
-                    'action' => 'edit'
-                ],
-                'login' => true
-
-            ],
+            'author/register' => ['GET' => ['controller' => $authorController,'action' => 'registrationForm' ],
+                'POST' => ['controller' => $authorController,'action' => 'registerUser']],
+            'author/success' => ['GET' => ['controller' => $authorController,'action' => 'success']],
             
-            'login/error' => [
-                'GET' => [
-                    'controller' => $loginController,
-                    'action' => 'error'
-                    ]
-                ],
-                'login/success' => [
-                    'GET' => [
-                        'controller' => $loginController,
-                        'action' => 'success'
-                        ]
-                    ],
-                'logout' => [
-                        'GET' => [
-                            'controller' => $loginController,
-                            'action' => 'logout'
-                            ]
-                        ],
-                'login' => [
-                            'GET' => [
-                                'controller' => $loginController,
-                                'action' => 'loginForm'
-                            ],
-                            'POST' => [
-                                'controller' => $loginController,
-                                'action' => 'processLogin'
-                                ]
-                            ],
+            'login/error' =>   ['GET' => ['controller' => $loginController,'action' => 'error']],
+            'login/success' => ['GET' => ['controller' => $loginController,'action' => 'success']],
+            'logout' => ['GET' => ['controller' => $loginController,'action' => 'logout']],
+            'login' =>  ['GET' => ['controller' => $loginController,'action' => 'loginForm'],
+            'POST' => ['controller' => $loginController,'action' => 'processLogin']],
+            
             'certificates/list' => ['GET' => ['controller' => $certificatesController, 'action' => 'list'], 'login' => true],
             'certificate/delete' => ['POST' => ['controller' => $certificatesController,'action' => 'delete'],'login' => true ],
+            'certificates/edit' => ['POST' => ['controller' => $certificatesController, 'action' => 'saveEdit'],
+                'GET' => ['controller' => $certificatesController,'action' => 'edit' ],'login' => true ],
+
             'vehicles/list' => ['GET' => ['controller' => $vehiclesController, 'action' => 'list'], 'login' => true],
             'taho/list' => ['GET' => ['controller' => $tahoController, 'action' => 'list'], 'login' => true],
             'taho/edit' => ['GET' => ['controller' => $tahoController, 'action' => 'saveEdit'], 'login' => true],

@@ -27,6 +27,7 @@ class Author
                 'id' => $user['id'],
                 'date' => $user['date'],
                 'name' => $user['name'],
+                'email' => $user['email'],
                 'priority' => $user['priority']                
             ];
         }

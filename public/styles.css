@@ -29,9 +29,22 @@ li a:hover {
 
 
 tr:hover{background-color: #999999;}
-table,th,td,tr {
-    border: 1px solid black;
-    border-collapse: collapse;
+table,th,td,tr { border: 1px solid black;  border-collapse: collapse;}
+
+
+input[type=submit],
+input[type=reset] {
+    background-color: #04AA6D;
+    border: none;
+    color: white;  
+    text-decoration: none;  
+    cursor: pointer;
+}
+
+label {
+   
+    display: inline-block;
 }
 
 
+.col-50 { float: left; width: 50%;   margin-bottom: 6px; }
