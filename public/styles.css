@@ -48,3 +48,27 @@ label {
 
 
 .col-50 { float: left; width: 50%;   margin-bottom: 6px; }
+
+ input,
+ label,
+ select,
+ textarea {
+     float: left;
+     width: 15em;
+     margin-bottom: 1em;
+     padding: 0.5em;
+ }
+  footer {
+      padding: 1em;
+      background-color: #FFC9A7;
+      font-size: 0.8em;
+  }
+   main {
+       overflow: auto;
+       min-height: 30vh;
+       background-color: #f7f7f7;
+       width: 1000px;
+       margin: auto;
+       box-shadow: -1000px 0 0 #f7f7f7, 1000px 0 0 #f7f7f7;
+       padding-top: 20px;
+   }

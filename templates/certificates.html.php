@@ -1,6 +1,6 @@
 <h3>Certificates of verification</h3>
 <p><?= $totalCertificates ?> certificates in DB</p>
-<h3><a href="/certificates/edit">New certificat</a></h3>
+<p><button onclick="newcerificate()">New certificate</button></p>
 
 <table class="forwindow">
 

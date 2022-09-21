@@ -1,7 +1,7 @@
 <h3>Vehicles owners</h3>
 <p><?= $totalVehiclesOwners ?> Owners in DB</p>
-<table class="forwindow">
-
+<button onclick="myFunction()">New owner</button>
+<p><table class="forwindow"></p>
     <th>ID</th>
     <th>Denumire</th>
     <th>Cod fiscal</th>    

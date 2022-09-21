@@ -1,4 +1,7 @@
 
-function myFunction(x) {
-    <a href="/certificates/edit?id=<?= $joke['id'] ?>"></a>
+    function myFunction() {
+        location.href = "/vehiclesowners/edit";
+}
+    function newcerificate() {
+        location.href = "/certificates/edit";
 }
