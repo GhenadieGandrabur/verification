@@ -3,42 +3,41 @@
 namespace Sitedata\Controllers;
 
 use \Main\DatabaseTable;
-use \Main\Authentication;
+//use \Main\Authentication;
 
 
-class Vehiclesowners
+class VehiclesOwners
 {
-    //private $authorsTable;
+    
     private $vehiclesownersTable;
-    private $authentication;
+    
 
-    public function __construct(DatabaseTable $vehiclesownersTable,  Authentication $authentication)
+    public function __construct(DatabaseTable $vehiclesownersTable,)
     {
         $this->vehiclesownersTable = $vehiclesownersTable;
     
-        $this->authentication = $authentication;
     }
 
     public function list()
     {
         $result = $this->vehiclesownersTable->findAll();
 
-        $holders = [];
-        foreach ($result as $holder) {
+        $owners = [];
+        foreach ($result as $owner) {
            // $author = $this->authorsTable->findById($joke['authorId']);
 
-            $holders[] = [
-                'id' => $holder['id'],
-                'name' => $holder['name'],
-                'codfiscal' => $holder['codfiscal'],
-                'note' => $holder['note']
+            $owners[] = [
+                'id' => $owner['id'],
+                'name' => $owner['name'],
+                'codfiscal' => $owner['codfiscal'],
+                'note' => $owner['note']
             ];
         }
 
 
         $title = 'Vehicles owners';
 
-        $totalVehiclesowners = $this->vehiclesownersTable->total();
+        $totalVehiclesOwners = $this->vehiclesownersTable->total();
 
         
 
@@ -46,65 +45,42 @@ class Vehiclesowners
             'template' => 'vehiclesowners.html.php',
             'title' => $title,
             'variables' => [
-                'totalVehiclesowners' => $totalVehiclesowners,
-                'holders' => $holders
+                'totalVehiclesOwners' => $totalVehiclesOwners,
+                'owners' => $owners
                 
             ]
         ];
     }
 
-    public function home()
-    {
-        $title = 'Internet Joke Database';
-
-        return ['template' => 'home.html.php', 'title' => $title];
-    }
 
     public function delete()
-    {
-
-        $author = $this->authentication->getUser();
-
-        $joke = $this->vehiclesownersTable->findById($_POST['id']);
-
-        if ($joke['authorId'] != $author['id']) {
-            return;
-        }
-
+    {       
         $this->vehiclesownersTable->delete($_POST['id']);
-
-        header('location: /joke/list');
+        
+        header('location: /vehiclesowners/list');
     }
     public function saveEdit()
     {
-        /*if (isset($_GET['id'])) 
-        {
-            $holder = $this->vehiclesownersTable->findById($_GET['id']);    
-        }*/
-        
-
-        $holder = $_POST['holder'];
-        $this->vehiclesownersTable->save($holder);
-
+        if (isset($_GET['id'])) {$owner = $this->vehiclesownersTable->findById($_GET['id']);}
+        $owner = $_POST['owner'];
+        $this->VehiclesOwnersTable->save($owner);
         header('location: /vehiclesowners/list');
     }
 
     public function edit()
     {
-        $author = $this->authentication->getUser();
+       // $author = $this->authentication->getUser();
 
-        if (isset($_GET['id'])) {
-            $joke = $this->vehiclesownersTable->findById($_GET['id']);
-        }
+        if (isset($_GET['id'])) {$owner = $this->VehiclesOwnersTable->findById($_GET['id']);}
 
-        $title = 'Edit joke';
+        $title = 'Edit vehicles owners';
 
         return [
-            'template' => 'editjoke.html.php',
+            'template' => 'vehiclesownersEdit.html.php',
             'title' => $title,
             'variables' => [
-                'joke' => $joke ?? null,
-                'userId' => $author['id'] ?? null
+                'owner' =>  $owner  ?? null
+               // 'userId' => $author['id'] ?? null
             ]
         ];
     }

@@ -1,8 +1,8 @@
   
   <form action="" method="post">
-      <input type="" name="holder[id]" value="<?= $holder['id'] ?? '' ?>" placeholder="id">
-      <input type="" name="holder[name]" value="<?= $holder['name'] ?? '' ?>" placeholder="date">      
-      <input id="codfiscal" name="holder[codfiscal]" placeholder="cod fiscal"><?= $holder['codfiscal'] ?? '' ?>
-      <input id="note" name="holder[note]" placeholder="note"><?= $holder['note'] ?? '' ?>     
+      <input name="owner[id]" value="<?= $owner['id'] ?? '' ?>">
+      <input name="owner[name]" value="<?= $owner['name'] ?? '' ?>">      
+      <input name="owner[codfiscal]" value ="<?= $owner['codfiscal'] ?? '' ?>">
+      <input name="owner[note]" value ="<?= $owner['note'] ?? '' ?>">     
       <input type="submit" name="submit" value="Save">
   </form>

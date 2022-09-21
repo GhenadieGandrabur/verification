@@ -17,7 +17,7 @@ class CertificatesRoutes implements \Main\Routes
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->vehiclesTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
         $this->tahoTable = new \Main\DatabaseTable($pdo, 'taho', 'id');
-        $this->vehiclesownersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
+        $this->VehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
         $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
     }
 
@@ -27,7 +27,7 @@ class CertificatesRoutes implements \Main\Routes
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
         $userController = new \Sitedata\Controllers\Author($this->authorsTable, $this->authentication);
         $vehiclesController = new \Sitedata\Controllers\Vehicles($this->vehiclesTable);
-        $vehiclesownersController = new \Sitedata\Controllers\Vehiclesowners($this->vehiclesownersTable, $this->authentication);
+        $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->VehiclesOwnersTable);
         $tahoController = new \Sitedata\Controllers\Taho($this->tahoTable);
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
 
@@ -47,19 +47,27 @@ class CertificatesRoutes implements \Main\Routes
             'certificates/edit' => ['POST' => ['controller' => $certificatesController, 'action' => 'saveEdit'],
                 'GET' => ['controller' => $certificatesController,'action' => 'edit' ],'login' => true ],
 
-            'vehicles/list' => ['GET' => ['controller' => $vehiclesController, 'action' => 'list'], 'login' => true],
             'taho/list' => ['GET' => ['controller' => $tahoController, 'action' => 'list'], 'login' => true],
             'taho/edit' => ['GET' => ['controller' => $tahoController, 'action' => 'saveEdit'], 'login' => true],
             'users/list' => ['GET' => ['controller' => $userController, 'action' => 'list'], 'login' => true],
-            'vehiclesowners/list' => ['GET' => ['controller' => $vehiclesownersController, 'action' => 'list'], 'login' => true],
-            'vehiclesowners/edit' => ['GET' => ['controller' => $vehiclesownersController, 'action' => 'saveEdit'], 'login' => true],
-            '' =>                  ['GET' => ['controller' => $certificatesController, 'action' => 'home']]
+                
+            'vehicles/list' =>         ['GET' => ['controller' => $vehiclesController, 'action' => 'list'], 'login' => true],
+
+            'vehiclesowners/list' =>   ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'list'], 'login' => true],
+            'vehiclesowners/edit' =>   ['POST' => ['controller'=> $vehiclesController, 'action' => 'saveEdit'],
+                'GET' => ['controller' => $vehiclesOwnersController, 'action' => 'edit'],'login' => true ],
+            'vehiclesowners/delete' => ['GET' => ['controller' => $vehiclesOwnersController, 'action' => 'delete'], 'login' => true],
+
+
+            '' => ['GET' => ['controller' => $certificatesController, 'action' => 'home']]
         ];
 
         return $routes;
     }
 
-    public function getAuthentication(): \Main\Authentication
+
+
+     public function getAuthentication(): \Main\Authentication
     {
         return $this->authentication;
     }
