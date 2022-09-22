@@ -1,6 +1,6 @@
-<h3>Vehicles owners</h3>
-<p><?= $totalVehiclesOwners ?> Owners in DB</p>
-<button onclick="myFunction()">New owner</button>
+<div class="container">
+<h3>Proprietari de vehicole</h3>
+<p><button class="button"  onclick="myFunction()">New owner</button> <?= $totalVehiclesOwners ?> posesori de camioane</p>
 <p><table class="forwindow"></p>
     <th>ID</th>
     <th>Denumire</th>
@@ -16,6 +16,7 @@
             <td> <?= htmlspecialchars($owner['note'], ENT_QUOTES, 'UTF-8') ?></td>
             <td>               
                     <a href="/vehiclesowners/edit?id=<?= $owner['id'] ?>"> Edit</a>
+                           
             </td>
             <td>
                     <form action="/vehiclesowners/delete" method="post">
@@ -26,3 +27,4 @@
     </tr>
 <?php endforeach; ?>
 </table>
+        </div>

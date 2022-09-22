@@ -17,10 +17,9 @@
     <div class="container-fluid">
 
         
-        <?php include 'adminmenu.html.php' ?>
-<main>
+        <?php include 'adminmenu.html.php'?>
         <?= $output ?>
-</main>
+
     </div>
 
 

@@ -13,8 +13,7 @@ class Vehicles
 
     public function __construct(DatabaseTable $VehiclesTable)
     {
-        $this->VehiclesTable = $VehiclesTable;
-       
+        $this->VehiclesTable = $VehiclesTable;       
     }
 
     public function list()
@@ -22,91 +21,51 @@ class Vehicles
         $result = $this->VehiclesTable->findAll();
 
         $vehicles = [];
-        foreach ($result as $Vehicle) {
-           // $author = $this->authorsTable->findById($joke['authorId']);
-
+        foreach ($result as $vehicle) {
             $vehicles[] = [
-                'id' => $Vehicle['id'],
-                'date' => $Vehicle['date'],
-                'number' => $Vehicle['number'],
-                'owner' => $Vehicle['owner']
+                'id' => $vehicle['id'],
+                'number' => $vehicle['number'],
+                'vin' => $vehicle['vin'],
+                'owner' => $vehicle['owner']
             ];
         }
 
-        $title = 'Vehicles';
+        $title = 'Vehicles list';
 
         $totalVehicles = $this->VehiclesTable->total();       
 
         return [
                 'template' => 'vehicles.html.php',
                 'title' => $title,
-                'variables' => [
-                'totalVehicles' => $totalVehicles,
-                'vehicles' => $vehicles                    
+                'variables' => ['totalVehicles' => $totalVehicles, 'vehicles' => $vehicles                    
                 ]
             ];
     }
 
-    public function home()
-    {
-        $title = 'Internet Joke Database';
-
-        return ['template' => 'home.html.php', 'title' => $title];
-    }
+   
 
     public function delete()
-    {
+    {     
 
-        $author = $this->authentication->getUser();
+        $this->VehiclesTable->delete($_POST['id']);
 
-        $joke = $this->jokesTable->findById($_POST['id']);
-
-        if ($joke['authorId'] != $author['id']) {
-            return;
-        }
-
-        $this->jokesTable->delete($_POST['id']);
-
-        header('location: /joke/list');
+        header('location: /vehicles/list');
     }
-    public function saveEdit()
-    {
-        $author = $this->authentication->getUser();
-
-        if (isset($_GET['id'])) {
-            $joke = $this->jokesTable->findById($_GET['id']);
-
-            if ($joke['authorId'] != $author['id']) {
-                return;
-            }
-        }
-
-        $joke = $_POST['joke'];
-        $joke['jokedate'] = new \DateTime();
-        $joke['authorId'] = $author['id'];
-
-        $this->jokesTable->save($joke);
-
-        header('location: /joke/list');
+    public function saveEdit(){
+        $vehicle = $_POST['vehicle'];
+        $this->VehiclesTable->save($vehicle);
+        header('location: /vehicles/list');
     }
 
     public function edit()
-    {
-        $author = $this->authentication->getUser();
+    {     
 
-        if (isset($_GET['id'])) {
-            $joke = $this->jokesTable->findById($_GET['id']);
-        }
+        if (isset($_GET['id'])) {$vehicle = $this->VehiclesTable->findById($_GET['id']);}
 
-        $title = 'Edit joke';
+        $title = 'Edit vehicles';
 
-        return [
-            'template' => 'certificatesEdit.html.php',
-            'title' => $title,
-            'variables' => [
-                'joke' => $joke ?? null,
-                'userId' => $author['id'] ?? null
-            ]
+        return ['template' => 'vehicles.html.php', 'title' => $title,
+        'variables' => [ 'vehicle' => $vehicle ?? null ]
         ];
     }
     

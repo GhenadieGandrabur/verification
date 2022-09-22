@@ -38,9 +38,6 @@ class VehiclesOwners
         $title = 'Vehicles owners';
 
         $totalVehiclesOwners = $this->vehiclesownersTable->total();
-
-        
-
         return [
             'template' => 'vehiclesowners.html.php',
             'title' => $title,
@@ -61,9 +58,9 @@ class VehiclesOwners
     }
     public function saveEdit()
     {
-        if (isset($_GET['id'])) {$owner = $this->vehiclesownersTable->findById($_GET['id']);}
+        //if (isset($_GET['id'])) {$owner = $this->vehiclesownersTable->findById($_GET['id']);}
         $owner = $_POST['owner'];
-        $this->VehiclesOwnersTable->save($owner);
+        $this->vehiclesownersTable->save($owner);
         header('location: /vehiclesowners/list');
     }
 
@@ -71,7 +68,7 @@ class VehiclesOwners
     {
        // $author = $this->authentication->getUser();
 
-        if (isset($_GET['id'])) {$owner = $this->VehiclesOwnersTable->findById($_GET['id']);}
+        if (isset($_GET['id'])) {$owner = $this->vehiclesownersTable->findById($_GET['id']);}
 
         $title = 'Edit vehicles owners';
 

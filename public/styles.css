@@ -3,7 +3,8 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color:#cccccc;
+    margin-top: 3px !important;
 }
 
 li {
@@ -12,14 +13,15 @@ li {
 
 li a {
     display: block;
-    color: white;
+    color:#333;
     text-align: center;
-    padding: 14px 16px;
+    padding: 5px 10px;
     text-decoration: none;
+    font-size: 14px;
 }
 
 li a:hover {
-    background-color: #111;}
+    color:#000000; font-weight: bold;background-color: #f2f2f2;}
 
 .forwindow  {width: 100%;}
 .forwindow th{background-color:#cccccc; color:#000000;border: 1px #000000 solid; text-align: center;}
@@ -32,14 +34,6 @@ tr:hover{background-color: #999999;}
 table,th,td,tr { border: 1px solid black;  border-collapse: collapse;}
 
 
-input[type=submit],
-input[type=reset] {
-    background-color: #04AA6D;
-    border: none;
-    color: white;  
-    text-decoration: none;  
-    cursor: pointer;
-}
 
 label {
    
@@ -49,15 +43,7 @@ label {
 
 .col-50 { float: left; width: 50%;   margin-bottom: 6px; }
 
- input,
- label,
- select,
- textarea {
-     float: left;
-     width: 15em;
-     margin-bottom: 1em;
-     padding: 0.5em;
- }
+
   footer {
       padding: 1em;
       background-color: #FFC9A7;
@@ -72,3 +58,38 @@ label {
        box-shadow: -1000px 0 0 #f7f7f7, 1000px 0 0 #f7f7f7;
        padding-top: 20px;
    }
+
+   /*input,
+   label,
+   select,
+   textarea {
+       float: left;
+       width: 15em;
+       margin-bottom: 1em;
+      
+   }*/
+
+   label {
+    width:auto;
+   }
+
+   input[type="submit"] {
+   
+       width: auto;      
+       clear: both;
+       font-size: 16px;
+  
+   }
+
+  /** form {
+       overflow: auto;
+       clear: both;
+       display: block;
+   }*/
+
+   .button{
+    border-radius: 5px;
+    border: 2px #cccccc solid;
+   }
+   .button:hover{background-color: green;color: #f2f2f2;}
+   legend{text-align: center; background-color: #FFC9A7;}
