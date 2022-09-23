@@ -8,17 +8,17 @@ use \Main\Authentication;
 class Vehicles
 {
     
-    private $VehiclesTable;
+    private $vehiclesTable;
     
 
-    public function __construct(DatabaseTable $VehiclesTable)
+    public function __construct(DatabaseTable $vehiclesTable)
     {
-        $this->VehiclesTable = $VehiclesTable;       
+        $this->vehiclesTable = $vehiclesTable;       
     }
 
     public function list()
     {
-        $result = $this->VehiclesTable->findAll();
+        $result = $this->vehiclesTable->findAll();
 
         $vehicles = [];
         foreach ($result as $vehicle) {
@@ -32,7 +32,7 @@ class Vehicles
 
         $title = 'Vehicles list';
 
-        $totalVehicles = $this->VehiclesTable->total();       
+        $totalVehicles = $this->vehiclesTable->total();       
 
         return [
                 'template' => 'vehicles.html.php',
@@ -47,20 +47,20 @@ class Vehicles
     public function delete()
     {     
 
-        $this->VehiclesTable->delete($_POST['id']);
+        $this->vehiclesTable->delete($_POST['id']);
 
         header('location: /vehicles/list');
     }
+    
     public function saveEdit(){
         $vehicle = $_POST['vehicle'];
-        $this->VehiclesTable->save($vehicle);
+        $this->vehiclesTable->save($vehicle);
         header('location: /vehicles/list');
     }
 
     public function edit()
     {     
-
-        if (isset($_GET['id'])) {$vehicle = $this->VehiclesTable->findById($_GET['id']);}
+        if (isset($_GET['id'])) {$vehicle = $this->vehiclesTable->findById($_GET['id']);}
 
         $title = 'Edit vehicles';
 

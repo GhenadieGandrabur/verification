@@ -93,3 +93,8 @@ label {
    }
    .button:hover{background-color: green;color: #f2f2f2;}
    legend{text-align: center; background-color: #FFC9A7;}
+
+  /*little table*/
+   .lt{width:25%; margin: auto; }
+  /*medium table*/
+   .mt{width:50%; margin: auto; }
