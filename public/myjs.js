@@ -1,5 +1,3 @@
-
-
     function newcerificate() {
         location.href = "/certificates/edit";
 }
@@ -8,5 +6,9 @@
 }
     function newtaho() {
         location.href = "/taho/edit";
+}
+
+    function newauthor() {
+        location.href = "/author/register";
 }
    

@@ -2,14 +2,17 @@
 
 namespace Sitedata;
 
+use Main\Authentication;
+
 class CertificatesRoutes implements \Main\Routes
 {
-    private $authorsTable;
+    private $authorsTable;    
     private $certificatesTable;
     private $vehiclesTable;
     private $authentication;
     private $vehiclesOwnersTable;
     private $tahoTable;
+    
 
     public function __construct()
     {
@@ -17,6 +20,7 @@ class CertificatesRoutes implements \Main\Routes
 
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
+        $this->userTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->vehiclesTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
         $this->tahoTable = new \Main\DatabaseTable($pdo, 'taho', 'id');
         $this->vehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
@@ -27,7 +31,7 @@ class CertificatesRoutes implements \Main\Routes
     {
         $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->authorsTable, $this->authentication);
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
-        $userController = new \Sitedata\Controllers\Author($this->authorsTable, $this->authentication);
+        $usersController = new \Sitedata\Controllers\Author($this->authorsTable, $this->authentication);       
         $vehiclesController = new \Sitedata\Controllers\Vehicles($this->vehiclesTable);
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
         $tahoController = new \Sitedata\Controllers\Taho($this->tahoTable);
@@ -63,7 +67,11 @@ class CertificatesRoutes implements \Main\Routes
             'taho/delete' => ['POST' =>  ['controller' => $tahoController, 'action' => 'delete'], 'login' => true],
             'taho/edit' =>   ['POST' => ['controller' => $tahoController, 'action' => 'saveEdit'],
                                          'GET' => ['controller' => $tahoController, 'action' => 'edit'],'login' => true ],
-
+                                         
+            'users/list' =>   ['GET' =>  ['controller' => $usersController, 'action' => 'list'], 'login' => true],
+            'users/delete' => ['POST' => ['controller' => $usersController, 'action' => 'delete'], 'login' => true],
+            'users/edit' =>   ['POST' => ['controller' => $usersController, 'action' => 'saveEdit'],
+                                 'GET' => ['controller' => $usersController, 'action' => 'edit'],'login' => true ],
 
 
             '' => ['GET' => ['controller' => $certificatesController, 'action' => 'home']]
