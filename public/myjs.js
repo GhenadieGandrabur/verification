@@ -1,15 +1,24 @@
+function myFunction() {
+  location.href = "/vehiclesowners/edit";
+}
 
-    function myFunction() {
-        location.href = "/vehiclesowners/edit";
+function newvehicle() {
+  location.href = "/vehicles/edit";
 }
-    function newcerificate() {
-        location.href = "/certificates/edit";
-}
-    function newvehicle() {
-        location.href = "/vehicles/edit";
-}
-   
 
-function clicktr(x) {
-    alert("Row index is: " + x.cellIndex);
-}
+addEventListener("DOMContentLoaded", () => {
+  const hintElement = "smart-table-hint";
+  const isHintVisible = JSON.parse(window.localStorage.getItem(hintElement) || "false");
+  const collapsedClass = "collapsed";
+
+  document.querySelector(".smart-table-hint")?.classList.toggle(collapsedClass, isHintVisible);
+
+  window.addEventListener("click", function (e) {
+    const target = e.target.closest(`.${hintElement}`);
+    if (target) {
+      const state = target.classList.contains(collapsedClass);
+      window.localStorage.setItem(hintElement, JSON.stringify(!state));
+      target.classList.toggle(collapsedClass, !state);
+    }
+  });
+});

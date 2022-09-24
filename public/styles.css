@@ -1,4 +1,4 @@
-ul {
+ul.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -7,11 +7,11 @@ ul {
     margin-top: 3px !important;
 }
 
-li {
+ul.menu li {
     float: left;
 }
 
-li a {
+ul.menu li a {
     display: block;
     color:#333;
     text-align: center;
@@ -20,7 +20,7 @@ li a {
     font-size: 14px;
 }
 
-li a:hover {
+ul.menu li a:hover {
     color:#000000; font-weight: bold;background-color: #f2f2f2;}
 
 .forwindow  {width: 100%;}
@@ -36,7 +36,7 @@ table,th,td,tr { border: 1px solid black;  border-collapse: collapse;}
 
 
 label {
-   
+
     display: inline-block;
 }
 
@@ -66,7 +66,7 @@ label {
        float: left;
        width: 15em;
        margin-bottom: 1em;
-      
+
    }*/
 
    label {
@@ -74,11 +74,11 @@ label {
    }
 
    input[type="submit"] {
-   
-       width: auto;      
+
+       width: auto;
        clear: both;
        font-size: 16px;
-  
+
    }
 
   /** form {
@@ -90,6 +90,65 @@ label {
    .button{
     border-radius: 5px;
     border: 2px #cccccc solid;
+    background-color: buttonface;
+    padding: 1px 6px;
+    color: #000;
+    cursor: default;
+    text-decoration: none;
    }
    .button:hover{background-color: green;color: #f2f2f2;}
    legend{text-align: center; background-color: #FFC9A7;}
+
+.smart-table {}
+
+.smart-table tr:not(.selected):hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.smart-table tr.selected {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.smart-table-hint {
+    font-size: 12px;
+    padding: 8px;
+    background: lightgrey;
+    border-radius: 4px;
+    border: 1px solid gray;
+    position: relative;
+    cursor: pointer;
+}
+
+.smart-table-hint:before {
+    content: "✖️";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    text-align: right;
+    position: absolute;
+    background: lightgray;
+    right: 4px;
+    top: 4px;
+}
+
+.smart-table-hint.collapsed {
+    width: 100px;
+}
+
+.smart-table-hint.collapsed:before {
+    content: "Hint";
+    display: inline;
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+.smart-table-hint.collapsed li{
+    display: none;
+}
+
+.smart-table-hint li {
+    margin: 1px 0 1px 14px;
+}
