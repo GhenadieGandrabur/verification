@@ -1,8 +1,17 @@
 
 <form action = "" method = "post">
-    <label for="id">id</label><input disabled name="id" value = "<?=vehicle["id"]?>" size="2">
-    <label for="number">Number</label><input name="number" value = "<?=vehicle["number"]?>" size="4">
-    <label for="vin">VIN</label><input name="vin" value = "<?=vehicle["vin"]?>">
-    <label for="owner">Owner</label><input name="owner" value = "<?=vehicle["owner"]?>">
+
+    <label for="vehicle[id]">id</label>
+    <input  name="vehicle[id]" value = "<?=$vehicle["id"]?>">
+
+    <label for="vehicle[number]">Number</label>
+    <input name="vehicle[number]" value = "<?=$vehicle["number"]?>">
+
+    <label for="vehicle[vin]">VIN</label>
+    <input name="vehicle[vin]" value = "<?=$vehicle['vin']?>">
+
+    <label for="vehicle[owner]">Owner</label>
+    <input name="vehicle[owner]" value = "<?=$vehicle["owner"]?>">
+    
     <input type="sibmit" value="save">
 </form>
