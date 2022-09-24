@@ -1,9 +1,15 @@
-function myFunction() {
-  location.href = "/vehiclesowners/edit";
+    function newcerificate() {
+        location.href = "/certificates/edit";
+}
+    function newvehicle() {
+        location.href = "/vehicles/edit";
+}
+    function newtaho() {
+        location.href = "/taho/edit";
 }
 
-function newvehicle() {
-  location.href = "/vehicles/edit";
+    function newauthor() {
+        location.href = "/author/register";
 }
 
 addEventListener("DOMContentLoaded", () => {

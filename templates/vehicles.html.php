@@ -1,4 +1,4 @@
-
+<div class="mt">
 <h2>Vehicles</h2>
 
 <p><button onclick="newvehicle()">New vehicle</button> </p>
@@ -25,3 +25,4 @@
     </tr>
 <?php endforeach; ?>
 </table>
+</div>
