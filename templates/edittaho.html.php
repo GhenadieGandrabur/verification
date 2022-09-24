@@ -1,11 +1,19 @@
  <div class="lt">
      <p>Tahograf schinbari</p>
      <form action="" method="post">
-         <div class="col-50"><label for="taho[id]">ID</label></div>
-         <div class="col-50"><input  name="taho[id]" value="<?= $taho['id'] ?? '' ?>"></div>
+         <div class="col-50"><label for="id">ID</label></div>
+         <div class="col-50"><input disabled id="id" name="taho[id]" value="<?= $taho['id'] ?? '' ?>"></div>
 
          <div class="col-50"><label for="taho[modele]">Modele</label></div>
-         <div class="col-50"><input name="taho[modele]" value="<?= $taho['modele'] ?? '' ?>"></div>
+         <div class="col-50"> <select name="taho[modele]">
+                              <option value="<?=$taho["modele"]=  'VDO 1314'?>">VDO 1314</option>
+                              <option value="<?=$taho["modele"] = 'VDO 1318'?>">VDO 1318</option>                              
+                              <option value="<?=$taho["modele"] = 'VDO 1324'?>">VDO 1324</option>                              
+                              <option value="<?=$taho["modele"] = 'VDO 1381'?>">VDO 1381</option>                              
+                              <option value="<?=$taho["modele"] = 'VR 8400'?>">VR 8400</option>                              
+                              <option value="<?=$taho["modele"] = 'VR 2400'?>">VR 2400</option>                              
+                              <option value="<?=$taho["modele"] = 'SE 5000'?>">SE 5000</option>                              
+                              </select></div>
 
          <div class="col-50"><label for="taho[type]">Type</label></div>
          <div class="col-50"><input name="taho[type]" value="<?= $taho['type'] ?? '' ?>"></div>
