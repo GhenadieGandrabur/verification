@@ -100,7 +100,7 @@ label {
    legend{text-align: center; background-color: #FFC9A7;}
 
   /*little table*/
-   .lt{width:25%; margin: auto; }
+   .lt{width:25%; margin: auto; padding-top: 20px; }
   /*medium table*/
    .mt{width:50%; margin: auto; }
 
@@ -113,6 +113,7 @@ label {
 .smart-table tr.selected {
     background: rgba(0, 0, 0, 0.2);
 }
+.inputheader{background-color: #FFC9A7; text-align: center;}
 
 .smart-table-hint {
     font-size: 12px;

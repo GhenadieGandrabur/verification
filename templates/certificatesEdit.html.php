@@ -14,11 +14,11 @@
       <fieldset>
              <legend>Vehicol</legend> 
              
-             <div class="col-50"><label for="name">Proprietar</label></div>
-             <div class="col-50"><input id="vehicle" name="certificate[vehicle]" size="10" value="<?= $certificate['vehicle'] ?? '' ?>"></div>
-             
              <div class="col-50"><label for="name">Vehicol</label></div>
-             <div class="col-50"><input id="proprietar" name="certificate[proprietar]" value="<?= $certificate['proprietar'] ?? '' ?>"></div>
+             <div class="col-50"><input id="Vehicol" name="certificate[vehicle]"  value="<?= $certificate['vehicle'] ?? '' ?>"></div>
+             
+             <div class="col-50"><label for="name">Proprietar</label></div>
+             <div class="col-50"><input id="Proprietar" name="certificate[proprietar]" value="<?= $certificate['proprietar'] ?? '' ?>"></div>
              
             </fieldset>   
           </div>

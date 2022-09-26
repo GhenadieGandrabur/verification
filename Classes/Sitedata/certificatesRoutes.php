@@ -79,9 +79,6 @@ class CertificatesRoutes implements \Main\Routes
 
         return $routes;
     }
-
-
-
      public function getAuthentication(): \Main\Authentication
     {
         return $this->authentication;

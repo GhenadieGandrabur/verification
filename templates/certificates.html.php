@@ -16,8 +16,7 @@
     <th>Date</th>
     <th>Vehicol</th>
     <th>Proprietar</th>
-    <th>Autor</th>
-    <th>Edit</th>
+    <th>Autor</th>    
     <th>Delete</th>
 
     <?php foreach ($certificates as $certificate) : ?>
@@ -27,10 +26,7 @@
                 echo $date->format('d.m. Y'); ?></td>
             <td> <?= htmlspecialchars($certificate['vehicle'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($certificate['proprietar'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?= htmlspecialchars($certificate['name'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td>
-                <a href="/certificates/edit?id=<?= $certificate['id'] ?>"> Edit</a>
-            </td>
+            <td> <?= htmlspecialchars($certificate['name'], ENT_QUOTES, 'UTF-8') ?></td>           
             <td>
                 <form action="/certificate/delete" method="post">
                     <input type="hidden" name="id" value="<?= $certificate['id'] ?>">
