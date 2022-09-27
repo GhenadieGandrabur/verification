@@ -25,9 +25,10 @@ class Vehicles
             $vehicles[] = [
                 'id'     => $vehicle['id'],
                 'date'   => $vehicle['date'],
-                'number' => $vehicle['number'],
+                'numberPlate' => $vehicle['numberPlate'],
                 'vin'    => $vehicle['vin'],
-                'owner'  => $vehicle['owner']
+                'owner'  => $vehicle['owner'],
+                'tyreSize'  => $vehicle['tyreSize']
             ];
         }
         $title = 'Vehicles list';
@@ -45,7 +46,7 @@ class Vehicles
 
         $this->vehiclesTable->delete($_POST['id']);
 
-        header('location: /vehicles/list');
+        header('location: /tyressize/list');
     }
 
     
@@ -63,7 +64,7 @@ class Vehicles
 
         $title = 'Edit vehicles';
 
-        return ['template' => 'vehiclesEdit.html.php', 'title' => $title,
+        return ['template' => 'tyressizeEdit.html.php', 'title' => $title,
         'variables' => [ 'vehicle' => $vehicle ?? null ]
         ];
     }

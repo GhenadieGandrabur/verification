@@ -8,6 +8,9 @@
         location.href = "/taho/edit";
 }
 
+function newtyresize() {
+    location.href = "/tyres/edit";
+}
     function newauthor() {
         location.href = "/author/register";
 }

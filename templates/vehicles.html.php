@@ -17,7 +17,7 @@
             <td> <?= htmlspecialchars($vehicle['id'], ENT_QUOTES, 'UTF-8') ?></td>           
             <td> <?php $date = new DateTime($vehicle['date']);
                 echo $date->format('d.m. Y'); ?></td>         
-            <td> <?= htmlspecialchars($vehicle['number'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td> <?= htmlspecialchars($vehicle['numberPlate'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($vehicle['vin'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($vehicle['owner'], ENT_QUOTES, 'UTF-8') ?></td>
             <td>               
