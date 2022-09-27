@@ -9,8 +9,7 @@ class Taho
 {
     
     private $tahoTable;
-
-
+    
     public function __construct(DatabaseTable $tahoTable)
     {
         $this->tahoTable = $tahoTable;
@@ -59,8 +58,7 @@ class Taho
 
     public function edit()
     {
-        if (isset($_GET['id'])) {
-            $taho = $this->tahoTable->findById($_GET['id']);
+        if (isset($_GET['id'])) { $taho = $this->tahoTable->findById($_GET['id']);
         }
        $title = 'Edit taho';
         return [
