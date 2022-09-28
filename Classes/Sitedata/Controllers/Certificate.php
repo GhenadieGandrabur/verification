@@ -91,9 +91,9 @@ class Certificate
     {
         $author = $this->authentication->getUser();
 
-      /*  if (isset($_GET['id'])) {
-            $certificate = $this->certificatesTable->findById($_GET['id']);
-        }*/
+       if (isset($_GET['id'])) {
+           $certificate = $this->certificatesTable->findById($_GET['id']);
+        }
 
         $certificate = $_POST['certificate'];
         $certificate['date'] = new \DateTime();

@@ -12,6 +12,7 @@ class CertificatesRoutes implements \Main\Routes
     private $authentication;
     private $vehiclesOwnersTable;
     private $tahoTable;
+    private $tyresTable;
     
 
     public function __construct()
@@ -21,6 +22,7 @@ class CertificatesRoutes implements \Main\Routes
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->userTable = new \Main\DatabaseTable($pdo, 'author', 'id');
+        $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
         $this->vehiclesTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
         $this->tahoTable = new \Main\DatabaseTable($pdo, 'taho', 'id');
         $this->vehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
@@ -35,6 +37,7 @@ class CertificatesRoutes implements \Main\Routes
         $vehiclesController = new \Sitedata\Controllers\Vehicles($this->vehiclesTable);
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
         $tahoController = new \Sitedata\Controllers\Taho($this->tahoTable);
+        $tyresController = new \Sitedata\Controllers\Tyressize($this->tyresTable);
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
 
         $routes = [
@@ -74,16 +77,17 @@ class CertificatesRoutes implements \Main\Routes
             'users/delete' => ['POST' => ['controller' => $usersController, 'action' => 'delete'], 'login' => true],
             'users/edit' =>   ['POST' => ['controller' => $usersController, 'action' => 'saveEdit'],
                                  'GET' => ['controller' => $usersController, 'action' => 'edit'],'login' => true ],
-
+                                 
+            'tyres/list' =>   ['GET' =>  ['controller' => $tyresController, 'action' => 'list'], 'login' => true],
+            'tyres/delete' => ['POST' => ['controller' => $tyresController, 'action' => 'delete'], 'login' => true],
+            'tyres/edit' =>   ['POST' => ['controller' => $tyresController, 'action' => 'saveEdit'],
+                              'GET' => ['controller' => $tyresController, 'action' => 'edit'],'login' => true ],
 
             '' => ['GET' => ['controller' => $certificatesController, 'action' => 'home']]
         ];
 
         return $routes;
     }
-
-
-
      public function getAuthentication(): \Main\Authentication
     {
         return $this->authentication;

@@ -4,12 +4,20 @@
 <p><button onclick="newvehicle()">New vehicle</button> </p>
 <table class="forwindow">
 
-    <th>ID</th><th>Number</th><th>VIN<th>Owner</th><th>Edit</th><th>Delete</th>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Number</th>
+    <th>VIN</th>    
+    <th>Owner</th>
+    <th>Edit</th>
+    <th>Delete</th>
     <tr>
         <?php foreach($vehicles as $vehicle) : ?>
 
             <td> <?= htmlspecialchars($vehicle['id'], ENT_QUOTES, 'UTF-8') ?></td>           
-            <td> <?= htmlspecialchars($vehicle['number'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td> <?php $date = new DateTime($vehicle['date']);
+                echo $date->format('d.m. Y'); ?></td>         
+            <td> <?= htmlspecialchars($vehicle['numberPlate'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($vehicle['vin'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($vehicle['owner'], ENT_QUOTES, 'UTF-8') ?></td>
             <td>               

@@ -1,3 +1,5 @@
+<div class="lt">
+    <h3 class="inputheader">User edit</h3>
 <?php if ($userId == $usersdata['authorId']) : ?>
     <form action="" method="post">
         <input type="hidden" name="$user['id']" value="<?= $usersdata['id'] ?? '' ?>">
@@ -11,3 +13,4 @@
     <p>You may only edit jokes that you posted.</p>
 
 <?php endif; ?>
+</div>

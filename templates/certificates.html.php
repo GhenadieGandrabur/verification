@@ -17,7 +17,6 @@
     <th>Vehicol</th>
     <th>Proprietar</th>
     <th>Autor</th>
-    <th>Edit</th>
     <th></th>
     <th>Delete</th>
 
@@ -30,9 +29,8 @@
             <td> <?= htmlspecialchars($certificate['proprietar'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($certificate['name'], ENT_QUOTES, 'UTF-8') ?></td>
             <td>
-                <a href="/certificates/edit?id=<?= $certificate['id'] ?>"> Edit</a>
-            </td>
             <td><a href="/certificates/print?id=<?= $certificate['id'] ?>" target="_blank">🖨</a></td>
+            </td>
             <td>
                 <form action="/certificate/delete" method="post">
                     <input type="hidden" name="id" value="<?= $certificate['id'] ?>">

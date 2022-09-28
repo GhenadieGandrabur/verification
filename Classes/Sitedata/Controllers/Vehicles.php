@@ -23,23 +23,20 @@ class Vehicles
         $vehicles = [];
         foreach ($result as $vehicle) {
             $vehicles[] = [
-                'id' => $vehicle['id'],
-                'number' => $vehicle['number'],
-                'vin' => $vehicle['vin'],
-                'owner' => $vehicle['owner']
+                'id'     => $vehicle['id'],
+                'date'   => $vehicle['date'],
+                'numberPlate' => $vehicle['numberPlate'],
+                'vin'    => $vehicle['vin'],
+                'owner'  => $vehicle['owner'],
+                'tyreSize'  => $vehicle['tyreSize']
             ];
         }
-
         $title = 'Vehicles list';
-
-        $totalVehicles = $this->vehiclesTable->total();       
-
+        $totalVehicles = $this->vehiclesTable->total();   
         return [
                 'template' => 'vehicles.html.php',
                 'title' => $title,
-                'variables' => ['totalVehicles' => $totalVehicles, 'vehicles' => $vehicles                    
-                ]
-            ];
+                'variables' => ['totalVehicles' => $totalVehicles, 'vehicles' => $vehicles]];
     }
 
    
@@ -49,11 +46,14 @@ class Vehicles
 
         $this->vehiclesTable->delete($_POST['id']);
 
-        header('location: /vehicles/list');
+        header('location: /tyressize/list');
     }
+
+    
     
     public function saveEdit(){
         $vehicle = $_POST['vehicle'];
+        $vehicle['date'] = new \DateTime();
         $this->vehiclesTable->save($vehicle);
         header('location: /vehicles/list');
     }
@@ -64,7 +64,7 @@ class Vehicles
 
         $title = 'Edit vehicles';
 
-        return ['template' => 'vehicles.html.php', 'title' => $title,
+        return ['template' => 'tyressizeEdit.html.php', 'title' => $title,
         'variables' => [ 'vehicle' => $vehicle ?? null ]
         ];
     }

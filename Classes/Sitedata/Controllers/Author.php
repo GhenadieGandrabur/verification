@@ -104,7 +104,7 @@ class Author
             'template' => 'edituser.html.php',
             'title' => $title,
             'variables' => [
-                'joke' => $usersdata ?? null,
+                'usersdata' => $usersdata ?? null,
                 'userId' => $user['id'] ?? null
             ]
         ];
