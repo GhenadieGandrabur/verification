@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1ef9ca5-7bdc-45d2-ba33-45b5c8a5b047" name="Changes" comment="Add smart table &#10;&#10;- При двойном клике на строку таблицы или клавиши i открывать форму для редактирования&#10;- Ввод нового по клавише инсерт">
-      <change afterPath="$PROJECT_DIR$/public/print.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/print.scss" afterDir="false" />
+    <list default="true" id="d1ef9ca5-7bdc-45d2-ba33-45b5c8a5b047" name="Changes" comment="Add scss file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/certificates.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/certificates.html.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664048129023</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add scss file">
+      <created>1664395056424</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664395056424</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,7 +125,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add smart table &#10;&#10;- При двойном клике на строку таблицы или клавиши i открывать форму для редактирования&#10;- Ввод нового по клавише инсерт" />
     <MESSAGE value="Add idea files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add idea files" />
+    <MESSAGE value="Add scss file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add scss file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
