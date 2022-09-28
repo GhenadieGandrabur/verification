@@ -1,0 +1,103 @@
+.menu {
+  display: none;
+}
+
+.certificate-print {
+  width: 720px;
+  font-size: 10px;
+  line-height: 1.1em;
+
+  p {
+    margin: 0;
+  }
+
+  &--address {
+    border: none;
+    margin: 4px 4px;
+
+    td {
+      padding-right: 15px;
+    }
+  }
+
+  &--title {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  &--table {
+    width: 100%;
+    border: 1px solid #000;
+    font-size: 12px;
+
+    .width-auto {
+      width: auto;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    & > tbody > tr > td {
+      border: 1px solid #000;
+      padding: 0.8px 5px;
+      line-height: 14px;
+    }
+
+    td {
+      vertical-align: middle;
+    }
+
+    .frame {
+      display: inline-block;
+      border: 1px solid #000;
+      padding: 8px 34px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    table.bordered {
+      width: auto;
+      border-left: 1px solid #000;
+      border-top: 1px solid #000;
+
+      td {
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+      }
+    }
+
+    .font-black {
+      font-family: "Arial Black", sans-serif;
+    }
+
+    .checkbox {
+      --size: 30px;
+
+      width: var(--size);
+      height: var(--size);
+      border: 1px solid;
+      position: relative;
+      margin: 10px 0;
+
+      &.checked:after {
+        content: "";
+        width: var(--size);
+        height: var(--size);
+        display: block;
+        position: absolute;
+        border-width: 0 0 1px 1px;
+        border-style: solid;
+        transform: rotate(-45deg) skewX(-30deg);
+        top: -20px;
+        left: 5px;
+      }
+    }
+
+    .stamp {
+      width: 120px;
+    }
+  }
+}

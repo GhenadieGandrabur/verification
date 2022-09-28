@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1ef9ca5-7bdc-45d2-ba33-45b5c8a5b047" name="Changes" comment="Add idea files">
-      <change afterPath="$PROJECT_DIR$/public/images/stamp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/print.css" afterDir="false" />
+    <list default="true" id="d1ef9ca5-7bdc-45d2-ba33-45b5c8a5b047" name="Changes" comment="Add smart table &#10;&#10;- При двойном клике на строку таблицы или клавиши i открывать форму для редактирования&#10;- Ввод нового по клавише инсерт">
       <change afterPath="$PROJECT_DIR$/public/print.css.map" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/print.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/certificatesPrint.html.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/print.html.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/verification.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/verification.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/Main/EntryPoint.php" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Main/EntryPoint.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/Sitedata/Controllers/Certificate.php" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Sitedata/Controllers/Certificate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/Sitedata/certificatesRoutes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/Sitedata/certificatesRoutes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/certificates.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/certificates.html.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="smart-table" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,13 +34,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FBB1cPYocxUzutr27INO0BZZ1I" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -122,6 +116,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add smart table &#10;&#10;- При двойном клике на строку таблицы или клавиши i открывать форму для редактирования&#10;- Ввод нового по клавише инсерт" />
     <MESSAGE value="Add idea files" />
     <option name="LAST_COMMIT_MESSAGE" value="Add idea files" />
