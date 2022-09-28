@@ -42,8 +42,8 @@ class Certificate
                 'limitatordeviteza' => $certificate['limitatordeviteza'],
                 'valabilitate' => $certificate['valabilitate'],
                 'baterea' => $certificate['baterea'],
-                'authorId' => $holder['id'],              
-                'name' => $holder['name']               
+                'authorId' => $holder['id'],
+                'name' => $holder['name']
             ];
         }
 
@@ -57,7 +57,7 @@ class Certificate
             'template' => 'certificates.html.php',
             'title' => $title,
             'variables' => [
-            'totalCertificates' => $totalCertificates, 
+            'totalCertificates' => $totalCertificates,
             'certificates' => $certificates,
             'userId' => $holder['id'] ?? null
             ]
@@ -92,7 +92,7 @@ class Certificate
         $author = $this->authentication->getUser();
 
       /*  if (isset($_GET['id'])) {
-            $certificate = $this->certificatesTable->findById($_GET['id']);           
+            $certificate = $this->certificatesTable->findById($_GET['id']);
         }*/
 
         $certificate = $_POST['certificate'];
@@ -107,6 +107,7 @@ class Certificate
     public function edit()
     {
         $author = $this->authentication->getUser();
+        var_dump($_REQUEST);
 
        if (isset($_GET['id'])) {
             $certificate = $this->certificatesTable->findById($_GET['id']);
@@ -116,6 +117,32 @@ class Certificate
 
         return [
             'template' => 'certificatesEdit.html.php',
+            'title' => $title,
+            'variables' => [
+                'certificate' => $certificate ?? null,
+                'userId' => $author['id'] ?? null
+            ]
+        ];
+    }
+
+    public function print()
+    {
+        $author = $this->authentication->getUser();
+
+        if (isset($_GET['id'])) {
+            $certificate = $this->certificatesTable->findById($_GET['id']);
+        }
+
+        if (!$author || !$certificate){
+            throw new \Error("Page not found");
+        }
+
+
+        $title = 'Print certificates';
+
+        return [
+            'template' => 'certificatesPrint.html.php',
+            'layout' => 'print',
             'title' => $title,
             'variables' => [
                 'certificate' => $certificate ?? null,

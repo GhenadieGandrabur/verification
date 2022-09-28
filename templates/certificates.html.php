@@ -18,6 +18,7 @@
     <th>Proprietar</th>
     <th>Autor</th>
     <th>Edit</th>
+    <th></th>
     <th>Delete</th>
 
     <?php foreach ($certificates as $certificate) : ?>
@@ -31,6 +32,7 @@
             <td>
                 <a href="/certificates/edit?id=<?= $certificate['id'] ?>"> Edit</a>
             </td>
+            <td><a href="/certificates/print?id=<?= $certificate['id'] ?>" target="_blank">🖨</a></td>
             <td>
                 <form action="/certificate/delete" method="post">
                     <input type="hidden" name="id" value="<?= $certificate['id'] ?>">

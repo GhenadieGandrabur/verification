@@ -48,10 +48,12 @@ class CertificatesRoutes implements \Main\Routes
             'login' =>  ['GET' => ['controller' => $loginController,'action' => 'loginForm'],
                          'POST' => ['controller' => $loginController,'action' => 'processLogin']],
             
+            'certificates' =>  ['GET' =>  ['controller' => $certificatesController, 'action' => 'list'], 'login' => true],
             'certificates/list' =>  ['GET' =>  ['controller' => $certificatesController, 'action' => 'list'], 'login' => true],
             'certificate/delete' => ['POST' => ['controller' => $certificatesController,'action' => 'delete'],'login' => true ],
             'certificates/edit' =>  ['POST' => ['controller' => $certificatesController, 'action' => 'saveEdit'],
-                                     'GET' =>  ['controller' => $certificatesController,'action' => 'edit' ],'login' => true ],       
+                                     'GET' =>  ['controller' => $certificatesController,'action' => 'edit' ],'login' => true ],
+            'certificates/print' => ['GET' => ['controller' => $certificatesController, 'action' => 'print'], 'login' => true],
                 
             'vehicles/list' =>   [ 'GET' => ['controller' => $vehiclesController, 'action' => 'list'], 'login' => true],
             'vehicles/delete' => ['POST' => ['controller' => $vehiclesController, 'action' => 'delete'], 'login' => true],
