@@ -64,7 +64,7 @@ class Vehicles
 
         $title = 'Edit vehicles';
 
-        return ['template' => 'tyressizeEdit.html.php', 'title' => $title,
+        return ['template' => 'vehiclesEdit.html.php', 'title' => $title,
         'variables' => [ 'vehicle' => $vehicle ?? null ]
         ];
     }

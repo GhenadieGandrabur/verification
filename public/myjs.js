@@ -11,6 +11,9 @@
 function newtyresize() {
     location.href = "/tyres/edit";
 }
+function newtahotype() {
+    location.href = "/tahotype/edit";
+}
     function newauthor() {
         location.href = "/author/register";
 }

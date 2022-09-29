@@ -13,6 +13,7 @@ class CertificatesRoutes implements \Main\Routes
     private $vehiclesOwnersTable;
     private $tahoTable;
     private $tyresTable;
+    private $tahotypeTable;
     
 
     public function __construct()
@@ -21,6 +22,7 @@ class CertificatesRoutes implements \Main\Routes
 
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
+        $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotype', 'id');
         $this->userTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
         $this->vehiclesTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
@@ -33,6 +35,7 @@ class CertificatesRoutes implements \Main\Routes
     {
         $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->authorsTable, $this->authentication);
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
+        $tahotypeController = new \Sitedata\Controllers\Tahotype($this->tahotypeTable);
         $usersController = new \Sitedata\Controllers\Author($this->authorsTable, $this->authentication);       
         $vehiclesController = new \Sitedata\Controllers\Vehicles($this->vehiclesTable);
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
@@ -82,6 +85,11 @@ class CertificatesRoutes implements \Main\Routes
             'tyres/delete' => ['POST' => ['controller' => $tyresController, 'action' => 'delete'], 'login' => true],
             'tyres/edit' =>   ['POST' => ['controller' => $tyresController, 'action' => 'saveEdit'],
                               'GET' => ['controller' => $tyresController, 'action' => 'edit'],'login' => true ],
+                              
+            'tahotype/list' =>   ['GET' =>  ['controller' => $tahotypeController, 'action' => 'list'], 'login' => true],
+            'tahotype/delete' => ['POST' => ['controller' => $tahotypeController, 'action' => 'delete'], 'login' => true],
+            'tahotype/edit' =>   ['POST' => ['controller' => $tahotypeController, 'action' => 'saveEdit'],
+                              'GET' => ['controller' => $tahotypeController, 'action' => 'edit'],'login' => true ],
 
             '' => ['GET' => ['controller' => $certificatesController, 'action' => 'home']]
         ];

@@ -9,7 +9,7 @@
     <div class="col-50"><input name="vehicle[date]" value = "<?=$vehicle["date"]?>"></div>
 
     <div class="col-50"><label for="vehicle">Number</label></div>
-    <div class="col-50"><input id="vehicle" name="vehicle" value = "<?=$vehicle["number"]?>"></div>
+    <div class="col-50"><input id="vehicle" name="vehicle[numberPlate]" value = "<?=$vehicle["numberPlate"]?>"></div>
 
     <div class="col-50"><label for="vehicle[vin]">VIN</label></div>
     <div class="col-50"><input name="vehicle[vin]" value = "<?=$vehicle['vin']?>"></div>

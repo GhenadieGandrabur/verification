@@ -107,7 +107,7 @@ class Certificate
     public function edit()
     {
         $author = $this->authentication->getUser();
-        var_dump($_REQUEST);
+      
 
        if (isset($_GET['id'])) {
             $certificate = $this->certificatesTable->findById($_GET['id']);
