@@ -1,18 +1,20 @@
 <div class="mt">
-<h5>Tachographs type edit</h5>
-<p><button class="button" onclick="newtahotype()">New tahotypegraf</button>  <?= $totalTahotypes ?> types of tachographs in DB</p>
-<table class="forwindow">
-
-    <th>ID</th>
-    <th>Type</th>
-    <th>Recorder type</th> 
-    <th>Edit</th>
-    <th>Delete</th>
-  
-    <tr>
-        <?php foreach ($tahotypes as $tahotype) : ?>
+    <h5>Tachographs type edit</h5>
+    <p><button class="button" onclick="newtahotype()">New tahotype</button> 
+     <?= $totaltahotypes ?> types of tachographs in DB</p>
+    
+    <table class="forwindow">
+        
+        <th>ID</th>
+        <th>Type</th>
+        <th>Recorder type</th> 
+        <th>Edit</th>
+        <th>Delete</th>
+        
+        <tr>
+            <?php foreach($tahotypes as $tahotype) : ?>    
             <td> <?= htmlspecialchars($tahotype['id'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?= htmlspecialchars($tahotype['type'], ENT_QUOTES, 'UTF-8') ?></td>                  
+            <td> <?= htmlspecialchars($tahotype['type'], ENT_QUOTES, 'UTF-8') ?></td>                       
             <td >
             <?php
             if(htmlspecialchars($tahotype['recordertype'], ENT_QUOTES, 'UTF-8') == 0){
@@ -32,6 +34,7 @@
                 </form>
             </td>
     </tr>
+
 <?php endforeach; ?>
 </table>
 </div>

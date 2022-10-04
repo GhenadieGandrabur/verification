@@ -1,8 +1,8 @@
- <div class="lt">
-     <p>Tahograf schinbari</p>
+ <div class="lt ">
+     <h4 class="inputheader">Tahograf schinbari</h4>
      <form action="" method="post">
          <div class="col-50"><label for="id">ID</label></div>
-         <div class="col-50"><input disabled id="id" name="taho[id]" value="<?= $taho['id'] ?? '' ?>"></div>
+         <div class="col-50"><input type="hidden" id="id" name="taho[id]" value="<?= $taho['id'] ?? '' ?>"></div>
 
          <div class="col-50"><label for="taho[modele]">Modele</label></div>
          <div class="col-50"> <select name="taho[modele]">

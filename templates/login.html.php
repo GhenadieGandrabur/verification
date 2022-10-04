@@ -1,10 +1,10 @@
 
+<div class="lt" >
 <?php
 if (isset($error)) :
     echo '<div class="errors">' . $error . '</div>';
 endif;
 ?>
-<div class="lt" >
 <form method="post" action="">
     <div class="login">
         <h3 class="text-center ">Login</h3>

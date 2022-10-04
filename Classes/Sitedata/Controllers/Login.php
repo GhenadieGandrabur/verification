@@ -19,7 +19,7 @@ class Login
     public function processLogin()
     {
         if ($this->authentication->login($_POST['email'], $_POST['password'])) {
-            header('location: /login/success');
+            header('location: /certificates/list');
         } else {
             return [
                 'template' => 'login.html.php',

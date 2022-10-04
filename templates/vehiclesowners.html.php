@@ -1,6 +1,6 @@
 <div class="container">
 <h3>Proprietari de vehicole</h3>
-<p><button class="button"  onclick="myFunction()">New owner</button> <?= $totalVehiclesOwners ?> posesori de camioane</p>
+<p><button class="button"  onclick="newownesr()">New owner</button> <?= $totalVehiclesOwners ?> posesori de camioane</p>
 <p><table class="forwindow"></p>
     <th>ID</th>
     <th>Denumire</th>
@@ -21,7 +21,7 @@
             <td>
                     <form action="/vehiclesowners/delete" method="post">
                         <input type="hidden" name="id" value="<?= $owner['id'] ?>">
-                        <input type="submit" value="Delete">
+                        <input type="submit"  formaction ="/vehiclesowners/delete"   value="Delete">
                     </form>                    
             </td>
     </tr>

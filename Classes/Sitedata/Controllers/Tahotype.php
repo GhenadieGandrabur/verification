@@ -3,76 +3,75 @@
 namespace Sitedata\Controllers;
 use \Main\DatabaseTable;
 
-class Tahotype
-{    
-    private $tahotypeTable;    
 
-    public function __construct(DatabaseTable $tahotypeTable)
+
+class Tahotype
+{  
+    private $tahotypesTable;    
+
+    public function __construct(DatabaseTable $tahotypesTable)
     {
-        $this->tahotypeTable = $tahotypeTable;       
+        $this->tahotypesTable = $tahotypesTable;
+        
     }
 
     public function list()
     {
-        $result = $this->tahotypeTable->findAll();
+        $result = $this->tahotypesTable->findAll();
 
         $tahotypes = [];
         foreach ($result as $tahotype) {
             $tahotypes[] = [
-                'id' => $tahotype['id'],
-                'type' => $tahotype['type'],
-                'recordertype' => $tahotype['recordertype']                
+                'id' => $tahotype['id'],                
+                'type' => $tahotype['type'],             
+                'recordertype' => $tahotype['recordertype']             
             ];
         }
 
+        $title = 'Taho types list';
 
-        $title = 'Tahos type list';
+        $totaltahotypes = $this->tahotypesTable->total();       
 
-        $totalTahotypes = $this->tahotypeTable->total();
         return [
                 'template' => 'tahotype.html.php',
                 'title' => $title,
                 'variables' => [
-                    'totalTahotypes' => $totalTahotypes,
-                    'tahotypes' => $tahotypes                    
+                    'totaltahotypes' => $totaltahotypes,
+                    'tahotypes' => $tahotypes
+                    
                 ]
             ];
-    }    
+    }
 
-    public function delete(){
-    $this->tahotypeTable->delete($_POST['id']);
-    header('location: /tahotype/list');
-}
     
 
-    public function saveEdit()    
-    {    
-        if (isset($_GET['id'])) {
-            $tahotype = $this->tahotypeTable->findById($_GET['id']);           
-        }
-        $tahotype = $_POST['tahotype'];       
+    public function delete()
+    {
+        $this->tahotypesTable->delete($_POST['id']);
 
-        $this->tahotypeTable->save($tahotype);
-
+        header('location: /tahotype/list');
+    }
+    public function saveEdit()
+    {
+     
+        $tahotype = $_POST['tahotype'];
+        $this->tahotypesTable->save($tahotype);
         header('location: /tahotype/list');
     }
 
     public function edit()
     {
-       
+      
+        if (isset($_GET['id'])) {$tahotype = $this->tahotypesTable->findById($_GET['id']);}
 
-        if (isset($_GET['id'])) {
-            $tahotype = $this->tahotypeTable->findById($_GET['id']);
-        }
-
-        $title = 'Edit tahotype';
+        $title = 'Edit tahotypes';
 
         return [
             'template' => 'edittahotype.html.php',
             'title' => $title,
             'variables' => [
                 'tahotype' => $tahotype ?? null
-             
+               
             ]
         ];
     }

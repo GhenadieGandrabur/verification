@@ -1,3 +1,11 @@
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    border: #FFC9A7 1px solid;
+    
+}
 ul.menu {
     list-style-type: none;
     margin: 0;
@@ -100,7 +108,7 @@ label {
 .smart-table tr.selected {
     background: rgba(0, 0, 0, 0.2);
 }
-.inputheader{background-color: #cccccc; text-align: center;}
+.inputheader{border: 1px solid; text-align: center;  padding: 2px;}
 
 .smart-table-hint {
     font-size: 12px;
@@ -144,4 +152,7 @@ label {
 
 .smart-table-hint li {
     margin: 1px 0 1px 14px;
+}
+.errors{
+    color:red; padding: 10px; border: 1px red solid; background-color: yellow; text-align: center;
 }

@@ -2,7 +2,7 @@
 <form action="" method="post">
   <h5>Certificat de verificare
       <label for="certificate[id]" size="2">nr.</label>
-       <input disabled type="text" name="certificate[id]" size ="2" value="<?= $certificate['id'] ?? '' ?>"  >
+       <input type="hidden" name="certificate[id]" size ="2" value="<?= $certificate['id'] ?? '' ?>"  >
     <label for="certificate[date]">din</label>
     <input disabled type="" name="certificate[date]" size="8"  value="<?= date("d.m.Y")  ?? '' ?>" >
 </h5>

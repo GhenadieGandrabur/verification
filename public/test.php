@@ -1,13 +1,26 @@
-<form action="" method="post">
-    <label for="joketext">Type your joke here:
-    </label>
-    <input id="joketext3" name="joketext33" >
-    <input id="joketext2" name="joketext22" >
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+        $result = ['id'=>'1', 'type'=>"1318", "recordertype"=>'2' ];
 
-    <input type="submit" name="submit" value="Add">
-</form>
+         $tahotypes = [];
+         foreach ($result as $tahotype) {
+             $tahotypes[] = [
+                'id' => $tahotype['id'],                
+                'type' => $tahotype['type'],             
+                 'recordertype' => $tahotype['recordertype']             
+                ];
+                
+            }
 
-<?php
-var_dump($_POST[0]);
-echo '<br>';
-var_dump($_POST[1]);
+
+    ?>
+</body>
+</html>

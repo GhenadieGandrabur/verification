@@ -10,21 +10,23 @@
     </ul>
 </div>
 
-<table class="forwindow smart-table" data-controller="certificates">
 
+<table class="forwindow smart-table" data-controller="certificates">
     <th>ID</th>
     <th>Date</th>
     <th>Vehicol</th>
     <th>Proprietar</th>
     <th>Autor</th>
-    <th></th>
+    <th>Print</th>
     <th>Delete</th>
+
+   
 
     <?php foreach ($certificates as $certificate) : ?>
         <tr data-id="<?= $certificate['id'] ?>">
             <td> <?= htmlspecialchars($certificate['id'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?php $date = new DateTime($certificate['date']);
-                echo $date->format('d.m. Y'); ?></td>
+                echo $date->format('d.m. Y H:i:s'); ?></td>
             <td> <?= htmlspecialchars($certificate['vehicle'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($certificate['proprietar'], ENT_QUOTES, 'UTF-8') ?></td>
             <td> <?= htmlspecialchars($certificate['name'], ENT_QUOTES, 'UTF-8') ?></td>

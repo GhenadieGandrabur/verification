@@ -4,6 +4,9 @@
     function newvehicle() {
         location.href = "/vehicles/edit";
 }
+    function newownesr() {
+      location.href = "/vehiclesowners/edit";
+}
     function newtaho() {
         location.href = "/taho/edit";
 }
