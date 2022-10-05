@@ -62,9 +62,9 @@ class Taho
         }
        $title = 'Edit taho';
         return [
-            'template' => 'edittaho.html.php', 'title' => $title,
-            'variables' => ['taho' => $taho ?? null,           
-            ]
+            'template' => 'edittaho.html.php', 
+            'title' => $title,
+            'variables' => ['taho' => $taho ?? null,]
         ];
     }
 }

@@ -2,8 +2,6 @@
 
 namespace Sitedata\Controllers;
 use \Main\DatabaseTable;
-//use \Main\Authentication;
-
 
 class Vehicles
 {
@@ -37,16 +35,11 @@ class Vehicles
         return [
                 'template' => 'vehicles.html.php',
                 'title' => $title,
-                'variables' => 
-                ['totalVehicles' => $totalVehicles, 
-                'vehicles' => $vehicles]];
-    }
-
-   
+                'variables' => ['totalVehicles' => $totalVehicles, 'vehicles' => $vehicles]];
+    }  
 
     public function delete()
     {     
-
         $this->vehiclesTable->delete($_POST['id']);
 
         header('location: /vehicles/list');
@@ -54,11 +47,9 @@ class Vehicles
 
     
     
-    public function saveEdit(){
-
-         
+    public function saveEdit(){         
         $vehicle = $_POST['vehicle'];
-        $vehicle['date'] = new \DateTime();
+      //  $vehicle['date'] = new \DateTime();
         $this->vehiclesTable->save($vehicle);
         header('location: /vehicles/list');
     }
@@ -69,9 +60,10 @@ class Vehicles
 
         $title = 'Edit vehicles';
 
-        return ['template' => 'vehiclesEdit.html.php', 'title' => $title,
-        'variables' => [ 'vehicle' => $vehicle ?? null ]
-        ];
+        return ['template' => 'vehiclesEdit.html.php', 
+                'title' => $title,
+                'variables' => [ 'vehicle' => $vehicle ?? null, ]
+        ];   
     }
     
 }
