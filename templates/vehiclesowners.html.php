@@ -1,7 +1,7 @@
 <div class="container">
 <h3>Proprietari de vehicole</h3>
 <p><button class="button"  onclick="newownesr()">New owner</button> <?= $totalVehiclesOwners ?> posesori de camioane</p>
-<p><table class="forwindow"></p>
+<p><table class="forwindow">
     <th>ID</th>
     <th>Denumire</th>
     <th>Cod fiscal</th>    
@@ -26,5 +26,5 @@
             </td>
     </tr>
 <?php endforeach; ?>
-</table>
+</table></p>
         </div>

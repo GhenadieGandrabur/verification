@@ -8,7 +8,7 @@ class CertificatesRoutes implements \Main\Routes
 {
     private $authorsTable;    
     private $certificatesTable;
-    private $vehiclesTable;
+    private $autoTable;
     private $authentication;
     private $vehiclesOwnersTable;
     private $tahoTable;
@@ -25,7 +25,7 @@ class CertificatesRoutes implements \Main\Routes
         $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotype', 'id');
         $this->userTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
-        $this->vehiclesTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
+        $this->autoTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
         $this->tahoTable = new \Main\DatabaseTable($pdo, 'taho', 'id');
         $this->vehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
         $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
@@ -37,7 +37,7 @@ class CertificatesRoutes implements \Main\Routes
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
         $tahotypeController = new \Sitedata\Controllers\Tahotype($this->tahotypeTable);
         $usersController = new \Sitedata\Controllers\Author($this->authorsTable, $this->authentication);       
-        $vehiclesController = new \Sitedata\Controllers\Vehicles($this->vehiclesTable);
+        $autoController = new \Sitedata\Controllers\Autos($this->autoTable);
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
         $tahoController = new \Sitedata\Controllers\Taho($this->tahoTable);
         $tyresController = new \Sitedata\Controllers\Tyressize($this->tyresTable);
@@ -61,10 +61,10 @@ class CertificatesRoutes implements \Main\Routes
                                      'GET' =>  ['controller' => $certificatesController,'action' => 'edit' ],'login' => true ],
             'certificates/print' => ['GET' => ['controller' => $certificatesController, 'action' => 'print'], 'login' => true],
                 
-            'vehicles/list' =>   [ 'GET' => ['controller' => $vehiclesController, 'action' => 'list'], 'login' => true],
-            'vehicles/delete' => ['POST' => ['controller' => $vehiclesController, 'action' => 'delete'], 'login' => true],
-            'vehicles/edit' =>   ['POST' => ['controller' => $vehiclesController, 'action' => 'saveEdit'],
-                                   'GET' => ['controller' => $vehiclesController, 'action' => 'edit'],'login' => true ],
+            'autos/list' =>   [ 'GET' => ['controller' => $autoController, 'action' => 'list'], 'login' => true],
+            'auto/delete' => ['POST' => ['controller' => $autoController, 'action' => 'delete'], 'login' => true],
+            'auto/edit' =>   ['POST' => ['controller' => $autoController, 'action' => 'saveEdit'],
+                                   'GET' => ['controller' => $autoController, 'action' => 'edit'],'login' => true ],
 
             'vehiclesowners/list' =>   ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'list'], 'login' => true],
             'vehiclesowners/delete' => ['POST' =>  ['controller' => $vehiclesOwnersController, 'action' => 'delete'], 'login' => true],

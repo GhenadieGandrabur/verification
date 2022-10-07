@@ -1,5 +1,5 @@
- <div class="lt ">
-     <h4 class="inputheader">Tahograf schinbari</h4>
+ <div class="lt forform">
+     <h3>Tahograf schinbari</h3>
      <form action="" method="post">
          <div class="col-50"><label for="id">ID</label></div>
          <div class="col-50"><input type="hidden" id="id" name="taho[id]" value="<?= $taho['id'] ?? '' ?>"></div>

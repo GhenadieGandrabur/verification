@@ -38,7 +38,7 @@ ul.menu li a:hover {
 
 
 
-tr:hover{background-color: #999999;}
+tr:hover{background-color: yellow;color: blue;}
 table,th,td,tr { border: 1px solid black;  border-collapse: collapse;}
 
 
@@ -49,7 +49,8 @@ label {
 }
 
 
-.col-50 { float: left; width: 50%;   margin-bottom: 6px; }
+.col-75 { float: left; width: 50%;   margin-bottom: 6px; }
+.col-25 { float: left; width: 50%;   margin-bottom: 0px; text-align: right; padding-right: 50px;}
 
 
   footer {
@@ -73,13 +74,7 @@ label {
     width:auto;
    }
 
-   input[type="submit"] {
-
-       width: auto;
-       clear: both;
-       font-size: 16px;
-
-   }
+ 
 
 
    .button{
@@ -95,11 +90,40 @@ label {
    legend{text-align: center; background-color: #FFC9A7;}
 
   /*little table*/
-   .lt{width:25%; margin: auto; padding-top: 20px; }
+   .lt{width:25%; margin: auto; padding-top: 20px;  }
   /*medium table*/
    .mt{width:50%; margin: auto; }
 
-.smart-table {}
+   input,
+   select {
+       width: 100%;
+       padding: 2px 2px;
+       margin: 8px 0;
+       display: inline-block;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       box-sizing: border-box;
+   }
+
+   .forform {
+       border-radius: 5px;
+       background-color: #f2f2f2;
+       padding: 20px;
+       margin-top: 20px;
+   }
+
+    input[type=submit] {
+            width: 50%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 4px 2px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
 
 .smart-table tr:not(.selected):hover {
     background: rgba(0, 0, 0, 0.05);
@@ -156,3 +180,4 @@ label {
 .errors{
     color:red; padding: 10px; border: 1px red solid; background-color: yellow; text-align: center;
 }
+
