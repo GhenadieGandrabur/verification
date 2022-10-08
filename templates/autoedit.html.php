@@ -3,14 +3,14 @@
     
 
         <h3>Editare autovehicol</h3>
-   <form>   
+   <form action="" method="POST">   
  
             <label   for="id">ID</label>
             <input  id="id" name = "auto[id]" value="<?=$auto['id']?>">
         
         
             <label  for="number">Number</label>
-              <input  id="number" name = "auto[numberplate]" value="<?=$auto['numberplate']?>">
+            <input  id="number" name = 'auto[numberplate]' value="<?=$auto['numberplate']?>">
         
         
             <label  for="owner">Owner</label>
@@ -19,7 +19,7 @@
             
             
             <label  for="submit"></label>
-         <input  id="submit" type="submit" value=" Save ">
+            <input  id="submit" type="submit" value=" Save ">
        
   
     

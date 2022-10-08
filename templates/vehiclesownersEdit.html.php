@@ -1,24 +1,23 @@
- <div class="lt"> 
-  <h3 class="inputheader">Proprietatii edit</h3>
+ <div class="lt forform"> 
+  <h3>Proprietatii edit</h3>
   <form action="" method="post">   
-      <div class="col-50"><label for="id">ID</label></div> 
-      <div class="col-50"><input id="id" type=""  name="owner[id]" value="<?= $owner['id'] ?? '' ?>"></div>
+      <label for="id">ID</label> 
+      <input id="id" type=""  name="owner[id]" value="<?= $owner['id'] ?? '' ?>">
 
-      <div class="col-50"><label for="owner[name]">Name</label></div>
-      <div class="col-50"><input name="owner[name]" value="<?= $owner['name'] ?? '' ?>"></div>
+      <label for="owner[name]">Name</label>
+      <input name="owner[name]" value="<?= $owner['name'] ?? '' ?>">
 
-      <div class="col-50"><label for="owner[codfiscal]">Codfiscal</label></div>
-      <div class="col-50"><input name="owner[codfiscal]" value ="<?= $owner['codfiscal'] ?? '' ?>"></div>
+      <label for="owner[codfiscal]">Codfiscal</label>
+      <input name="owner[codfiscal]" value ="<?= $owner['codfiscal'] ?? '' ?>">
 
-      <div class="col-50"><label for="owner[note]">Note</label></div>
-      <div class="col-50"><input name="owner[note]" value ="<?= $owner['note'] ?? '' ?>"></div>
+      <label for="owner[note]">Note</label>
+      <input name="owner[note]" value ="<?= $owner['note'] ?? '' ?>">
 
-      <div class="col-50"><input type="submit" name="submit" value="Save">
+      <input type="submit" name="submit" value="Save">
       
-      <input type="submit" formtarget="/vehiclesowners/list"    value="Inapoi">
-      <input type="submit" formtarget="/vehiclesowners/delete"    value="Delete"></div>
+      
     </form>
-    <hr>
+    
       
   
- </div>
+ 

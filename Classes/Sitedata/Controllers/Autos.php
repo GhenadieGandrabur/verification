@@ -39,17 +39,14 @@ class Autos
                 'variables' => ['totalautos' => $totalautos, 'autos' => $autos]
             ];
     }
-
-   
-
     public function delete()
     {
         $this->autoTable->delete($_POST['id']);
         header('location: /autos/list');
     }
 
-    public function saveEdit()
-    {         
+  public function saveEdit()
+    {      
         $auto = $_POST['auto'];       
         $this->autoTable->save($auto);
         header('location: /autos/list');
@@ -57,13 +54,16 @@ class Autos
 
     public function edit()
     {
-        if (isset($_GET['id'])) { $auto = $this->autoTable->findById($_GET['id']);
+      if (isset($_GET['id']))
+      
+         {
+             $auto = $this->autoTable->findById($_GET['id']);
         }
        $title = 'Edit auto';
         return [
             'template' => 'autoedit.html.php', 
             'title' => $title,
-            'variables' => ['auto' => $auto ?? null]
+            'variables' => ['auto' => $auto ??  null]
         ];
     }
 }
