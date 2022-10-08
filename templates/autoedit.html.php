@@ -1,8 +1,8 @@
 <br>
-<div class="lt forform">
-    
+<div class="lt forform">    
 
-        <h3>Editare autovehicol</h3>
+        <h3><?=$auto['hed']?></h3>
+
    <form action="" method="POST">   
  
             <label   for="id">ID</label>
@@ -19,9 +19,7 @@
             
             
             <label  for="submit"></label>
-            <input  id="submit" type="submit" value=" Save ">
-       
-  
+            <input  id="submit" type="submit" value=" Save "> 
     
-</form>
+  </form>
 </div>
