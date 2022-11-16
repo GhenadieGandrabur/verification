@@ -1,13 +1,13 @@
-<h5 style="text-align:center">Certificate de verificare a tahografului</h5>
-
+<h2 style="text-align:center">Certificate de verificare a tahografului</h2>
 <div class="d-flex justify-content-between">
-    <p><a class="button" href="/certificates/edit">New certificate</a> <?= $totalCertificates ?> certificate in BD</p>
+    <p style="display:inline"><a class="button" href="/certificates/edit">New certificate</a> <?= $totalCertificates ?> certificate in BD
 
-    <ul class="smart-table-hint">
+    <ul style="float:right" class="smart-table-hint">
         <li><kbd>↑</kbd> - previous row</li>
         <li><kbd>↓</kbd> - next row</li>
         <li><kbd>i</kbd> - edit selected row</li>
     </ul>
+    </p>
 </div>
 
 
@@ -54,3 +54,4 @@
 
     document.querySelectorAll('.smart-table').forEach(table => new SmartTable(table));
 </script>
+</div>

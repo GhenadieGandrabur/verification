@@ -55,15 +55,13 @@ class Autos
     public function edit()
     {
       if (isset($_GET['id'])){$auto = $this->autoTable->findById($_GET['id']);
-         $auto['hed'] = 'Edit auto';    
-    }else{
-           $auto['hed'] = 'Add an auto'; 
     }
+    
     $title = "Auto edit";
         return [
             'template' => 'autoedit.html.php', 
             'title' => $title,
-            'variables' => ['auto' => $auto ??  null]
+            'variables' => ['auto' => $auto ??  [] ]
         ];
     }
 }

@@ -25,7 +25,7 @@ class CertificatesRoutes implements \Main\Routes
         $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotype', 'id');
         $this->userTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
-        $this->autoTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
+        $this->autoTable = new \Main\DatabaseTable($pdo, 'ts', 'id');
         $this->tahoTable = new \Main\DatabaseTable($pdo, 'taho', 'id');
         $this->vehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
         $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
@@ -33,7 +33,8 @@ class CertificatesRoutes implements \Main\Routes
 
     public function getRoutes(): array
     {
-        $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->authorsTable, $this->authentication);
+        $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, 
+        $this->authorsTable, $this->authentication, $this->autoTable);
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
         $tahotypeController = new \Sitedata\Controllers\Tahotype($this->tahotypeTable);
         $usersController = new \Sitedata\Controllers\Author($this->authorsTable, $this->authentication);       

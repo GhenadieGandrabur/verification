@@ -10,12 +10,25 @@ class Certificate
     private $holderTable;
     private $certificatesTable;
     private $authentication;
+    private $numarcamion;
 
-    public function __construct(DatabaseTable $certificatesTable, DatabaseTable $holderTable, Authentication $authentication)
+    public function __construct(DatabaseTable $certificatesTable, DatabaseTable $holderTable, Authentication $authentication, DatabaseTable $numarcamion)
     {
         $this->certificatesTable = $certificatesTable;
         $this->holderTable = $holderTable;
         $this->authentication = $authentication;
+        $this->numarcamion = $numarcamion;
+    }
+
+    public function camionlist(){
+        $rezultat = $this->numarcamion->findAll();
+        $camioane = [];
+        foreach($rezultat as $camion){
+            $camioane[] = [
+                'numberplate'=> $camion['numberplate']
+            ];
+        }
+
     }
 
     public function list()
@@ -129,6 +142,8 @@ class Certificate
     {
         $author = $this->authentication->getUser();
 
+        $autos = $this->numarcamion->findAll();
+
         if (isset($_GET['id'])) {
             $certificate = $this->certificatesTable->findById($_GET['id']);
         }
@@ -146,7 +161,8 @@ class Certificate
             'title' => $title,
             'variables' => [
                 'certificate' => $certificate ?? null,
-                'userId' => $author['id'] ?? null
+                'userId' => $author['id'] ?? null,
+                'autos' => $autos ?? null
             ]
         ];
     }

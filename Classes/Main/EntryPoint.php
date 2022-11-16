@@ -2,6 +2,8 @@
 
 namespace Main;
 
+use Sitedata\Controllers\Login;
+
 class  EntryPoint
 {
     private $route;
@@ -56,12 +58,14 @@ class  EntryPoint
             } else {
                 $output = $this->loadTemplate($page['template']);
             }
+            
+                echo $this->loadTemplate($layout . '.html.php', [
+                    'loggedIn' => $authentication->isLoggedIn(),
+                    'output' => $output,
+                    'title' => $title 
 
-            echo $this->loadTemplate($layout . '.html.php', [
-                'loggedIn' => $authentication->isLoggedIn(),
-                'output' => $output,
-                'title' => $title
-            ]);
+                ]);
+           
         }
     }
 }

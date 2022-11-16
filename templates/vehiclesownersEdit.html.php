@@ -4,14 +4,14 @@
       <label for="id">ID</label> 
       <input id="id" type=""  name="owner[id]" value="<?= $owner['id'] ?? '' ?>">
 
-      <label for="owner[name]">Name</label>
-      <input name="owner[name]" value="<?= $owner['name'] ?? '' ?>">
+      <label for="name">Name</label>
+      <input id = "name" name="owner[name]" value="<?= $owner['name'] ?? '' ?>">
 
-      <label for="owner[codfiscal]">Codfiscal</label>
-      <input name="owner[codfiscal]" value ="<?= $owner['codfiscal'] ?? '' ?>">
+      <label for="codfiscal">Codfiscal</label>
+      <input id="codfiscal" name="owner[codfiscal]" value ="<?= $owner['codfiscal'] ?? '' ?>">
 
-      <label for="owner[note]">Note</label>
-      <input name="owner[note]" value ="<?= $owner['note'] ?? '' ?>">
+      <label for="note">Note</label>
+      <input id="note" name="owner[note]" value ="<?= $owner['note'] ?? '' ?>">
 
       <input type="submit" name="submit" value="Save">
       

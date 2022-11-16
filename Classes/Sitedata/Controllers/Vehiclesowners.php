@@ -3,7 +3,7 @@
 namespace Sitedata\Controllers;
 
 use \Main\DatabaseTable;
-//use \Main\Authentication;
+
 
 
 class VehiclesOwners
@@ -24,7 +24,7 @@ class VehiclesOwners
 
         $owners = [];
         foreach ($result as $owner) {
-           // $author = $this->authorsTable->findById($joke['authorId']);
+         
 
             $owners[] = [
                 'id' => $owner['id'],
@@ -58,7 +58,7 @@ class VehiclesOwners
     }
     public function saveEdit()
     {
-        //if (isset($_GET['id'])) {$owner = $this->vehiclesownersTable->findById($_GET['id']);}
+    
         $owner = $_POST['owner'];
         $this->vehiclesownersTable->save($owner);
         header('location: /vehiclesowners/list');
@@ -66,7 +66,7 @@ class VehiclesOwners
 
     public function edit()
     {
-       // $author = $this->authentication->getUser();
+       
 
         if (isset($_GET['id'])) {$owner = $this->vehiclesownersTable->findById($_GET['id']);}
 
@@ -77,7 +77,7 @@ class VehiclesOwners
             'title' => $title,
             'variables' => [
                 'owner' =>  $owner  ?? null
-               // 'userId' => $author['id'] ?? null
+            
             ]
         ];
     }
