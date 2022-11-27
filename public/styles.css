@@ -32,26 +32,14 @@ ul.menu li a {
 ul.menu li a:hover {
     color:#000000; font-weight: bold;}
 
-.forwindow  {width: 100%;}
-.forwindow th{padding:10px 16px; background-color:#cccccc; color:#000000;border: 1px #000000 solid; text-align: center;}
-.forwindow td{border: 1px #000000 solid; padding-left: 10px;}
+
+table,th ,td{border: 1px solid #ccc; border-collapse: collapse;}
+.fortable th{padding:10px 16px; background-color:#cccccc; color:#000000; text-align: center; border: 1px solid #666;}
+.fortable td{  border: 1px solid #ccc; padding: 10px 10px;}
+.fortable tr:hover{background-color: yellow;color: blue;}
 
 
 
-
-tr:hover{background-color: yellow;color: blue;}
-table,th,td,tr { border: 1px solid black;  border-collapse: collapse;}
-
-
-
-label {
-
-    display: inline-block;
-}
-
-
-.col-75 { float: left; width: 50%;   margin-bottom: 6px; }
-.col-25 { float: left; width: 50%;   margin-bottom: 0px; text-align: right; padding-right: 50px;}
 
 
   footer {
@@ -70,58 +58,13 @@ label {
    }
 
 
-label{width: 200px;}
-   
 
- 
-
-
-   .button{
-    border-radius: 5px;
-    border: 2px #cccccc solid;
-    background-color: #cccccc;
-    padding: 10px 16px;
-    color: #000;
-    cursor: default;
-    text-decoration: none;
-   }
-   .button:hover{background-color: green;color: #f2f2f2;}
-   legend{text-align: center; background-color: #FFC9A7;}
-
-  /*little table*/
-   .lt{width:20%; margin: auto; padding-top: 20px;  }
-  /*medium table*/
-   .mt{width:50%; margin: auto; }
-
-   input,
-   select {
-       
-       padding: 6px 12px;
-       margin: 8px 0;
-     
-   }
 
    
 
-   .forform {
-       border-radius: 5px;
-       background-color: #f2f2f2;
-       padding: 20px;
-       margin-top: 20px;
-   }
+   
 
-    input[type=submit] {
-            
-            background-color: #4CAF50;
-            color: white;
-            padding:  14px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    label{font-weight: bold; color: #000000;}
-
+   
 
 
 .smart-table tr:not(.selected):hover {
@@ -180,9 +123,7 @@ label{width: 200px;}
     color:red; padding: 10px; border: 1px red solid; background-color: yellow; text-align: center;
 }
 
-* {
-    box-sizing: border-box;
-}
+
 
 .row::after {
     content: "";
@@ -406,25 +347,5 @@ li {
     font-size: 18px;
 }
 
-.wordtable td,
-th {
-    border: 1px #ccc solid;
-}
 
-.wordtable {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.wordtable td {
-    text-align: left;
-    padding: 8px 16px;
-    vertical-align: top;
-}
-
-.wordtable th {
-    padding: 15px;
-    text-align: center;
-    background-color: #cccccc;
-}
 

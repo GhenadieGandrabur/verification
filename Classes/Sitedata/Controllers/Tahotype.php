@@ -23,12 +23,12 @@ class Tahotype
         foreach ($result as $tahotype) {
             $tahotypes[] = [
                 'id' => $tahotype['id'],                
-                'type' => $tahotype['type'],             
+                'typetaho' => $tahotype['typetaho'],             
                 'recordertype' => $tahotype['recordertype']             
             ];
         }
 
-        $title = 'Taho types list';
+        $title = 'Types of tahos';
 
         $totaltahotypes = $this->tahotypesTable->total();       
 
@@ -67,7 +67,7 @@ class Tahotype
         $title = 'Edit tahotypes';
 
         return [
-            'template' => 'edittahotype.html.php',
+            'template' => 'tahotypeEdit.html.php',
             'title' => $title,
             'variables' => [
                 'tahotype' => $tahotype ?? null

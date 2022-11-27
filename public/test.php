@@ -1,26 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php
-        $result = ['id'=>'1', 'type'=>"1318", "recordertype"=>'2' ];
+<?php
 
-         $tahotypes = [];
-         foreach ($result as $tahotype) {
-             $tahotypes[] = [
-                'id' => $tahotype['id'],                
-                'type' => $tahotype['type'],             
-                 'recordertype' => $tahotype['recordertype']             
-                ];
-                
-            }
+include __DIR__ . '/../includes/DatabaseConnection.php';
+include   __DIR__ . '/../classes/Main/DatabaseTable.php';
+include   __DIR__ . '/../classes/Sitedata/Entity/Taho.php';
 
+$tahosTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
 
-    ?>
-</body>
-</html>
+$type = new \Sitedata\Entity\Taho($tahosTable);
+
+$type->id = 2;
+
+$tahos = $type->getTahos();
+
+foreach($tahos as $tah){
+    echo $tah-> tahonumber."<br>";
+}

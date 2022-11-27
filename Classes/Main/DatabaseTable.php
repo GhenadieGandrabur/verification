@@ -7,13 +7,16 @@ class DatabaseTable
     private $pdo;
     private $table;
     private $primaryKey;
+    private $className;
+	private $constructorArgs;
 
-    public function __construct(\PDO $pdo, string $table, string $primaryKey)
-    {
-        $this->pdo = $pdo;
-        $this->table = $table;
-        $this->primaryKey = $primaryKey;
-    }
+	public function __construct(\PDO $pdo, string $table, string $primaryKey, string $className = '\stdClass', array $constructorArgs = []) {
+		$this->pdo = $pdo;
+		$this->table = $table;
+		$this->primaryKey = $primaryKey;
+		$this->className = $className;
+		$this->constructorArgs = $constructorArgs;
+	}
 
     private function query($sql, $parameters = [])
     {
@@ -40,19 +43,17 @@ class DatabaseTable
         return $query->fetch();
     }
 
-    public function find($column, $value)
-    {
-        $query = 'SELECT * FROM ' . $this->table . ' WHERE ' .
-        $column . ' = :value';
+    public function find($column, $value) {
+		$query = 'SELECT * FROM ' . $this->table . ' WHERE ' . $column . ' = :value';
 
-        $parameters = [
-            'value' => $value
-        ];
+		$parameters = [
+			'value' => $value
+		];
 
-        $query = $this->query($query, $parameters);
+		$query = $this->query($query, $parameters);
 
-        return $query->fetchAll();
-    }
+		return $query->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
+	}
 
 
     private function insert($fields)

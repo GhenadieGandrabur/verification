@@ -25,9 +25,9 @@ class Taho
 
             $tahos[] = [
                 'id' => $taho['id'],
-                'modele' => $taho['modele'],
-                'type' => $taho['type'],
-                'number' => $taho['number']                
+                'tahonumber' => $taho['tahonumber'],
+                'tahotypeId' => $taho['tahotypeId']
+                             
             ];
         }
 
@@ -62,7 +62,7 @@ class Taho
         }
        $title = 'Edit taho';
         return [
-            'template' => 'edittaho.html.php', 
+            'template' => 'tahoEdit.html.php', 
             'title' => $title,
             'variables' => ['taho' => $taho ?? null,]
         ];

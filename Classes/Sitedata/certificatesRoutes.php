@@ -22,11 +22,11 @@ class CertificatesRoutes implements \Main\Routes
 
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
-        $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotype', 'id');
+        $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotypes', 'id');
         $this->userTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
         $this->autoTable = new \Main\DatabaseTable($pdo, 'ts', 'id');
-        $this->tahoTable = new \Main\DatabaseTable($pdo, 'taho', 'id');
+        $this->tahoTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
         $this->vehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
         $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
     }
