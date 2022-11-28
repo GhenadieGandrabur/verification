@@ -72,7 +72,7 @@ class Certificate
             'variables' => [
             'totalCertificates' => $totalCertificates,
             'certificates' => $certificates,
-            'userId' => $holder['id'] ?? null
+            'userId' => $holder->id ?? null
             ]
         ];
     }

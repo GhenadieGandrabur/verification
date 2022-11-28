@@ -22,11 +22,11 @@ class Taho
 
         $tahos = [];
         foreach ($result as $taho) {        
-
+        
             $tahos[] = [
-                'id' => $taho['id'],
-                'tahonumber' => $taho['tahonumber'],
-                'tahotypeId' => $taho['tahotypeId']
+                'id' => $taho->id,
+                'tahonumber' => $taho->tahonumber,
+                'tahotypeId' => $taho->tahotypeId
                              
             ];
         }
@@ -39,9 +39,7 @@ class Taho
                 'template' => 'taho.html.php', 'title' => $title,
                 'variables' => ['totaltaho' => $totaltaho, 'tahos' => $tahos]
             ];
-    }
-
-   
+    }   
 
     public function delete()
     {
@@ -53,6 +51,7 @@ class Taho
     {         
         $taho = $_POST['taho'];       
         $this->tahoTable->save($taho);
+    
         header('location: /taho/list');
     }
 

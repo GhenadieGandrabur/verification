@@ -1,4 +1,6 @@
-<h2 style="text-align:center">Certificate de verificare a tahografului</h2>
+<div class="row">
+<div class="col-12 col-s-12">
+<h2>Certificate de verificare a tahografului</h2>
 <div class="d-flex justify-content-between">
     <p style="display:inline"><a class="button" href="/certificates/edit">New certificate</a> <?= $totalCertificates ?> certificate in BD
 
@@ -11,7 +13,7 @@
 </div>
 
 
-<table class="forwindow smart-table" data-controller="certificates">
+<table width="100%" class="fortable smart-table" data-controller="certificates">
     <th>ID</th>
     <th>Date</th>
     <th>Vehicol</th>
@@ -39,6 +41,9 @@
         </tr>
     <?php endforeach; ?>
 </table>
+</div>
+</div>
+</div>
 
 <script>
     window.addEventListener('keydown', function (event) {
@@ -54,4 +59,3 @@
 
     document.querySelectorAll('.smart-table').forEach(table => new SmartTable(table));
 </script>
-</div>

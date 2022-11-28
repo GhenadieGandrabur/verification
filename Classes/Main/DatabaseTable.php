@@ -116,7 +116,7 @@ class DatabaseTable
     {
         $result = $this->query('SELECT * FROM ' . $this->table);
 
-        return $result->fetchAll();
+        return $result->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
     }
 
     private function processDates($fields)

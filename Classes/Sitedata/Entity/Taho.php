@@ -21,7 +21,11 @@ class Taho
     $taho['tahotypeId'] = $this->id;
 
     $this->tahosTable->save($taho);
-}
+    }
 
+    public function getTahoType(){
+        return $this->tahosTable->findAll();
+    }
+    
 
 }

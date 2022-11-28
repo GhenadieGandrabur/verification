@@ -22,9 +22,9 @@ class Tahotype
         $tahotypes = [];
         foreach ($result as $tahotype) {
             $tahotypes[] = [
-                'id' => $tahotype['id'],                
-                'typetaho' => $tahotype['typetaho'],             
-                'recordertype' => $tahotype['recordertype']             
+                'id' => $tahotype->id,                
+                'typetaho' => $tahotype->typetaho,             
+                'recordertype' => $tahotype->recordertype            
             ];
         }
 

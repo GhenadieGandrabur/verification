@@ -21,7 +21,7 @@ class CertificatesRoutes implements \Main\Routes
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
-        $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');
+        $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id', '\Ijdb\Entity\Author', [$this->jokesTable]);        
         $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotypes', 'id');
         $this->userTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
