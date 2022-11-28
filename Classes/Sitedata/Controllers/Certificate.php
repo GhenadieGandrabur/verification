@@ -37,26 +37,27 @@ class Certificate
 
         $certificates = [];
         foreach ($result as $certificate) {
-            $holder = $this->holderTable->findById($certificate['authorId']);
+
+           $holder = $this->holderTable->findById($certificate->authorId);
 
             $certificates[] = [
-                'id' => $certificate['id'],
-                'date' => $certificate['date'],
-                'vehicle' => $certificate['vehicle'],
-                'proprietar' => $certificate['proprietar'],
-                'k_vechi' => $certificate['k_vechi'],
-                'k_nou' => $certificate['k_nou'],
-                'k_nou' => $certificate['k_nou'],
-                'k_nou' => $certificate['w_nou'],
-                'k_nou' => $certificate['w_nou'],
-                'odometrupina' => $certificate['odometrupina'],
-                'odometrudupa' => $certificate['odometrudupa'],
-                'lungimeacircomferentii' => $certificate['lungimeacircomferentii'],
-                'limitatordeviteza' => $certificate['limitatordeviteza'],
-                'valabilitate' => $certificate['valabilitate'],
-                'baterea' => $certificate['baterea'],
-                'authorId' => $holder['id'],
-                'name' => $holder['name']
+                'id' => $certificate->id,
+                'date' => $certificate->date,
+                'vehicle' => $certificate->vehicle,
+                'proprietar' => $certificate->proprietar,
+                'k_vechi' => $certificate->k_vechi,
+                'k_nou' => $certificate->k_nou,
+                'k_nou' => $certificate->k_nou,
+                'k_nou' => $certificate->w_nou,
+                'k_nou' => $certificate->w_nou,
+                'odometrupina' => $certificate->odometrupina,
+                'odometrudupa' => $certificate->odometrudupa,
+                'lungimeacircomferentii' => $certificate->lungimeacircomferentii,
+                'limitatordeviteza' => $certificate->limitatordeviteza,
+                'valabilitate' => $certificate->valabilitate,
+                'baterea' => $certificate->baterea,
+                'authorId' => $holder->id,
+                'name' => $holder->name
             ];
         }
 

@@ -7,6 +7,7 @@ use Main\Authentication;
 class CertificatesRoutes implements \Main\Routes
 {
     private $authorsTable;    
+    private $usersTable;    
     private $certificatesTable;
     private $autoTable;
     private $authentication;
@@ -21,9 +22,9 @@ class CertificatesRoutes implements \Main\Routes
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
-        $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id', '\Ijdb\Entity\Author', [$this->jokesTable]);        
+        $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id', '\Sitedata\Entity\Author', [$this->certificatesTable]);        
         $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotypes', 'id');
-        $this->userTable = new \Main\DatabaseTable($pdo, 'author', 'id');
+        $this->usersTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
         $this->autoTable = new \Main\DatabaseTable($pdo, 'ts', 'id');
         $this->tahoTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
@@ -37,7 +38,7 @@ class CertificatesRoutes implements \Main\Routes
         $this->authorsTable, $this->authentication, $this->autoTable);
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
         $tahotypeController = new \Sitedata\Controllers\Tahotype($this->tahotypeTable);
-        $usersController = new \Sitedata\Controllers\Author($this->authorsTable, $this->authentication);       
+        $usersController = new \Sitedata\Controllers\Author($this->usersTable, $this->authentication);       
         $autoController = new \Sitedata\Controllers\Autos($this->autoTable);
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
         $tahoController = new \Sitedata\Controllers\Taho($this->tahoTable);
