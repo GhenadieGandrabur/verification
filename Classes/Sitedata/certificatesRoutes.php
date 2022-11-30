@@ -22,8 +22,8 @@ class CertificatesRoutes implements \Main\Routes
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
-        $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id', '\Sitedata\Entity\Author', [$this->certificatesTable]);        
-        $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotypes', 'id');
+        $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');        
+        $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotypes', 'id', '\Sitedata\Entity\Tahograf', [$this->tahotypeTable]);
         $this->usersTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
         $this->autoTable = new \Main\DatabaseTable($pdo, 'ts', 'id');
@@ -41,7 +41,7 @@ class CertificatesRoutes implements \Main\Routes
         $usersController = new \Sitedata\Controllers\Author($this->usersTable, $this->authentication);       
         $autoController = new \Sitedata\Controllers\Autos($this->autoTable);
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
-        $tahoController = new \Sitedata\Controllers\Taho($this->tahoTable);
+        $tahoController = new \Sitedata\Controllers\Taho($this->tahoTable, $this->tahotypeTable);
         $tyresController = new \Sitedata\Controllers\Tyressize($this->tyresTable);
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
 

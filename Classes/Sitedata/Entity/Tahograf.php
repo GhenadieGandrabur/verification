@@ -1,7 +1,7 @@
 <?php
 namespace Sitedata\Entity;
 
-class Taho
+class Tahograf
 {
     public $id;
    
@@ -16,16 +16,12 @@ class Taho
     {
         return $this->tahosTable->find('tahotypeId', $this->id);
     }
+
+
     public function addTaho($taho) {
 
-    $taho['tahotypeId'] = $this->id;
+        $taho['tahotypeId'] = $this->id;
 
-    $this->tahosTable->save($taho);
+        $this->jokesTable->save($taho);
     }
-
-    public function getTahoType(){
-        return $this->tahosTable->findAll();
-    }
-    
-
 }

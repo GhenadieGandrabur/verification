@@ -2,18 +2,16 @@
 
 include __DIR__ . '/../includes/DatabaseConnection.php';
 include   __DIR__ . '/../classes/Main/DatabaseTable.php';
-include   __DIR__ . '/../classes/Sitedata/Entity/Taho.php';
+include   __DIR__ . '/../classes/Sitedata/Entity/Tahograf.php';
 
-$tahosTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
+$tahosTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
 
+$tahotype = new \Sitedata\Entity\Tahograf($tahosTable);
 
-$type = new \Sitedata\Entity\Taho($tahosTable);
+$tahotype->id = 6;
 
+$tahos = $tahotype->getTahos();
 
-
-$tahos = $type->getTahoType();
-                
-
-foreach($tahos as $tah){
-    echo $tah->vehicle."<br>";
+foreach($tahos as $taho){
+    echo $taho->tahonumber."<br>";
 }

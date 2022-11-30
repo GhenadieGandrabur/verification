@@ -4,11 +4,11 @@
 <div class="forminput">
     <h3>Tahograf schinbari</h3>
     <form action="" method="post">         
-        <input type="hidden" id="id" name="taho[id]" value="<?= $taho['id'] ?? '' ?>">                            
+        <input type="hidden" id="id" name="taho[id]" value="<?= $taho->id  ?? '' ?>">                            
         <label for="taho[tahonumber]">Taho number</label>
-        <input name="taho[tahonumber]" value="<?= $taho['tahonumber'] ?? '' ?>">                            
+        <input name="taho[tahonumber]" value="<?= $taho->tahonumber  ?? '' ?>">                            
         <label for="taho[tahotypeId]">Type taho</label>
-        <input name="taho[tahotypeId]" value="<?= $taho['tahotypeId'] ?? '' ?>">                           
+        <input name="taho[tahotypeId]" value="<?= $taho->tahotypeId  ?? '' ?>">                           
         <input type="submit" value="save">                           
     </form>
 </div>

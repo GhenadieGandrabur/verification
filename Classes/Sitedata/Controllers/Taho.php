@@ -9,10 +9,12 @@ class Taho
 {
     
     private $tahoTable;
+    private $tahotypeTable;
     
-    public function __construct(DatabaseTable $tahoTable)
+    public function __construct(DatabaseTable $tahoTable, DatabaseTable $tahotypeTable)
     {
         $this->tahoTable = $tahoTable;
+        $this->tahotypeTable = $tahotypeTable;
        
     }
 
@@ -49,10 +51,15 @@ class Taho
 
     public function saveEdit()
     {         
-        $taho = $_POST['taho'];       
-        $this->tahoTable->save($taho);
-    
-        header('location: /taho/list');
+        $tahotypeObject = $this->tahotypetable->findById($_POST['id']);
+
+         $taho = $_POST['taho'];
+         
+
+         $tahotypeObject->addTaho($taho);
+
+         header('location: /joke/list');
+
     }
 
     public function edit()
