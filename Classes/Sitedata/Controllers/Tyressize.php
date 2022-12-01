@@ -18,15 +18,10 @@ class Tyressize
 
     public function list()
     {
-        $result = $this->tyreTable->findAll();
+                 
+        $tyres = $this->tyreTable->findAll();
 
-        $tyres = [];
-        foreach ($result as $tyre) {
-            $tyres[] = [
-                'id' => $tyre['id'],
-                'size' => $tyre['size']                              
-            ];
-        }
+    
 
         $title = 'Tyres size';
 

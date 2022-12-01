@@ -12,15 +12,15 @@
     <th>Delete</th>
     <tr>
         <?php foreach ($tahos as $taho) : ?>
-            <td> <?= $taho['id']?></td>
-            <td> <?= $taho['tahonumber']?></td>            
-            <td> <?= $taho['tahotypeId']?></td>
+            <td> <?= $taho ->id ?></td>
+            <td> <?= $taho->tahonumber ?></td>            
+            <td> <?= $taho->tahotypeId ?></td>
             <td>
-                <a href="/taho/edit?id=<?= $taho['id'] ?>"> Edit</a>
+                <a href="/taho/edit?id=<?= $taho->id  ?>"> Edit</a>
             </td>
             <td>
                 <form action="/taho/delete" method="post">
-                    <input type="hidden" name="id" value="<?= $taho['id'] ?>">
+                    <input type="hidden" name="id" value="<?= $taho->id  ?>">
                     <input type="submit" value="X">
                 </form>
             </td>

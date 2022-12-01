@@ -20,18 +20,9 @@ class Taho
 
     public function list()
     {
-        $result = $this->tahoTable->findAll();
+        $tahos = $this->tahoTable->findAll();
 
-        $tahos = [];
-        foreach ($result as $taho) {        
-        
-            $tahos[] = [
-                'id' => $taho->id,
-                'tahonumber' => $taho->tahonumber,
-                'tahotypeId' => $taho->tahotypeId
-                             
-            ];
-        }
+       
 
         $title = 'tahografe';
 
@@ -51,7 +42,7 @@ class Taho
 
     public function saveEdit()
     {         
-        $tahotypeObject = $this->tahotypetable->findById($_POST['id']);
+        $tahotypeObject = new \Sitedata\Entity\Tahograf($this->tahoTable);
 
          $taho = $_POST['taho'];
          

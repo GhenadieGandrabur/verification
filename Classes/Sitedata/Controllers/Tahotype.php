@@ -17,16 +17,7 @@ class Tahotype
 
     public function list()
     {
-        $result = $this->tahotypesTable->findAll();
-
-        $tahotypes = [];
-        foreach ($result as $tahotype) {
-            $tahotypes[] = [
-                'id' => $tahotype->id,                
-                'typetaho' => $tahotype->typetaho,             
-                'recordertype' => $tahotype->recordertype            
-            ];
-        }
+        $tahotypes = $this->tahotypesTable->findAll();
 
         $title = 'Types of tahos';
 
@@ -52,8 +43,7 @@ class Tahotype
         header('location: /tahotype/list');
     }
     public function saveEdit()
-    {
-     
+    {     
         $tahotype = $_POST['tahotype'];
         $this->tahotypesTable->save($tahotype);
         header('location: /tahotype/list');
@@ -69,10 +59,7 @@ class Tahotype
         return [
             'template' => 'tahotypeEdit.html.php',
             'title' => $title,
-            'variables' => [
-                'tahotype' => $tahotype ?? null
-               
-            ]
+            'variables' => ['tahotype' => $tahotype ?? null ]
         ];
     }
 

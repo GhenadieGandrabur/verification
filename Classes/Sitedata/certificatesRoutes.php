@@ -23,7 +23,7 @@ class CertificatesRoutes implements \Main\Routes
 
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');        
-        $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotypes', 'id', '\Sitedata\Entity\Tahograf', [$this->tahotypeTable]);
+        $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotypes', 'id');
         $this->usersTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
         $this->autoTable = new \Main\DatabaseTable($pdo, 'ts', 'id');
@@ -88,10 +88,10 @@ class CertificatesRoutes implements \Main\Routes
             'tyres/edit' =>   ['POST' => ['controller' => $tyresController, 'action' => 'saveEdit'],
                               'GET' => ['controller' => $tyresController, 'action' => 'edit'],'login' => true ],
                               
-            'tahotype/list' =>   ['GET' =>  ['controller' => $tahotypeController, 'action' => 'list'], 'login' => true],
+            'tahotype/list' =>   ['GET'  => ['controller' => $tahotypeController, 'action' => 'list'], 'login' => true],
             'tahotype/delete' => ['POST' => ['controller' => $tahotypeController, 'action' => 'delete'], 'login' => true],
             'tahotype/edit' =>   ['POST' => ['controller' => $tahotypeController, 'action' => 'saveEdit'],
-                              'GET' => ['controller' => $tahotypeController, 'action' => 'edit'],'login' => true ],
+                                   'GET' => ['controller' => $tahotypeController, 'action' => 'edit'],'login' => true ],
 
             '' => ['GET' => ['controller' => $certificatesController, 'action' => 'home']]
         ];
