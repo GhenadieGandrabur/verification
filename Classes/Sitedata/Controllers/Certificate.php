@@ -10,30 +10,21 @@ class Certificate
     private $holderTable;
     private $certificatesTable;
     private $authentication;
-    private $numarcamion;
+    private $autoTable;
 
-    public function __construct(DatabaseTable $certificatesTable, DatabaseTable $holderTable, Authentication $authentication, DatabaseTable $numarcamion)
+    public function __construct(DatabaseTable $certificatesTable, DatabaseTable $holderTable, Authentication $authentication, DatabaseTable $autoTable)
     {
         $this->certificatesTable = $certificatesTable;
         $this->holderTable = $holderTable;
         $this->authentication = $authentication;
-        $this->numarcamion = $numarcamion;
+        $this->autoTable = $autoTable;
     }
 
-    public function camionlist(){
-        $rezultat = $this->numarcamion->findAll();
-        $camioane = [];
-        foreach($rezultat as $camion){
-            $camioane[] = [
-                'numberplate'=> $camion['numberplate']
-            ];
-        }
-
-    }
-
+   
     public function list()
     {
         $certificates = $this->certificatesTable->findAll();
+        $autos = $this->autoTable->findAll();
 
          
 
@@ -49,7 +40,8 @@ class Certificate
             'variables' => [
             'totalCertificates' => $totalCertificates,
             'certificates' => $certificates,
-            'userId' => $holder->id ?? null
+            'userId' => $holder->id ?? null,
+            'autos' =>$autos
             ]
         ];
     }
@@ -119,7 +111,7 @@ class Certificate
     {
         $author = $this->authentication->getUser();
 
-        $autos = $this->numarcamion->findAll();
+        $autos = $this->autoTable->findAll();
 
         if (isset($_GET['id'])) {
             $certificate = $this->certificatesTable->findById($_GET['id']);

@@ -8,7 +8,7 @@
     ?>
     <div class="forminput">
         <h2 class="tc  p">Login</h2>
-    <form method="post" action="">    
+    <form method="post" action="" class="log">    
     
     <label for="email">Your email address</label>
     <input type="text" id="email" name="email">  

@@ -51,14 +51,7 @@
 
 
 
-.log input,
-select,
-textarea {
-    float: left;
-    width: 10em;
-    margin-bottom: 1em;
-    padding: 0.5em;
-}
+
 
 .log label {
     float: left;
@@ -66,6 +59,7 @@ textarea {
     margin-bottom: 1em;
     padding: 0.5em;
     clear: left;
+    
 }
 
 /*.log label {padding: 0; margin: 0;}*/

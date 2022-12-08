@@ -7,7 +7,7 @@
 .mt{margin-top: 10px;}
 .tc{text-align: center;}
 
-.forminput input,
+/*.forminput input,
 label,
 select,
 textarea {
@@ -35,4 +35,4 @@ textarea {
     overflow: auto;
     clear: both;
     display: block;
-}
+}*/
