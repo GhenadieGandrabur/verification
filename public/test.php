@@ -2,16 +2,20 @@
 
 include __DIR__ . '/../includes/DatabaseConnection.php';
 include   __DIR__ . '/../classes/Main/DatabaseTable.php';
-include   __DIR__ . '/../classes/Sitedata/Entity/Tahograf.php';
+include   __DIR__ . '/../classes/Sitedata/Entity/Taho.php';
+include   __DIR__ . '/../classes/Sitedata/Entity/Tahotype.php';
 
-/*$tahosTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
 
-$tahotype = new \Sitedata\Entity\Tahograf($tahosTable);
+$taholistTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
 
-$tahotype->id = 6;
+$author = new \Sitedata\Entity\Tahotype($taholistTable);
 
-$tahos = $tahotype->getTahos();
+$author->id = 1;
 
-foreach($tahos as $taho){
-    echo $taho->tahonumber."<br>";
-}*/
+$jokes = $author->getTahos();
+
+foreach($jokes as $joke){
+
+    echo $joke->id.'<br>';
+
+}

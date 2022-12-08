@@ -12,8 +12,8 @@ class CertificatesRoutes implements \Main\Routes
     private $autoTable;
     private $authentication;
     private $vehiclesOwnersTable;
-    private $tahoTable;
     private $tyresTable;
+    private $taholistTable;
     private $tahotypeTable;
     
 
@@ -21,27 +21,27 @@ class CertificatesRoutes implements \Main\Routes
     {
         include __DIR__ . '/../../includes/DatabaseConnection.php';
 
+        $this->taholistTable = new \Main\DatabaseTable($pdo, 'taholist', 'id','\Sitedata\Entity\Taho',[&$this->tahotypeTable]);
+        $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotypes', 'id','\Sitedata\Entity\Tahotype',[&$this->taholistTable]);
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');        
-        $this->tahotypeTable = new \Main\DatabaseTable($pdo, 'tahotypes', 'id');
         $this->usersTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
         $this->autoTable = new \Main\DatabaseTable($pdo, 'ts', 'id');
-        $this->tahoTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
         $this->vehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
         $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
     }
 
     public function getRoutes(): array
     {
+        $tahotypeController = new \Sitedata\Controllers\Tahotype($this->tahotypeTable);
+        $tahoController = new \Sitedata\Controllers\Taho($this->taholistTable, $this->tahotypeTable);
         $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, 
         $this->authorsTable, $this->authentication, $this->autoTable);
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
-        $tahotypeController = new \Sitedata\Controllers\Tahotype($this->tahotypeTable);
         $usersController = new \Sitedata\Controllers\Author($this->usersTable, $this->authentication);       
         $autoController = new \Sitedata\Controllers\Autos($this->autoTable);
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
-        $tahoController = new \Sitedata\Controllers\Taho($this->tahoTable, $this->tahotypeTable);
         $tyresController = new \Sitedata\Controllers\Tyressize($this->tyresTable);
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
 

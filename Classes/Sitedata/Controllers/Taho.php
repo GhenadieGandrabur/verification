@@ -8,25 +8,25 @@ use \Main\DatabaseTable;
 class Taho
 {
     
-    private $tahoTable;
+    private $taholistTable;
     private $tahotypeTable;
     
-    public function __construct(DatabaseTable $tahoTable, DatabaseTable $tahotypeTable)
+    public function __construct(DatabaseTable $taholistTable, DatabaseTable $tahotypeTable)
     {
-        $this->tahoTable = $tahoTable;
+        $this->taholistTable = $taholistTable;
         $this->tahotypeTable = $tahotypeTable;
        
     }
 
     public function list()
     {
-        $tahos = $this->tahoTable->findAll();
+        $tahos = $this->taholistTable->findAll();
 
        
 
         $title = 'tahografe';
 
-        $totaltaho = $this->tahoTable->total();      
+        $totaltaho = $this->taholistTable->total();      
 
         return [
                 'template' => 'taho.html.php', 'title' => $title,
@@ -36,26 +36,28 @@ class Taho
 
     public function delete()
     {
-        $this->tahoTable->delete($_POST['id']);
+        $this->taholistTable->delete($_POST['id']);
         header('location: /taho/list');
     }
 
     public function saveEdit()
-    {         
-        $tahotypeObject = new \Sitedata\Entity\Tahograf($this->tahoTable);
+    {     
+            
+        $tahotypeObject = new \Sitedata\Entity\Tahotype($this->tahotypeTable);
+
 
          $taho = $_POST['taho'];
          
 
-         $tahotypeObject->addTaho($taho);
+         $tahotypeObject->addTaho1($taho);
 
-         header('location: /joke/list');
+         header('location: /taho/list');
 
     }
 
     public function edit()
     {
-        if (isset($_GET['id'])) { $taho = $this->tahoTable->findById($_GET['id']);
+        if (isset($_GET['id'])) { $taho = $this->taholistTable->findById($_GET['id']);
         }
        $title = 'Edit taho';
         return [

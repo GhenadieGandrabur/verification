@@ -6,23 +6,23 @@ class Tahotype
     public $id;
     public $typetaho;
     public $recordertype;
-    private $tahosTable;
+    private $taholistTable;
     
 
-    public function __construct(\Main\DatabaseTable $tahosTable)
+    public function __construct(\Main\DatabaseTable $taholistTable)
     {
-        $this->tahosTable = $tahosTable;
+        $this->taholistTable = $taholistTable;
     }
 
     public function getTahos()
     {
-        return $this->tahosTable->find('tahotypeId', $this->id);
+        return $this->taholistTable->find('tahotypeId', $this->id);
     }
 
-    public function addTaho($taho) 
+    public function addTaho1($taho) 
     {
         $taho['tahotypeId'] = $this->id;
 
-        $this->tahosTable->save($taho);
+        $this->taholistTable->save($taho);
     }
 }

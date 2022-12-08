@@ -14,7 +14,7 @@
         <?php foreach ($tahos as $taho) : ?>
             <td> <?= $taho ->id ?></td>
             <td> <?= $taho->tahonumber ?></td>            
-            <td> <?= $taho->tahotypeId ?></td>
+            <td> <?=$taho->tahotypeId ?></td>
             <td>
                 <a href="/taho/edit?id=<?= $taho->id  ?>"> Edit</a>
             </td>
