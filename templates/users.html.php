@@ -9,11 +9,11 @@
     <tr>
         <?php foreach ($users as $user) : ?>
 
-            <td> <?= htmlspecialchars($user['id'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?= htmlspecialchars($user['date'], ENT_QUOTES, 'UTF-8') ?></td> 
-            <td> <?= htmlspecialchars($user['name'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?= htmlspecialchars($user['email'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?= htmlspecialchars($user['priority'], ENT_QUOTES, 'UTF-8') ?></td>
+            <td> <?= $user->id ?></td>
+            <td> <?= $user->date ?></td> 
+            <td> <?= $user->name ?></td>
+            <td> <?= $user->email ?></td>
+            <td> <?= $user->priority ?></td>
     </tr>
 <?php endforeach; ?>
 </table>

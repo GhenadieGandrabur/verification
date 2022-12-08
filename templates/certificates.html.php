@@ -25,16 +25,16 @@
    
 
     <?php foreach ($certificates as $certificate) : ?>
-        <tr data-id="<?= $certificate['id'] ?>">
-            <td> <?= htmlspecialchars($certificate['id'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?php $date = new DateTime($certificate['date']); echo $date->format('d.m. Y H:i:s'); ?></td>
-            <td> <?= htmlspecialchars($certificate['vehicle'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?= htmlspecialchars($certificate['proprietar'], ENT_QUOTES, 'UTF-8') ?></td>
-            <td> <?= $certificate['name'] ?></td>
-            <td><a href="/certificates/print?id=<?= $certificate['id'] ?>" target="_blank">🖨</a></td>
+        <tr data-id="<?= $certificate->id  ?>">
+            <td> <?= $certificate->id  ?></td>
+            <td> <?php $date = new DateTime($certificate->date ); echo $date->format('d.m. Y H:i:s'); ?></td>
+            <td> <?= $certificate->vehicle  ?></td>
+            <td> <?= $certificate->proprietar  ?></td>
+            <td> <?= $certificate->authorId	  ?></td>
+            <td><a href="/certificates/print?id=<?= $certificate->id  ?>" target="_blank">🖨</a></td>
             <td>
                 <form action="/certificate/delete" method="post">
-                    <input type="hidden" name="id" value="<?= $certificate['id'] ?>">
+                    <input type="hidden" name="id" value="<?= $certificate->id  ?>">
                     <input type="submit" value="X">
                 </form>
             </td>

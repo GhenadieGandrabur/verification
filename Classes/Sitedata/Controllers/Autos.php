@@ -18,17 +18,9 @@ class Autos
 
     public function list()
     {
-        $result = $this->autoTable->findAll();
+        $ $autos  = $this->autoTable->findAll();
 
-        $autos = [];
-        foreach ($result as $auto) {        
-
-            $autos[] = [
-                'id' => $auto['id'],
-                'numberplate' => $auto['numberplate'],
-                'owner' => $auto['owner']                             
-            ];
-        }
+       
 
         $title = 'Auto';
 

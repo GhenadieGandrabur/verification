@@ -19,18 +19,9 @@ class Author
 
     public function list()
     {
-        $result = $this->userstable->findAll();
+        $users = $this->userstable->findAll();
 
-        $users = [];
-        foreach ($result as $user) {
-            $users[] = [
-                'id' => $user->id,
-                'date' => $user->date,
-                'name' => $user->name,
-                'email' => $user->email,
-                'priority' => $user->priority                
-            ];
-        }
+
 
         $title = 'Users';
 
