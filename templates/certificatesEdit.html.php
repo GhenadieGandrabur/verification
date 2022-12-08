@@ -10,7 +10,7 @@
 ?>      
       <h2>Vehicol</h2>
       <hr>
-      <form action="" method="post">     
+      <form action="" method="post" class="log">     
       <label for="vehicle">Vehicol number</label>        
      <select  id="vehicle" name="certificate[vehicle]">>
       <?php foreach($certificates as $certificate):?>

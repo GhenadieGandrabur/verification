@@ -1,0 +1,93 @@
+.formwork textarea {
+    float: left;
+    width: 25em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+
+.formwork input {
+    float: left;
+    width: 15em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+
+.formwork label {
+    float: left;
+    width: 10em;
+    margin-bottom: 1em;
+    padding: 0;
+    clear: left;
+}
+
+.formwork input[type="submit"] {
+    margin-left: 15em;
+    width: auto;
+    padding: 0.5em 1em;
+    clear: both;
+    font-size: 1em;
+}
+
+.formwork form {
+    overflow: auto;
+    clear: both;
+    display: block;
+}
+
+*/ .formwork form p {
+    clear: both;
+}
+
+.formwork input[type="checkbox"] {
+    float: left;
+    clear: left;
+    width: auto;
+    margin-right: 10px;
+}
+
+.formwork input[type="checkbox"]+label {
+    clear: right;
+}
+
+
+
+.log input,
+select,
+textarea {
+    float: left;
+    width: 10em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+
+.log label {
+    float: left;
+    width: 15em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+    clear: left;
+}
+
+/*.log label {padding: 0; margin: 0;}*/
+.log input[type="submit"] {
+    margin-left: 15em;
+    width: auto;
+    padding: 0.5em 1em;
+    clear: both;
+    font-size: 1em;
+}
+
+.log input,
+select,
+textarea {
+    float: left;
+    width: 15em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+
+.log form {
+    overflow: auto;
+    clear: both;
+    display: block;
+}

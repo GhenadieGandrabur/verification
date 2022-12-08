@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles.css">    
     <link rel="stylesheet" href="/ggs.css">    
     <link rel="stylesheet" href="/main.css">    
+    <link rel="stylesheet" href="/forms.css">    
     <script src="/myjs.js"></script>
     <script src="/js/smartTable.js"></script>
     <title><?= $title ?></title>
