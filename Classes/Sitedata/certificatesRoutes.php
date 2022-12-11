@@ -36,8 +36,7 @@ class CertificatesRoutes implements \Main\Routes
     {
         $tahotypeController = new \Sitedata\Controllers\Tahotype($this->tahotypeTable);
         $tahoController = new \Sitedata\Controllers\Taho($this->taholistTable, $this->tahotypeTable);
-        $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, 
-        $this->authorsTable, $this->authentication, $this->autoTable);
+        $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->authorsTable, $this->authentication, $this->autoTable);
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
         $usersController = new \Sitedata\Controllers\Author($this->usersTable, $this->authentication);       
         $autoController = new \Sitedata\Controllers\Autos($this->autoTable);

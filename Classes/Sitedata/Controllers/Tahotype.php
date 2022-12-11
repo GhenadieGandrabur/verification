@@ -42,6 +42,7 @@ class Tahotype
 
         header('location: /tahotype/list');
     }
+    
     public function saveEdit()
     {     
         $tahotype = $_POST['tahotype'];

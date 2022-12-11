@@ -18,7 +18,7 @@ class Autos
 
     public function list()
     {
-        $ $autos  = $this->autoTable->findAll();
+         $autos  = $this->autoTable->findAll();
 
        
 

@@ -20,19 +20,8 @@ class VehiclesOwners
 
     public function list()
     {
-        $result = $this->vehiclesownersTable->findAll();
+        $owners = $this->vehiclesownersTable->findAll();
 
-        $owners = [];
-        foreach ($result as $owner) {
-         
-
-            $owners[] = [
-                'id' => $owner['id'],
-                'name' => $owner['name'],
-                'codfiscal' => $owner['codfiscal'],
-                'note' => $owner['note']
-            ];
-        }
 
 
         $title = 'Vehicles owners';

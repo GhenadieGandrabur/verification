@@ -20,9 +20,7 @@ class Taho
 
     public function list()
     {
-        $tahos = $this->taholistTable->findAll();
-
-       
+        $tahos = $this->taholistTable->findAll();       
 
         $title = 'tahografe';
 
