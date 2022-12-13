@@ -11,9 +11,9 @@
     </ul>
     </p>
 </div>
+<h3 style="float:right;">Search <input type="text" id="myInput" onkeyup="findaword()" placeholder="Search" title="find" style="padding:5px ; width:300px; font-size:18px"></h3>
 
-
-<table width="100%" class="fortable smart-table" data-controller="certificates">
+<table width="100%" class="fortable smart-table" data-controller="certificates" id="myTable">
     <th>ID</th>
     <th>Date</th>
     <th>Vehicol</th>
@@ -58,4 +58,36 @@
     });
 
     document.querySelectorAll('.smart-table').forEach(table => new SmartTable(table));
+
+    ////////////////////////////
+
+        
+    function findaword() {
+      var input, filter, table, tr, td, tds, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        let iscontaine = false;
+//td = tr[i].getElementsByTagName("td")[0];
+        tds = tr[i].getElementsByTagName("td");   
+        Array.from(tds).forEach(td => {
+          if (!iscontaine) {
+            txtValue = td.textContent || td.innerText;
+            console.log(txtValue,txtValue.toUpperCase().indexOf(filter),i);
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+             tr[i].style.display = "";
+             iscontaine = true;
+            } else {
+             tr[i].style.display = "none";
+            }
+          }   
+        });   
+        
+      }
+    }
+
+
+    
 </script>

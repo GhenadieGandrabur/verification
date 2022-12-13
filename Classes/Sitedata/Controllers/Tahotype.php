@@ -53,7 +53,9 @@ class Tahotype
     public function edit()
     {
       
-        if (isset($_GET['id'])) {$tahotype = $this->tahotypesTable->findById($_GET['id']);}
+        if (isset($_GET['id']))
+        {
+            $tahotype = $this->tahotypesTable->findById($_GET['id']);}
 
         $title = 'Edit tahotypes';
 

@@ -8,7 +8,13 @@
         <label for="taho[tahonumber]">Taho number</label>
         <input name="taho[tahonumber]" value="<?= $taho->tahonumber  ?? '' ?>">                            
         <label for="taho[tahotypeId]">Type taho</label>
-        <input name="taho[tahotypeId]" value="<?= $taho->tahotypeId  ?? '' ?>">                           
+        <select name="taho[tahotypeId]">
+            <option disabled selected></option>
+        <?php foreach($tahotypes as $tahotype):?>
+            <option value="<?=$tahotype->id?>" <?= $tahotype->id === $taho->tahotypeId ?"checked selected ": "" ?>><?=$tahotype->typetaho?></option>
+        <?php endforeach;?>
+        </select>
+                                
         <input type="submit" value="save">                           
     </form>
 

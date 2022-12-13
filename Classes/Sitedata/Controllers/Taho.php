@@ -40,14 +40,15 @@ class Taho
 
     public function saveEdit()
     {     
-            
-        $tahotypeObject = new \Sitedata\Entity\Tahotype($this->tahotypeTable);
+        
+        
 
 
          $taho = $_POST['taho'];
-         
+       
+          $this->taholistTable->save($taho);
 
-         $tahotypeObject->addTaho1($taho);
+        
 
          header('location: /taho/list');
 
@@ -57,11 +58,20 @@ class Taho
     {
         if (isset($_GET['id'])) { $taho = $this->taholistTable->findById($_GET['id']);
         }
+        $tahotitles = [];
+        $tahotypes =  $this->tahotypeTable->findAll()?? [];
+        foreach($tahotypes as $tahotype){
+            $tahotitles[$tahotype->id] = $tahotype->typetaho;
+        }
        $title = 'Edit taho';
         return [
             'template' => 'tahoEdit.html.php', 
             'title' => $title,
-            'variables' => ['taho' => $taho ?? null,]
+            'variables' => [
+                'taho' => $taho ?? null,
+                'tahotypes' => $tahotypes,
+                'tahotitles' => $tahotitles
+                ]
         ];
     }
 }

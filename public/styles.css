@@ -33,7 +33,7 @@ ul.menu li a:hover {
     color:#000000; font-weight: bold;}
 
 
-table,th ,td{border: 1px solid #ccc; border-collapse: collapse;}
+
 .fortable th{padding:10px 16px; background-color:#cccccc; color:#000000; text-align: center; border: 1px solid #666;}
 .fortable td{  border: 1px solid #ccc; padding: 10px 10px;}
 .fortable tr:hover{background-color: yellow;color: blue;}

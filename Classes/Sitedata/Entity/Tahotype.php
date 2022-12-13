@@ -22,7 +22,7 @@ class Tahotype
     public function addTaho1($taho) 
     {
         $taho['tahotypeId'] = $this->id;
-
+      
         $this->taholistTable->save($taho);
     }
 }

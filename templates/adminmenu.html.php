@@ -1,5 +1,5 @@
     <ul class="menu">
-        <?php if ($loggedIn) : ?>
+        <?php if ($loggedIn?? false) : ?>
         <li><a href="/">Home</a></li>
         <li><a href="/certificates/list">Certificate</a></li>
         <li><a href="/vehiclesowners/list">Proprietari</a></li>
