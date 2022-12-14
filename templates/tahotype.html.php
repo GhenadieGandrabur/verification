@@ -1,30 +1,32 @@
 <div class="row">
 <div class="col-2 col-s-2"></div>
 <div class="col-8 col-s-8">
-<h5>Tachographs type edit</h5>
-<p><a style = "border:1px #111 solid; padding:10px; background-color:#ccc" href="/tahotype/edit">New tahotype</a> 
+<h1>Tachographs type</h1>
+<p><a style = "border:1px #111 solid; padding:10px; background-color:#ccc" href="/tahotype/edit"><button>New</button></a> 
 <?= $totaltahotypes ?> types of tachographs in DB</p>
 
 <table class="fortable">
-
+<tr>
 <th>ID</th>
 <th>Taho tytpe</th>
 <th>Recorder type</th> 
+<th>Measurement range</th> 
 <th>Edit</th>
 <th>Delete</th>
-
+</tr>
 <tr>
 <?php foreach($tahotypes as $tahotype) : ?>    
 <td> <?= $tahotype->id  ?></td>
 <td> <?= $tahotype->typetaho ?></td>                       
-<td >
-<?php
+<td>
+    <?php
 if($tahotype->recordertype  == 0){
-echo "analogic";
+    echo "analogic";
 }else{
-echo "digital";
+    echo "digital";
 }             
 ?></td>            
+<td> <?= $tahotype->measurementRange ?></td>                       
 <td>
 <a href="/tahotype/edit?id=<?= $tahotype->id  ?>"> Edit</a>
 </td>

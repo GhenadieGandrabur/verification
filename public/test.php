@@ -1,21 +1,30 @@
 <?php
 
-include __DIR__ . '/../includes/DatabaseConnection.php';
-include   __DIR__ . '/../classes/Main/DatabaseTable.php';
-include   __DIR__ . '/../classes/Sitedata/Entity/Taho.php';
-include   __DIR__ . '/../classes/Sitedata/Entity/Tahotype.php';
-
-
-$taholistTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
-
-$author = new \Sitedata\Entity\Tahotype($taholistTable);
-
-$author->id = 1;
-
-$jokes = $author->getTahos();
-
-foreach($jokes as $joke){
-
-    echo $joke->id.'<br>';
-
+ function binary_search($list, $item)
+{
+$low = 0;
+$high = count($list) - 1;
+$mid =ceil(($low + $high)/2);
+while ($low <= $high) {
+    $guess = $list[$mid];    
+   
+    if($guess == $item){
+        return $mid;
+    }
+    if($guess > $item){        
+        $low = $mid;
+    }else{
+    $high = $mid;    
+    }
 }
+return "X";
+}
+    
+
+$my_list = [1,3,5,7,9];
+
+
+echo binary_search($my_list, 3);
+
+echo binary_search($my_list, -1);
+?>

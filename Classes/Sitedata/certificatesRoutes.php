@@ -9,7 +9,7 @@ class CertificatesRoutes implements \Main\Routes
     private $authorsTable;    
     private $usersTable;    
     private $certificatesTable;
-    private $autoTable;
+    private $vehicleTable;
     private $authentication;
     private $vehiclesOwnersTable;
     private $tyresTable;
@@ -27,7 +27,7 @@ class CertificatesRoutes implements \Main\Routes
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');        
         $this->usersTable = new \Main\DatabaseTable($pdo, 'author', 'id');
         $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
-        $this->autoTable = new \Main\DatabaseTable($pdo, 'ts', 'id');
+        $this->vehicleTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
         $this->vehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
         $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
     }
@@ -36,10 +36,10 @@ class CertificatesRoutes implements \Main\Routes
     {
         $tahotypeController = new \Sitedata\Controllers\Tahotype($this->tahotypeTable);
         $tahoController = new \Sitedata\Controllers\Taho($this->taholistTable, $this->tahotypeTable);
-        $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->authorsTable, $this->authentication, $this->autoTable);
+        $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->authorsTable, $this->authentication, $this->vehicleTable);
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
         $usersController = new \Sitedata\Controllers\Author($this->usersTable, $this->authentication);       
-        $autoController = new \Sitedata\Controllers\Autos($this->autoTable);
+        $vehicleController = new \Sitedata\Controllers\Vehicles($this->vehicleTable);
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
         $tyresController = new \Sitedata\Controllers\Tyressize($this->tyresTable);
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
@@ -62,10 +62,10 @@ class CertificatesRoutes implements \Main\Routes
                                      'GET' =>  ['controller' => $certificatesController,'action' => 'edit' ],'login' => true ],
             'certificates/print' => ['GET' => ['controller' => $certificatesController, 'action' => 'print'], 'login' => true],
                 
-            'autos/list' =>   [ 'GET' => ['controller' => $autoController, 'action' => 'list'], 'login' => true],
-            'auto/delete' => ['POST' => ['controller' => $autoController, 'action' => 'delete'], 'login' => true],
-            'auto/edit' =>   ['POST' => ['controller' => $autoController, 'action' => 'saveEdit'],
-                                   'GET' => ['controller' => $autoController, 'action' => 'edit'],'login' => true ],
+            'vehicles/list' =>   [ 'GET' => ['controller' => $vehicleController, 'action' => 'list'], 'login' => true],
+            'vehicle/delete' => ['POST' => ['controller' => $vehicleController, 'action' => 'delete'], 'login' => true],
+            'vehicle/edit' =>   ['POST' => ['controller' => $vehicleController, 'action' => 'saveEdit'],
+                                   'GET' => ['controller' => $vehicleController, 'action' => 'edit'],'login' => true ],
 
             'vehiclesowners/list' =>   ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'list'], 'login' => true],
             'vehiclesowners/delete' => ['POST' =>  ['controller' => $vehiclesOwnersController, 'action' => 'delete'], 'login' => true],

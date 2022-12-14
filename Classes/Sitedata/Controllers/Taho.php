@@ -1,36 +1,46 @@
 <?php
 
 namespace Sitedata\Controllers;
-use \Main\DatabaseTable;
-//use \Main\Authentication;
 
+use \Main\DatabaseTable;
+
+//use \Main\Authentication;
 
 class Taho
 {
-    
+
     private $taholistTable;
     private $tahotypeTable;
-    
+
     public function __construct(DatabaseTable $taholistTable, DatabaseTable $tahotypeTable)
     {
         $this->taholistTable = $taholistTable;
         $this->tahotypeTable = $tahotypeTable;
-       
+
     }
 
-    public function list()
-    {
-        $tahos = $this->taholistTable->findAll();       
+    function list() {
+        $tahos = $this->taholistTable->findAll();
 
         $title = 'tahografe';
 
-        $totaltaho = $this->taholistTable->total();      
+        $totaltaho = $this->taholistTable->total();
+        $tahotitles = [];
+        $tahotypes = $this->tahotypeTable->findAll() ?? [];
+        foreach ($tahotypes as $tahotype) {
+            $tahotitles[$tahotype->id] = $tahotype->typetaho;
+        }
 
         return [
-                'template' => 'taho.html.php', 'title' => $title,
-                'variables' => ['totaltaho' => $totaltaho, 'tahos' => $tahos]
-            ];
-    }   
+            'template' => 'taho.html.php', 
+            'title' => $title,
+            'variables' => [
+                'totaltaho' => $totaltaho, 
+                'tahos' => $tahos,
+                'tahotitles' => $tahotitles
+            ]
+        ];
+    }
 
     public function delete()
     {
@@ -39,39 +49,32 @@ class Taho
     }
 
     public function saveEdit()
-    {     
-        
-        
+    {
 
+        $taho = $_POST['taho'];
 
-         $taho = $_POST['taho'];
-       
-          $this->taholistTable->save($taho);
+        $this->taholistTable->save($taho);
 
-        
-
-         header('location: /taho/list');
+        header('location: /taho/list');
 
     }
 
     public function edit()
     {
-        if (isset($_GET['id'])) { $taho = $this->taholistTable->findById($_GET['id']);
+        if (isset($_GET['id'])) {$taho = $this->taholistTable->findById($_GET['id']);
         }
-        $tahotitles = [];
-        $tahotypes =  $this->tahotypeTable->findAll()?? [];
-        foreach($tahotypes as $tahotype){
-            $tahotitles[$tahotype->id] = $tahotype->typetaho;
-        }
-       $title = 'Edit taho';
+        
+        $tahotypes = $this->tahotypeTable->findAll() ?? [];
+        
+        $title = 'Edit taho';
         return [
-            'template' => 'tahoEdit.html.php', 
+            'template' => 'tahoEdit.html.php',
             'title' => $title,
             'variables' => [
                 'taho' => $taho ?? null,
                 'tahotypes' => $tahotypes,
-                'tahotitles' => $tahotitles
-                ]
+                
+            ],
         ];
     }
 }

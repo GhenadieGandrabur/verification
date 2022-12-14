@@ -11,7 +11,7 @@
         <select name="taho[tahotypeId]">
             <option disabled selected></option>
         <?php foreach($tahotypes as $tahotype):?>
-            <option value="<?=$tahotype->id?>" <?= $tahotype->id === $taho->tahotypeId ?"checked selected ": "" ?>><?=$tahotype->typetaho?></option>
+            <option value="<?=$tahotype->id?>" <?= $tahotype->id ===( $taho->tahotypeId?? null) ?"checked selected ": "" ?>><?=$tahotype->typetaho?></option>
         <?php endforeach;?>
         </select>
                                 
