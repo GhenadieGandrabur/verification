@@ -1,30 +1,17 @@
-<?php
+<?php 
+include __DIR__ . '/../includes/DatabaseConnection.php'; 
+include __DIR__ . '/../Classes/Main/DatabaseTable.php'; 
+include __DIR__ . '/../Classes/Sitedata/Entity/Tahotype.php'; 
 
- function binary_search($list, $item)
-{
-$low = 0;
-$high = count($list) - 1;
-$mid =ceil(($low + $high)/2);
-while ($low <= $high) {
-    $guess = $list[$mid];    
-   
-    if($guess == $item){
-        return $mid;
-    }
-    if($guess > $item){        
-        $low = $mid;
-    }else{
-    $high = $mid;    
-    }
+$tahoTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
+
+
+$taho = new \Sitedata\Entity\Tahotype($tahoTable);
+
+$taho->id = 3;
+
+$tahos = $taho->getTahos();
+
+foreach($tahos as $taho){
+    echo $taho->tahonumber." ".$taho->measurementRange."<br>";
 }
-return "X";
-}
-    
-
-$my_list = [1,3,5,7,9];
-
-
-echo binary_search($my_list, 3);
-
-echo binary_search($my_list, -1);
-?>

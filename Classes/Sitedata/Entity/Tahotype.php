@@ -18,11 +18,5 @@ class Tahotype
     {
         return $this->taholistTable->find('tahotypeId', $this->id);
     }
-
-    public function addTaho1($taho) 
-    {
-        $taho['tahotypeId'] = $this->id;
-      
-        $this->taholistTable->save($taho);
-    }
+    
 }
