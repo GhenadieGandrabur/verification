@@ -26,6 +26,8 @@
     padding: 0.5em 1em;
     clear: both;
     font-size: 1em;
+    font-size: 16px;
+
 }
 
 .formwork form {
@@ -48,7 +50,9 @@
 .formwork input[type="checkbox"]+label {
     clear: right;
 }
-
+.formwork select{
+    font-size: 18px;
+}
 
 
 

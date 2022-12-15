@@ -10,7 +10,6 @@
 <th>ID</th>
 <th>Taho tytpe</th>
 <th>Recorder type</th> 
-<th>Measurement range</th> 
 <th>Edit</th>
 <th>Delete</th>
 </tr>
@@ -25,8 +24,7 @@ if($tahotype->recordertype  == 0){
 }else{
     echo "digital";
 }             
-?></td>            
-<td> <?= $tahotype->measurementRange ?></td>                       
+?></td>
 <td>
 <a href="/tahotype/edit?id=<?= $tahotype->id  ?>"> Edit</a>
 </td>
