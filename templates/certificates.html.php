@@ -1,17 +1,21 @@
 <div class="row">
 <div class="col-12 col-s-12">
-<h2>Certificate de verificare a tahografului</h2>
-<div class="d-flex justify-content-between">
-    <p style="display:inline"><a class="button" href="/certificates/edit">New certificate</a> <?= $totalCertificates ?> certificate in BD
+<h1>Certificate de verificare a tahografului  <span style="float: right; font-size:small"><?= $totalCertificates ?> certificate in BD</span></h1>
+<div class="d-flex justify-content-between " style=" margin-bottom:10px;"><div>
 
-    <ul style="float:right" class="smart-table-hint">
+
+<a  href="/certificates/edit"><button class="button_edit"> New certificate</button></a>
+
+    <ul style="display:none" class="smart-table-hint">
         <li><kbd>↑</kbd> - previous row</li>
         <li><kbd>↓</kbd> - next row</li>
         <li><kbd>i</kbd> - edit selected row</li>
     </ul>
-    </p>
+
+
+<span style="float: right;"> <input type="text" id="myInput" onkeyup="findaword()" placeholder="Search" title="find" style="padding:5px ; width:300px; font-size:18px"></span>
 </div>
-<h1 style="float:right;">Search <input type="text" id="myInput" onkeyup="findaword()" placeholder="Search" title="find" style="padding:5px ; width:300px; font-size:18px"></h1>
+</div>
 
 <table width="100%" class="fortable smart-table" data-controller="certificates" id="myTable">
     <th>ID</th>

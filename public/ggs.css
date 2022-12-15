@@ -7,32 +7,8 @@
 .mt{margin-top: 10px;}
 .tc{text-align: center;}
 
-/*.forminput input,
-label,
-select,
-textarea {
-    float: left;
-    width: 15em;
-    margin-bottom: 1em;
-    padding: 0.5em;
+.inlin{           
+    display: inline;
+    padding: 10px;
+      
 }
-
-.forminput label {
-    clear: left;
-    padding: 0;
-    margin: 0;
-}
-
-.forminput input[type="submit"] {    
-    margin-left: 15em;
-    width: auto;
-    padding: 0.5em 1em;
-    clear: both;
-    font-size: 1em;
-}
-
-.forminput form {
-    overflow: auto;
-    clear: both;
-    display: block;
-}*/

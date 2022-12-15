@@ -2,31 +2,41 @@
 <div class="row">
 <div class="col-12 col-s-12">
   <h1>Certificat de verificare  nr: <?=$certificate ->id ??""?> din: <?= date("d.m.Y")  ?? '' ?></h1>   
-<hr>
+
 </div>
     <div class="col-4 col-s-4 p3 ">
-<?php 
-
-?>      
+     
       <h2>Vehicol</h2>
-      <hr>
-      <form action="" method="POST" class="log">     
-      <label for="vehicle">Vehicol number</label>        
-     <select  id="vehicle" name="certificate[vehicle]">>
-      <?php foreach($autos as $auto):?>
-         <option style="width:100px ;" value="<?=$auto ->numberplate ?>">"<?=$auto ->numberplate ?>"</option>
-      <?php endforeach;?>
-     </select>
+      
+      <form action="" method="POST" class="log">  
+      <label for="find">Find a vehicle
+      <input id="find" type="search" placeholder="Number or VIN of a vehicle">
+      </label>   
+     <p style="clear: left;"></p>
+    
+     <ul>
+       <li>VIN</li>
+       <li>Owner</li>
+       <li>TahoId</li>
+       <li>Tyre size</li>   
+     </ul>
+
+     <h2>Tahograf</h2>
+     
+     <ul>
+       <li>Taho number</li>
+       <li>Taho type</li>
+       <li>Measure range</li>
+       <li>Recorder type</li>   
+     </ul>
+
 
     </div>
-    <div class="col-4 col-s-4 p3 ">
-     <h2>Tahograf</h2>
-     <hr>
-    </div>
+   
     
     <div class="col-4 col-s-4 p3 log">                  
       <h2>Verificare</h2>
-      <hr>
+      
     <label for="k_vechi">K vechi</label>
     <input  id="k_vechi" name="certificate[k_vechi]"   value="<?= $certificate ->k_vechi  ?? '' ?>">
               
@@ -60,4 +70,10 @@
               <p><input type="submit" name="submit" value="Save"></p>
             </form>         
           </div>
+          <div class="col-4 col-s-4 ">
+            <div style="text-align: center;margin-top:50px">
+              <img src="/images/truck.jpg" width="100%">
+            </div>
+    
+    </div>
         </div>

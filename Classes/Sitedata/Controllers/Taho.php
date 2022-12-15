@@ -28,7 +28,7 @@ class Taho
         $tahotitles = [];
         $tahotypes = $this->tahotypeTable->findAll() ?? [];
         foreach ($tahotypes as $tahotype) {
-            $tahotitles[$tahotype->id] = $tahotype->typetaho;
+            $tahotitles[$tahotype->id] = $tahotype->typetaho;        
         }
 
         return [

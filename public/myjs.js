@@ -1,8 +1,8 @@
     function newcerificate() {
         location.href = "/certificates/edit";
 }
-function newauto() {
-        location.href = "/auto/edit";
+function newvehicle() {
+        location.href = "/vehicle/edit";
 }
     function newownesr() {
       location.href = "/vehiclesowners/edit";

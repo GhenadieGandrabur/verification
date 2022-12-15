@@ -1,6 +1,6 @@
 <div class="row">
-<div class="col-3 col-s-3"></div>
-<div class="col-6 col-s-6">
+<div class="col-2 col-s-2"></div>
+<div class="col-8 col-s-8">
 <h1>Tahograf edit</h1>
 <p><button class="button_edit" onclick="newtaho()">New tahograf</button>  <?= $totaltaho ?> tachograps in DB</p>
 <table class="fortable">
@@ -8,15 +8,18 @@
     <th>ID</th>
     <th>Taho number</th>
     <th>Type taho</th>    
+      
+    <th>Recorder type</th>    
     <th>Measurement range</th>    
     <th>Edit</th>
     <th>Delete</th>
     <tr>
-        <?php foreach ($tahos as $taho) : ?>
+        <?php foreach ($tahos as $taho) :?>
             <td> <?= $taho ->id ?></td>
-            <td> <?= $taho->tahonumber ?></td>            
+            <td> <?= $taho -> tahonumber ?></td>
             <td> <?=$tahotitles[$taho->tahotypeId]?? $taho->tahotypeId ?></td>
-            <td> <?=$taho->measurementRange?></td>
+            <td> <?=$tahotitles[$taho->recordertypeId]?? $taho->recordertypeId ?></td>                               
+            <td> <?= $taho->measurementRange ?></td>  
             <td>
                 <a href="/taho/edit?id=<?= $taho->id  ?>"> Edit</a>
             </td>
@@ -30,5 +33,5 @@
 <?php endforeach; ?>
 </table>
 </div>
-<div class="col-3 col-s-3"></div>
+<div class="col-2 col-s-2"></div>
 </div>

@@ -1,14 +1,19 @@
  <div class="row">
 <div class="col-2 col-s-2"></div>
-<div class="col-8 col-s-8">
-    <h1>Vehicole</h1>
-    <p><button class="button"  onclick="newvehicle()"> NOU </button> in BD sunt <b> <?= $totalvehicles ?></b> vehicole</p>   
+<div class="col-8 col-s-8">  
+    
+     <h1 class="inlin" style="width:200px">Vehicles</h1>
+     <h1 class="inlin"  style="float: right; font-size:small">In BD sunt <b><?= $totalvehicles ?></b> de vehicole. </h1>
+    
+     <br>
+    <div ><button class="button_edit"  onclick="newvehicle()"> New vehicle </button></div> 
+
     <table class="fortable">
         <tr>
     <th>Id</th>
     <th>Numberplate</th>
     <th>VIN</th>
-    <th>YearProduction</th>    
+    <th>Year production</th>    
     <th>TahoId</th>
     <th>Tyresize</th>
     <th>Owner</th>
@@ -19,9 +24,9 @@
     <?php foreach($vehicles as $vehicle):?>
         <tr>
             <td><?= $vehicle->id ?></td>
-            <td><?= $vehicle->numberplate ?></td>
+            <td><?= $vehicle->numberplate?></td>
             <td><?= $vehicle->vin ?></td>   
-            <td><?= $vehicle->yearProduction ?></td>   
+            <td><?= $vehicle->yearproduction ?></td>   
             <td><?= $vehicle->tahoId ?></td>   
             <td><?= $vehicle->tyresize ?></td>   
             <td><?= $vehicle->owner ?></td>   
