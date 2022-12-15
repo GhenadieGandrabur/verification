@@ -1,7 +1,7 @@
  <div class="row">
 <div class="col-4 col-s-4"></div>
 <div class="col-4 col-s-4">
-  <h3>Proprietatii edit</h3>
+  <h1>Proprietatii edit</h1>
   <form action="" method="post" class="formwork">   
     <label for="id">ID</label> 
     <input id="id" type=""  name="owner[id]" value="<?= $owner['id'] ?? '' ?>">

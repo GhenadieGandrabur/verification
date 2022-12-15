@@ -2,7 +2,7 @@
 <div class="col-4 col-s-4"></div>
 <div class="col-4 col-s-4">
 
-    <h3>Tahograf schinbari</h3>
+    <h1>Tahograf edit</h1>
     <form action="" method="post" class="formwork" >         
         <input type="hidden" id="id" name="taho[id]" value="<?= $taho->id  ?? ''?>">                            
         <label for="taho[tahonumber]">Taho number</label>

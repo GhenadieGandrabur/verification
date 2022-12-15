@@ -2,7 +2,7 @@
 <div class="col-2 col-s-2"></div>
 <div class="col-8 col-s-8">
 <h1>Tachographs type</h1>
-<p><a style = "border:1px #111 solid; padding:10px; background-color:#ccc" href="/tahotype/edit"><button>New</button></a> 
+<p><a href="/tahotype/edit"><button class="button_edit">New</button></a> 
 <?= $totaltahotypes ?> types of tachographs in DB</p>
 
 <table class="fortable">

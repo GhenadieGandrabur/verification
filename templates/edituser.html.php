@@ -1,5 +1,5 @@
 <div class="lt">
-    <h3 class="inputheader">User edit</h3>
+    <h1 class="inputheader">User edit</h1>
 <?php if ($userId == $usersdata['authorId']) : ?>
     <form action="" method="post">
         <input type="hidden" name="$user['id']" value="<?= $usersdata['id'] ?? '' ?>">

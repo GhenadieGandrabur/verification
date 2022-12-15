@@ -2,7 +2,7 @@
 <div class="col-3 col-s-3"></div>
 <div class="col-6 col-s-6">
 <h1>Tahograf edit</h1>
-<p><button class="button" onclick="newtaho()">New tahograf</button>  <?= $totaltaho ?> tachograps in DB</p>
+<p><button class="button_edit" onclick="newtaho()">New tahograf</button>  <?= $totaltaho ?> tachograps in DB</p>
 <table class="fortable">
     
     <th>ID</th>

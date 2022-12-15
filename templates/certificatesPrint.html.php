@@ -59,7 +59,7 @@
                 <table>
                     <tr>
                         <td class="text-center"><strong>DAF XF 510 FT</strong></td>
-                        <td class="text-center"><strong>XLRTEH4300G100299</strong></td>
+                        <td class="text-center"><strong>XLRTEh1300G100299</strong></td>
                     </tr>
                 </table>
             </td>

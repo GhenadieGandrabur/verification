@@ -1,8 +1,8 @@
 <?php
 $mysqlHost = "localhost";
 $mysqlDbName = "verification";
-$mysqlUser = "admin";
-$mysqlPassword = "Zww939";
+$mysqlUser = "root";
+$mysqlPassword = "";
 
 $localConfig = __DIR__ . DIRECTORY_SEPARATOR . "local.env.php";
 

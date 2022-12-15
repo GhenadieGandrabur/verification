@@ -11,7 +11,7 @@
     </ul>
     </p>
 </div>
-<h3 style="float:right;">Search <input type="text" id="myInput" onkeyup="findaword()" placeholder="Search" title="find" style="padding:5px ; width:300px; font-size:18px"></h3>
+<h1 style="float:right;">Search <input type="text" id="myInput" onkeyup="findaword()" placeholder="Search" title="find" style="padding:5px ; width:300px; font-size:18px"></h1>
 
 <table width="100%" class="fortable smart-table" data-controller="certificates" id="myTable">
     <th>ID</th>

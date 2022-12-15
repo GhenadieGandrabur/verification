@@ -51,7 +51,8 @@
     clear: right;
 }
 .formwork select{
-    font-size: 18px;
+    font-size: 16px;
+    width: 200px;
 }
 
 
@@ -88,4 +89,9 @@ textarea {
     overflow: auto;
     clear: both;
     display: block;
+}
+
+.button_edit{
+    padding: 5px 18px;
+    font-size: 16px;
 }
