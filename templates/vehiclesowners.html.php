@@ -2,7 +2,7 @@
     <div class="col-3 col-s-3"></div>
     <div class="col-6 col-s-6">
         <h1>Proprietari de vehicole</h1>
-        <p><button class="button"  onclick="newownesr()">New owner</button> <?= $totalVehiclesOwners ?> posesori de camioane</p>
+        <button class="button_edit"  onclick="newownesr()">New owner</button><span style="float:right ;"> <?= $totalVehiclesOwners ?> posesori de camioane</span>
         <p><table class="fortable">
             <th>ID</th>
             <th>Denumire</th>

@@ -3,7 +3,7 @@
 <div class="col-8 col-s-8">  
     
      <h1 class="inlin" style="width:200px">Vehicles</h1>
-     <h1 class="inlin"  style="float: right; font-size:small">In BD sunt <b><?= $totalvehicles ?></b> de vehicole. </h1>
+     <h1 class="inlin"  style="float: right; font-size:small">In BD sunt <b><?= $totalvehicles ?></b>  vehicole. </h1>
     
      <br>
     <div ><button class="button_edit"  onclick="newvehicle()"> New vehicle </button></div> 
