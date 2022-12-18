@@ -77,4 +77,10 @@ class Taho
             ],
         ];
     }
+      public function detailes(){
+        $id = intval($_GET['id']?? 0);
+        $taho = $this->taholistTable->findById($id);
+        print json_encode($taho);
+        die;
+    }
 }

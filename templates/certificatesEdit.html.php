@@ -8,30 +8,28 @@
      
       <h2>Vehicol</h2>
       
-      <form action="" method="POST" class="log">  
-      <label for="find">Find a vehicle
-      <input id="find" type="search" placeholder="Number or VIN of a vehicle">
-      </label>   
-     <p style="clear: left;"></p>
-    <table width="100%">
-      <tr><td>Number</td><td>951159</td></tr>
-      <tr><td>VIN</td><td>VWD555555555</td></tr>
-      <tr><td>Owner</td><td>Tahograf SRL</td></tr>      
-      <tr><td>Tyres size</td><td>315/70/22.5</td></tr>
-      <tr><td>Year production</td><td>2019</td></tr>
-    </table>
+      <form action="" method="POST" class="log"> 
+       <div style=" background-color:#ccc; padding:10px">
+      <label for="find"><span style="font-weight:bold ;">Search a vehicle</span></label>
+      <input id="find" type="text" placeholder="Number or VIN of a vehicle">
+      
+       </div>
+       
+    <p style="clear: left;"></p>
+    <label for = "vehicle">Number</label>
+    <input id = "vehicle" name = "certificate[vehicle]" value="<?=$certificate->vehicle ?? ""?>">
+    <label for = "vin">VIN</label><input id = "vin" name = "certificate[vin]">
+    <label for = "owner">Owner</label><input id = "owner" name = "certificate[proprietar]" value = "<?=$certificate->proprietar ?? ""?>">    
+    <label for = "tyresize">Tyre size</label><input id = "tyresize" name = "vehicle-tyresize">
+    <label for = "vehicleyearproduction">Year production</label><input id = "vehicleyearproduction" name = "vehicle-yearproduction">
+    <p style="clear: left;"></p>
+    <h2>Tahograf</h2>
 
-<h2>Tahograf</h2>
-
-<table width="100%">
-      <tr><td>Taho number</td><td>99999999999</td></tr>
-      <tr><td>Taho type</td><td>VDO 1381</td></tr>
-      <tr><td>Mesurement </td><td>220</td></tr>     
-      <tr><td>Recorder type</td><td>Digital</td></tr>
-      <tr><td>Year production</td><td>2019</td></tr>
-    </table>
-</div>
-
+    <label for = "tahonumber">Taho number</label><input id = "tahonumber" name = "taho-number">
+    <label for = "tahotype">Taho type</label><input id = "tahotype" name = "taho-tahotype">
+    <label for = "tahomesurement">Taho mesurement</label><input id = "tahomesurement" name = "taho-mesurement">
+    <label for = "tahorecordtype">Taho record type</label><input id = "tahorecordtype" name = "taho-recordtype">
+    </div>
 
 <div class="col-4 col-s-4 p3 log">                  
 <h2>Verificare</h2>
@@ -75,3 +73,30 @@
     
     </div>
         </div>
+        <script>
+          document.getElementById("find").addEventListener("keyup",(event)=>{
+            event.preventDefault()
+            fetch(`/vehicle/detailes?number=${event.target.value}`)
+              .then(res=>res.json())
+              .then(json=>{              
+                if(json&&json.numberplate){
+                  document.querySelector("input[id = vehicle]").value = json.numberplate
+                  document.querySelector("input[id = vin]").value = json.vin
+                  document.querySelector("input[id = owner]").value = json.owner
+                  document.querySelector("input[id = tyresize]").value = json.tyresize
+                  document.querySelector("input[id = vehicleyearproduction]").value = json.yearproduction
+                  if(json.tahoId){
+                     fetch(`/taho/detailes?id=${json.tahoId}`)
+                      .then(res=>res.json())
+                      .then(json=>{                  
+                  document.querySelector("input[name = taho-number]").value = json.tahonumber
+                  document.querySelector("input[name = taho-tahotype]").value =json.tahotypeId
+                  document.querySelector("input[name = taho-mesurement]").value = json.measurementRange	
+                  document.querySelector("input[name = taho-recordtype]").value = json.recordertypeId
+                    })
+                  }
+                }
+              })
+          
+          })
+        </script>

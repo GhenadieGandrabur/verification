@@ -1,17 +1,20 @@
-<?php 
-include __DIR__ . '/../includes/DatabaseConnection.php'; 
-include __DIR__ . '/../Classes/Main/DatabaseTable.php'; 
-include __DIR__ . '/../Classes/Sitedata/Entity/Tahotype.php'; 
+<!DOCTYPE html>
+<html>
+<body>
+     
+   
 
-$tahoTable = new \Main\DatabaseTable($pdo, 'taholist', 'id');
+<form method="POST" id="form-pass">
+Password1: <input type="text" id ="so"><br>
+Password2: <input type="text"  name ="Id">
+<input type="submit" value="Submit">
+</form>
 
+<script>
+document.querySelector('input[id=so]').value = 'So';
+document.querySelector('input[name=Id]').value = 'changed Value';
 
-$taho = new \Sitedata\Entity\Tahotype($tahoTable);
+</script>
 
-$taho->id = 3;
-
-$tahos = $taho->getTahos();
-
-foreach($tahos as $taho){
-    echo $taho->tahonumber." ".$taho->measurementRange."<br>";
-}
+</body>
+</html>

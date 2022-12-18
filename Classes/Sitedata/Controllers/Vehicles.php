@@ -57,7 +57,7 @@ class Vehicles
     public function detailes(){
         $number = htmlspecialchars($_GET['number']);
         $vehicle = $this->vehicleTable->find('numberplate', $number);
-        print json_encode($vehicle);
+        print json_encode($vehicle[0]?? []);
         die;
     }
 }

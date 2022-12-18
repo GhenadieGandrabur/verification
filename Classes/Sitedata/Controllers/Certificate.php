@@ -49,9 +49,12 @@ class Certificate
 
     public function home()
     {
-        $title = 'Certificates';
+       /* $title = 'Certificates';
 
-        return ['template' => 'home.html.php', 'title' => $title];
+        return ['template' => 'home.html.php', 'title' => $title];*/
+        
+        header('location: /certificates/list');
+
     }
 
     public function delete()
@@ -80,7 +83,7 @@ class Certificate
 
         $certificate = $_POST['certificate'];
         $certificate['date'] = new \DateTime();
-        $certificate['authorId'] = $author['id'];
+        $certificate['authorId'] = $author->id;
 
         $this->certificatesTable->save($certificate);
 
@@ -103,9 +106,7 @@ class Certificate
             'title' => $title,
             'variables' => [
                 'certificate' => $certificate ?? null,
-                'userId' => $author->id ?? null,
-                'vehicle' => $this->autoTable->find('ve')
-
+                'userId' => $author->id ?? null
             ]
         ];
     }

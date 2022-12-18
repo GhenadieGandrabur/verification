@@ -79,11 +79,11 @@
 .log input,
 select,
 textarea {
-    float: left;
+    
     width: 15em;
     margin-bottom: 5px;
     padding: 0.5em;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .log form {
