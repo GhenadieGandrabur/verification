@@ -1,5 +1,5 @@
-    <ul class="menu">
-        <?php if ($loggedIn?? false) : ?>
+<?php if ($loggedIn?? false) : ?>
+        <ul class="menu">
         <li><a href="/">Home</a></li>
         <li><a href="/certificates/list">Certificate</a></li>
         <li><a href="/vehiclesowners/list">Proprietari</a></li>
@@ -9,8 +9,8 @@
         <li><a href="/tyres/list">Tyres</a></li>
         <li><a href="/users/list">Users</a></li>            
             <li><a href="/logout">Log out</a></li>
-        <?php else : ?>
-            <li><a href="/login">Log in</a></li>            
+      <!--  
+            <li><a href="/login">Log in</a></li>     -->       
+        </ul>
         <?php endif; ?>
-    </ul>
 

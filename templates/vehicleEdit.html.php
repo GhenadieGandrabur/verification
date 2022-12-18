@@ -20,7 +20,7 @@
             <input  id="yearProduction" name = 'vehicle[yearProduction]' value="<?=$vehicle->yearProduction ??""?>">
 
 
-            <label  for="tahoId">Owner</label>
+            <label  for="tahoId">Taho id</label>
             <input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId ??""?>">            
             
             <label  for="tyresize">Tyre size</label>

@@ -59,14 +59,14 @@ class CertificatesRoutes implements \Main\Routes
             'certificates/list' =>  ['GET' =>  ['controller' => $certificatesController, 'action' => 'list'], 'login' => true],
             'certificate/delete' => ['POST' => ['controller' => $certificatesController,'action' => 'delete'],'login' => true ],
             'certificates/edit' =>  ['POST' => ['controller' => $certificatesController, 'action' => 'saveEdit'],
-                                     'GET' =>  ['controller' => $certificatesController,'action' => 'edit' ],'login' => true ],
+                                     'GET' =>  ['controller' => $certificatesController,'action' => 'edit' ],'login' => true ],                                   
             'certificates/print' => ['GET' => ['controller' => $certificatesController, 'action' => 'print'], 'login' => true],
                 
             'vehicles/list' =>   [ 'GET' => ['controller' => $vehicleController, 'action' => 'list'], 'login' => true],
             'vehicle/delete' => ['POST' => ['controller' => $vehicleController, 'action' => 'delete'], 'login' => true],
             'vehicle/edit' =>   ['POST' => ['controller' => $vehicleController, 'action' => 'saveEdit'],
                                    'GET' => ['controller' => $vehicleController, 'action' => 'edit'],'login' => true ],
-
+            'vehicle/detailes' =>['GET'=>['controller' => $vehicleController, 'action' => 'detailes'],'login' => true ],
             'vehiclesowners/list' =>   ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'list'], 'login' => true],
             'vehiclesowners/delete' => ['POST' =>  ['controller' => $vehiclesOwnersController, 'action' => 'delete'], 'login' => true],
             'vehiclesowners/edit' =>   ['POST' => ['controller' => $vehiclesOwnersController, 'action' => 'saveEdit'],

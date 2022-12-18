@@ -43,9 +43,11 @@ class Login
     public function logout()
     {
         session_destroy();
-        return [
+        header('location: /login');
+        die;
+       /* return [
             'template' => 'logout.html.php',
             'title' => 'You have been logged out'
-        ];
+        ];*/
     }
 }

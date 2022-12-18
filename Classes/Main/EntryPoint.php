@@ -44,7 +44,7 @@ class  EntryPoint
         $authentication = $this->routes->getAuthentication();
 
         if (isset($routes[$this->route]['login']) && !$authentication->isLoggedIn()) {
-            header('location: /login/error');
+            header('location: /login');
         } else {
             $controller = $routes[$this->route][$this->method]['controller'];
             $action = $routes[$this->route][$this->method]['action'];
@@ -58,12 +58,12 @@ class  EntryPoint
             } else {
                 $output = $this->loadTemplate($page['template']);
             }
-            
+               
                 echo $this->loadTemplate($layout . '.html.php', [
                     'loggedIn' => $authentication->isLoggedIn(),
                     'output' => $output,
                     'title' => $title 
-
+           
                 ]);
            
         }

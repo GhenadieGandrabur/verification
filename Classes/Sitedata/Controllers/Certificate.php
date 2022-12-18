@@ -11,6 +11,7 @@ class Certificate
     private $certificatesTable;
     private $authentication;
     private $autoTable;
+  
 
     public function __construct(DatabaseTable $certificatesTable, DatabaseTable $holderTable, Authentication $authentication, DatabaseTable $autoTable)
     {
@@ -102,7 +103,9 @@ class Certificate
             'title' => $title,
             'variables' => [
                 'certificate' => $certificate ?? null,
-                'userId' => $author->id ?? null
+                'userId' => $author->id ?? null,
+                'vehicle' => $this->autoTable->find('ve')
+
             ]
         ];
     }
