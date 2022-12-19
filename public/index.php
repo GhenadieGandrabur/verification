@@ -4,6 +4,8 @@ try {
 
     $route = ltrim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
 
+  
+
     $entryPoint = new \Main\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Sitedata\CertificatesRoutes());
     $entryPoint->run();
 } catch (PDOException $e) {

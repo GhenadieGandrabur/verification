@@ -6,7 +6,7 @@
 </div>
     <div class="col-4 col-s-4 p3 ">
      
-      <h2>Vehicol</h2>
+      <h2>Vehicle</h2>
       
       <form action="" method="POST" class="log"> 
        <div style=" background-color:#ccc; padding:10px">
@@ -16,19 +16,20 @@
        </div>
        
     <p style="clear: left;"></p>
+    <input  type="hidden" id = "id" name = "certificate[id]" value="<?=$certificate->id ?? ""?>">
     <label for = "vehicle">Number</label>
     <input id = "vehicle" name = "certificate[vehicle]" value="<?=$certificate->vehicle ?? ""?>">
-    <label for = "vin">VIN</label><input id = "vin" name = "certificate[vin]">
+    <label for = "vin">VIN</label><input id = "vin" name = "certificate[vin]" value = "<?=$certificate->vin ?? ""?>">
     <label for = "owner">Owner</label><input id = "owner" name = "certificate[proprietar]" value = "<?=$certificate->proprietar ?? ""?>">    
-    <label for = "tyresize">Tyre size</label><input id = "tyresize" name = "vehicle-tyresize">
-    <label for = "vehicleyearproduction">Year production</label><input id = "vehicleyearproduction" name = "vehicle-yearproduction">
+    <label for = "tyresize">Tyre size</label><input id = "tyresize" name = "certificate[tyresize]" value = "<?=$certificate->tyresize ?? ""?>" >
+    <label for = "vehicleyear">Year production</label><input id = "vehicleyear" name = "certificate[yearproduction]" value ="<?=$certificate->yearproduction  ?? "" ?>">
     <p style="clear: left;"></p>
     <h2>Tahograf</h2>
 
-    <label for = "tahonumber">Taho number</label><input id = "tahonumber" name = "taho-number">
-    <label for = "tahotype">Taho type</label><input id = "tahotype" name = "taho-tahotype">
-    <label for = "tahomesurement">Taho mesurement</label><input id = "tahomesurement" name = "taho-mesurement">
-    <label for = "tahorecordtype">Taho record type</label><input id = "tahorecordtype" name = "taho-recordtype">
+    <label for = "tahonumber">Taho number</label><input id = "tahonumber" name = "certificate[tahoId]" value="<?=$certificate->tahoId ?? "" ?>">
+    <label for = "tahotype">Taho type</label><input id = "tahotype" name = "certificate[tahotype]" value="<?=$certificate->tahotype ?? "" ?>">
+    <label for = "tahomesurement">Taho mesurement</label><input id = "tahomesurement" name = "certificate[measurementRange]" value = "<?=$certificate->measurementRange ?? "" ?>">
+    <label for = "tahorecordtype">Taho record type</label><input id = "tahorecordtype" name = "certificate[recordertypeId]"  value = "<?=$certificate->recordertypeId ?? "" ?>">
     </div>
 
 <div class="col-4 col-s-4 p3 log">                  
@@ -79,20 +80,20 @@
             fetch(`/vehicle/detailes?number=${event.target.value}`)
               .then(res=>res.json())
               .then(json=>{              
-                if(json&&json.numberplate){
+                if(json&&json.numberplate){                  
                   document.querySelector("input[id = vehicle]").value = json.numberplate
                   document.querySelector("input[id = vin]").value = json.vin
                   document.querySelector("input[id = owner]").value = json.owner
                   document.querySelector("input[id = tyresize]").value = json.tyresize
-                  document.querySelector("input[id = vehicleyearproduction]").value = json.yearproduction
+                  document.querySelector("input[id = vehicleyear]").value = json.yearproduction
                   if(json.tahoId){
                      fetch(`/taho/detailes?id=${json.tahoId}`)
                       .then(res=>res.json())
                       .then(json=>{                  
-                  document.querySelector("input[name = taho-number]").value = json.tahonumber
-                  document.querySelector("input[name = taho-tahotype]").value =json.tahotypeId
-                  document.querySelector("input[name = taho-mesurement]").value = json.measurementRange	
-                  document.querySelector("input[name = taho-recordtype]").value = json.recordertypeId
+                  document.querySelector("input[id  = tahonumber]").value = json.tahoId
+                  document.querySelector("input[id = tahotype]").value =json.tahotype
+                  document.querySelector("input[id = tahomesurement]").value = json.measurementRange	
+                  document.querySelector("input[id = tahorecordtype]").value = json.recordertypeId
                     })
                   }
                 }
