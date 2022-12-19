@@ -80,6 +80,12 @@ class Taho
       public function detailes(){
         $id = intval($_GET['id']?? 0);
         $taho = $this->taholistTable->findById($id);
+        if($taho != null&&!empty($taho->tahotypeId)){
+            $tahotype = $this->tahotypeTable->findById($taho->tahotypeId);
+            if($tahotype != null){
+                $taho->tahotypeId = $tahotype->typetaho;
+            }
+        }
         print json_encode($taho);
         die;
     }

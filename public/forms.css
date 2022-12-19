@@ -1,3 +1,6 @@
+*:focus {
+   background-color:#ccc;
+}
 .formwork textarea {
     float: left;
     width: 25em;
@@ -68,12 +71,8 @@
 }
 
 /*.log label {padding: 0; margin: 0;}*/
-.log input[type="submit"] {
-    margin-left: 15em;
-    width: auto;
-    padding: 0.5em 1em;
-    clear: both;
-   
+.log input[type="submit"] {    
+text-align: center;
 }
 
 .log input,
@@ -81,7 +80,7 @@ select,
 textarea {
     
     width: 15em;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     padding: 0.5em;
     font-size: 14px;
 }

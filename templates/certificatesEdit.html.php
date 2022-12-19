@@ -63,9 +63,15 @@
 <label for="name">Valabilitate  </label>
 <input   name="certificate[valabilitate]"    value="<?= $certificate ->valabilitate  ?? '' ?>">
 <label for="name">Baterea </label>
-<input  type = "checkbox" name="certificate[baterea]" value="<?= $certificate ->baterea  ?? '' ?>">
-<p><input type="submit" name="submit" value="Save"></p>
-            </form>         
+<select name = "certificate[baterea]">
+  <option selected disabled ></option>
+  <option value="1" <?=$certificate->baterea?"selected checked":""?>>Yes</option>
+  <option value="0" <?=$certificate->baterea?"":"selected checked"?>>No</option>
+</select>
+<label for="submit"></label>
+
+<input type="submit" name="submit" value="Save" id="submit">
+</form>         
           </div>
           <div class="col-4 col-s-4 ">
             <div style="text-align: center;margin-top:50px">
@@ -89,15 +95,15 @@
                   if(json.tahoId){
                      fetch(`/taho/detailes?id=${json.tahoId}`)
                       .then(res=>res.json())
-                      .then(json=>{                  
-                  document.querySelector("input[id  = tahonumber]").value = json.tahoId
-                  document.querySelector("input[id = tahotype]").value =json.tahotype
+                      .then(json=>{    
+                        console.log(json)              
+                  document.querySelector("input[id  = tahonumber]").value = json.tahonumber
+                  document.querySelector("input[id = tahotype]").value =json.tahotypeId
                   document.querySelector("input[id = tahomesurement]").value = json.measurementRange	
                   document.querySelector("input[id = tahorecordtype]").value = json.recordertypeId
                     })
                   }
                 }
-              })
-          
+              })          
           })
         </script>
