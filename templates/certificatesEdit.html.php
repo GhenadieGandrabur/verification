@@ -1,9 +1,11 @@
 
 <div class="row">
 <div class="col-12 col-s-12">
-  <h1>Certificat de verificare  nr: <?=$certificate ->id ??""?> din: <?= date("d.m.Y")  ?? '' ?></h1>   
-
-</div>
+    <div class="row">
+    <div class="col-12 col-s-12">
+    <h2 class="p">Certificat de verificare  nr: <?=$certificate ->id ??""?> din: <?= date("d.m.Y")  ?? '' ?></h2>   
+    </div>
+    </div>
     <div class="col-4 col-s-4 p3 ">
      
       <h2>Vehicle</h2>
@@ -18,18 +20,23 @@
     <p style="clear: left;"></p>
     <input  type="hidden" id = "id" name = "certificate[id]" value="<?=$certificate->id ?? ""?>">
     <label for = "vehicle">Number</label>
-    <input id = "vehicle" name = "certificate[vehicle]" value="<?=$certificate->vehicle ?? ""?>">
+    <input id = "vehicle" name = "certificate[vehicle]" value="<?=$certificate->vehicle ?? ""?>"  readonly >
     <label for = "vin">VIN</label><input id = "vin" name = "certificate[vin]" value = "<?=$certificate->vin ?? ""?>">
-    <label for = "owner">Owner</label><input id = "owner" name = "certificate[proprietar]" value = "<?=$certificate->proprietar ?? ""?>">    
-    <label for = "tyresize">Tyre size</label><input id = "tyresize" name = "certificate[tyresize]" value = "<?=$certificate->tyresize ?? ""?>" >
-    <label for = "vehicleyear">Year production</label><input id = "vehicleyear" name = "certificate[yearproduction]" value ="<?=$certificate->yearproduction  ?? "" ?>">
+    <label for = "owner">Owner</label><input id = "owner" name = "certificate[proprietar]" value = "<?=$certificate->proprietar ?? ""?>"  readonly >    
+    <label for = "tyresize">Tyre size</label>
+    <input id = "tyresize" name = "certificate[tyresize]" value = "<?=$certificate->tyresize ?? ""?>"  readonly >
+    <label for = "vehicleyear">Year production</label><input id = "vehicleyear" name = "certificate[yearproduction]" value ="<?=$certificate->yearproduction  ?? "" ?>" readonly >
     <p style="clear: left;"></p>
     <h2>Tahograf</h2>
 
-    <label for = "tahonumber">Taho number</label><input id = "tahonumber" name = "certificate[tahoId]" value="<?=$certificate->tahoId ?? "" ?>">
-    <label for = "tahotype">Taho type</label><input id = "tahotype" name = "certificate[tahotype]" value="<?=$certificate->tahotype ?? "" ?>">
-    <label for = "tahomesurement">Taho mesurement</label><input id = "tahomesurement" name = "certificate[measurementRange]" value = "<?=$certificate->measurementRange ?? "" ?>">
-    <label for = "tahorecordtype">Taho record type</label><input id = "tahorecordtype" name = "certificate[recordertypeId]"  value = "<?=$certificate->recordertypeId ?? "" ?>">
+    <label for = "tahonumber">Taho number</label>
+    <input id = "tahonumber" name = "certificate[tahoId]" value="<?=$certificate->tahoId ?? "" ?>"  readonly>
+    <label for = "tahotype">Taho type</label>
+    <input id = "tahotype" name = "certificate[tahotype]" value="<?=$certificate->tahotype ?? "" ?>"  readonly>
+    <label for = "tahomesurement">Taho mesurement</label>
+    <input id = "tahomesurement" name = "certificate[measurementRange]" value = "<?=$certificate->measurementRange ?? "" ?>"  readonly>
+    <label for = "tahorecordtype">Taho record type</label>
+    <input id = "tahorecordtype" name = "certificate[recordertypeId]"  value = "<?=$certificate->recordertypeId ?? "" ?>" readonly>
     </div>
 
 <div class="col-4 col-s-4 p3 log">                  
@@ -80,6 +87,8 @@
     
     </div>
         </div>
+        
+</div>
         <script>
           document.getElementById("find").addEventListener("keyup",(event)=>{
             event.preventDefault()

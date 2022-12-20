@@ -1,11 +1,14 @@
-<div class="row">
-    <div class="col-12 col-s-12">
-    <div class="col-12 col-s-12">
-        <h3>Certificate  <span style="float: right; font-size:small"><?= $totalCertificates ?> certificate in BD</span></h3>
-        <div class="d-flex justify-content-between " style=" margin-bottom:10px;">
-        </div>
+<div class="row p">
+    <div class="col-12 col-s-12 ">
+    <div class="col-12 col-s-12 ">
+     <div class="col-6 col-s-6 ">   
+        <h2>Certificate de verificare a tahografelor</h2> 
+     </div>
+     <div class="col-6 col-s-6 ">
+      <h4 style="text-align:right ;"><?= $totalCertificates ?> certificate in BD</h4>
+       <!-- <div class="d-flex justify-content-between " style=" margin-bottom:10px;"></div>-->
+     </div>
     </div>
-
         <div class="col-12 col-s-12">
             <div class="col-6 col-s-6">
                  <a href="/certificates/edit"><button class="button_edit"> New certificate</button></a>            
