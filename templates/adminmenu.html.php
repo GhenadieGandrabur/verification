@@ -1,16 +1,16 @@
+
+<div class="topnav" id="myTopnav">     
 <?php if ($loggedIn?? false) : ?>
-        <ul class="menu">
-       <!-- <li><a href="/">Home</a></li>-->
-        <li><a href="/certificates/list">Certificate</a></li>
-        <li><a href="/vehiclesowners/list">Proprietari</a></li>
-        <li><a href="/vehicles/list">Vehicles</a></li>
-        <li><a href="/taho/list">Tahografe</a></li>
-        <li><a href="/tahotype/list">Type taho</a></li>
-        <li><a href="/tyres/list">Tyres</a></li>
-        <li><a href="/users/list">Users</a></li>            
-            <li><a href="/logout">Log out</a></li>
-      <!--  
-            <li><a href="/login">Log in</a></li>     -->       
-        </ul>
-        <?php endif; ?>
+        <a href="/certificates/list" class="active">Certificate</a>
+        <a href="/vehiclesowners/list">Proprietari</a>
+        <a href="/vehicles/list">Vehicles</a>
+        <a href="/taho/list">Tahografe</a>
+        <a href="/tahotype/list">Type taho</a>
+        <a href="/tyres/list">Tyres</a>
+        <a href="/users/list">Users</a>            
+        <a href="/logout">Log out</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i></a>
+    <?php endif; ?>
+</div>
 

@@ -46,7 +46,7 @@ class CertificatesRoutes implements \Main\Routes
 
         $routes = [
             'author/register' => ['GET' => ['controller' => $authorController,'action' => 'registrationForm' ],
-                                 'POST' => ['controller' => $authorController,'action' => 'registerUser']],
+                                 'POST' => ['controller' => $authorController,'action' => 'registerUser'],'login' => true],
             'author/success' =>  ['GET' => ['controller' => $authorController,'action' => 'success']],
             
             'login/error' =>   ['GET' => ['controller' => $loginController,'action' => 'error']],
@@ -63,8 +63,8 @@ class CertificatesRoutes implements \Main\Routes
             'certificates/print' => ['GET' => ['controller' => $certificatesController, 'action' => 'print'], 'login' => true],
                 
             'vehicles/list' =>   [ 'GET' => ['controller' => $vehicleController, 'action' => 'list'], 'login' => true],
-            'vehicle/delete' => ['POST' => ['controller' => $vehicleController, 'action' => 'delete'], 'login' => true],
-            'vehicle/edit' =>   ['POST' => ['controller' => $vehicleController, 'action' => 'saveEdit'],
+            'vehicle/delete' =>  ['POST' => ['controller' => $vehicleController, 'action' => 'delete'], 'login' => true],
+            'vehicle/edit' =>    ['POST' => ['controller' => $vehicleController, 'action' => 'saveEdit'],
                                    'GET' => ['controller' => $vehicleController, 'action' => 'edit'],'login' => true ],
             'vehicle/detailes' =>['GET'=>['controller' => $vehicleController, 'action' => 'detailes'],'login' => true ],
             'vehiclesowners/list' =>   ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'list'], 'login' => true],
