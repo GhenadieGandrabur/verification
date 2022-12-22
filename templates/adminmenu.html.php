@@ -2,8 +2,8 @@
 <div class="topnav" id="myTopnav">     
 <?php if ($loggedIn?? false) : ?>
         <a href="/certificates/list" class="active">Certificate</a>
-        <a href="/vehiclesowners/list">Proprietari</a>
         <a href="/vehicles/list">Vehicles</a>
+        <a href="/vehiclesowners/list">Proprietari</a>
         <a href="/taho/list">Tahografe</a>
         <a href="/tahotype/list">Type taho</a>
         <a href="/tyres/list">Tyres</a>

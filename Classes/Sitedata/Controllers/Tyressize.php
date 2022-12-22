@@ -40,6 +40,7 @@ class Tyressize
     }
     public function saveEdit()
     {
+        
         $tyre = $_POST['tyre'];
         $this->tyreTable->save($tyre);
         header('location: /tyres/list');
@@ -47,7 +48,10 @@ class Tyressize
 
     public function edit()
     {             
-             if (isset($_GET['id'])) {$tyre = $this->tyreTable->findById($_GET['id']);}
+             if (isset($_GET['id']))
+             {
+                $tyre = $this->tyreTable->findById($_GET['id']);
+            }
 
             $title = 'Edit tyres size';
 

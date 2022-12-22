@@ -10,7 +10,7 @@
     <th>Type taho</th>    
       
     <th>Recorder type</th>    
-    <th>Measurement range</th>    
+    <th>Measurement</th>    
     <th>Edit</th>
     <th>Delete</th>
     <tr>

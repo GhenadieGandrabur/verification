@@ -70,7 +70,7 @@ class DatabaseTable {
 
 		$query = rtrim($query, ',');
 
-		$query .= ')';
+		$query .= ')';	
 
 		$fields = $this->processDates($fields);
 

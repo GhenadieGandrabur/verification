@@ -6,8 +6,8 @@
           <form action="" method="POST" class="formwork">   
             
             
-            <label   for="id">ID</label>
-            <input  id="id" name = "vehicle[id]" value="<?=$vehicle->id ??""?>">
+            <label   for="id"></label>
+            <input type="hidden" id="id" name = "vehicle[id]" value="<?=$vehicle->id ??""?>">
             
             
             <label  for="number">Number</label>
@@ -20,14 +20,20 @@
             <input  id="yearProduction" name = 'vehicle[yearProduction]' value="<?=$vehicle->yearProduction ??""?>">
 
 
-            <label  for="tahoId">Taho id</label>
-            <input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId ??""?>">            
+            <label  for="tahoId">Taho number</label>
+            <input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId ??""?>" placeholder="from taholist">            
             
             <label  for="tyresize">Tyre size</label>
-            <input  id="tyresize" name = "vehicle[tyresize]" value="<?=$vehicle->tyresize ??""?>">      
+            <select name="vehicle[tyresize]">
+               <option disabled selected></option>
+               <?php foreach($tyresizes as $tyresize):?>
+                  <option value="<?=$tyresize->size?>" <?= $tyresize->size ===( $vehicle->tyresize?? null) ?"checked selected ": "" ?>><?=$tyresize->size?></option>
+               <?php endforeach;?>
+            </select>
+              
                   
             <label  for="owner">Owner</label>
-            <input  id="owner" name = "vehicle[owner]" value="<?=$vehicle->owner ??""?>">  
+            <input  id="owner" name = "vehicle[owner]" value="<?=$vehicle->owner ??""?>" placeholder="from owner">  
 
             <label  for="submit"></label>
             <input  id="submit" type="submit" value=" Save ">     

@@ -62,7 +62,7 @@
 <input  id="odometrupina" name="certificate[odometrupina]"    value="<?= $certificate ->odometrupina  ?? '' ?>">
 
 <label for="name">odometru dupa  </label>                  
-<input  id="k_now" name="certificate[odometrudupa]"    value="<?= $certificate ->odometrudupa  ?? '' ?>">
+<input  id="odometrudupa" name="certificate[odometrudupa]"    value="<?= $certificate ->odometrudupa  ?? '' ?>">
 
 <label for="name">presiune</label>                   
 <input   name="certificate[presiune]"   value="<?= $certificate ->presiune  ?? '' ?>">
@@ -138,5 +138,19 @@
                 })
             }
           })
+          document.getElementById('k_vechi').addEventListener('keyup',function(event){
+            document.getElementById("w_vechi").value = event.target.value
+          })
 
+          document.getElementById('k_now').addEventListener('keyup',function(event){
+            document.getElementById("w_now").value = event.target.value
+          })
+
+          document.getElementById('odometrupina').addEventListener('keyup',function(event){
+            if(parseInt(event.target.value||0)>0){
+              document.getElementById("odometrudupa").value = parseInt(event.target.value)+10
+            }else{
+              document.getElementById("odometrudupa").value = ""
+            }
+          })
         </script>

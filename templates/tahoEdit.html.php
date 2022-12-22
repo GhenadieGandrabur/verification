@@ -14,7 +14,7 @@
             <option value="<?=$tahotype->id?>" <?= $tahotype->id ===( $taho->tahotypeId?? null) ?"checked selected ": "" ?>><?=$tahotype->typetaho?></option>
         <?php endforeach;?>
         </select>
-         <label for="taho[measurementRange]">Measurement range</label>
+         <label for="taho[measurementRange]">Measurement</label>
                     <select name="taho[measurementRange]"> 
                         <option disabled selected></option>       
                         <option value="100 km/h" <?= ($taho->measurementRange ?? null) ===  "100 km/h" ?"checked selected":""?>>100</option> 

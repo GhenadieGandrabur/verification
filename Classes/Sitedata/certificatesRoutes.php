@@ -11,10 +11,10 @@ class CertificatesRoutes implements \Main\Routes
     private $certificatesTable;
     private $vehicleTable;
     private $authentication;
-    private $vehiclesOwnersTable;
-    private $tyresTable;
+    private $vehiclesOwnersTable;    
     private $taholistTable;
     private $tahotypeTable;
+    private $tyresizeTable;
     
 
     public function __construct()
@@ -26,7 +26,7 @@ class CertificatesRoutes implements \Main\Routes
         $this->certificatesTable = new \Main\DatabaseTable($pdo, 'certificates', 'id');
         $this->authorsTable = new \Main\DatabaseTable($pdo, 'author', 'id');        
         $this->usersTable = new \Main\DatabaseTable($pdo, 'author', 'id');
-        $this->tyresTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
+        $this->tyresizeTable = new \Main\DatabaseTable($pdo, 'tyressize', 'id');
         $this->vehicleTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
         $this->vehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
         $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
@@ -39,9 +39,9 @@ class CertificatesRoutes implements \Main\Routes
         $certificatesController = new \Sitedata\Controllers\Certificate($this->certificatesTable, $this->authorsTable, $this->authentication, $this->vehicleTable);
         $authorController = new \Sitedata\Controllers\Register($this->authorsTable);
         $usersController = new \Sitedata\Controllers\Author($this->usersTable, $this->authentication);       
-        $vehicleController = new \Sitedata\Controllers\Vehicles($this->vehicleTable);
+        $vehicleController = new \Sitedata\Controllers\Vehicles($this->vehicleTable, $this->tyresizeTable);
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
-        $tyresController = new \Sitedata\Controllers\Tyressize($this->tyresTable);
+        $tyresController = new \Sitedata\Controllers\Tyressize($this->tyresizeTable);
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
 
         $routes = [

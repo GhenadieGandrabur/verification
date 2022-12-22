@@ -11,10 +11,10 @@
     <table class="fortable">
         <tr>
     <th>Id</th>
-    <th>Numberplate</th>
+    <th>Number</th>
     <th>VIN</th>
-    <th>Year production</th>    
-    <th>TahoId</th>
+    <th>Y/P</th>    
+    <th>Taho nr.</th>
     <th>Tyresize</th>
     <th>Owner</th>
     <th>Edit</th>

@@ -9,11 +9,13 @@ class Vehicles
 {
     
     private $vehicleTable;
+    private $tyresizeTable;
     
-    public function __construct(DatabaseTable $vehicleTable)
+    public function __construct(DatabaseTable $vehicleTable, DatabaseTable $tyresizeTable)
     {
         $this->vehicleTable = $vehicleTable;
-       
+        $this->tyresizeTable = $tyresizeTable;
+        
     }
 
     public function list()
@@ -51,7 +53,10 @@ class Vehicles
         return [
             'template' => 'vehicleedit.html.php', 
             'title' => $title,
-            'variables' => ['vehicle' => $vehicle ??  [] ]
+            'variables' => [
+                'vehicle' => $vehicle ??  [],
+                'tyresizes' => $this->tyresizeTable->findAll()
+                 ]
         ];
     }
     public function detailes(){
