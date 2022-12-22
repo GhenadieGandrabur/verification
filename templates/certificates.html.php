@@ -1,34 +1,34 @@
-<div class="row p">
-    <div class="col-12 col-s-12 ">
-    <div class="col-12 col-s-12 ">
-     <div class="col-6 col-s-6 ">   
-        <h2>Certificate de verificare a tahografelor</h2> 
+<div class="row" style="padding-left:10px; padding-right:10px">
+    <div class="col-12 col-s-12 " style="margin:0; padding:0;">
+    
+     <div class="col-6 col-s-6 " style="margin:0; padding:0;">   
+        <h2 style="margin:0 ;">Certificate de verificare a tahografelor</h2> 
      </div>
-     <div class="col-6 col-s-6 ">
-      <h4 style="text-align:right ;"><?= $totalCertificates ?> certificate in BD</h4>
+     <div class="col-6 col-s-6 " style="margin:0; padding:0;">
+      <h4 style="text-align:right ; margin:0;"><?= $totalCertificates ?> certificate in BD</h4>
        <!-- <div class="d-flex justify-content-between " style=" margin-bottom:10px;"></div>-->
      </div>
-    </div>
-        <div class="col-12 col-s-12">
-            <div class="col-6 col-s-6">
-                 <a href="/certificates/edit"><button class="button_edit"> New certificate</button></a>            
+    
+      <div class="col-12 col-s-12" style="margin:0; padding:0;">
+            <div class="col-6 col-s-6" style="margin:0; padding:0;">
+                 <a href="/certificates/edit"><button class="button_edit"> New certificate</button></a>    </div>          
                  <ul style="display:none" class="smart-table-hint">
                  <li><kbd>↑</kbd> - previous row</li>
                  <li><kbd>↓</kbd> - next row</li>
                  <li><kbd>i</kbd> - edit selected row</li>
                  </ul>
-            </div>
-            <div class="col-6 col-s-6">
+          
+            <div class="col-6 col-s-6" style="margin:0; padding:0;">
                  <span style="float: right;"> <input type="text" id="myInput" onkeyup="findaword()" placeholder="Search" title="find" style="padding:5px ; width:300px; font-size:18px"></span>
             </div>
-        </div>
-
-        <div class="col-12 col-s-12">
+        
+    </div>
+        <div class="col-12 col-s-12" style="margin:0; padding:0;">
         <div style="overflow-x:auto;">
             <table width="100%" class="fortable smart-table" data-controller="certificates" id="myTable">
                 <th>ID</th>
                 <th>Date</th>
-                <th>Vehicol</th>
+                <th>Vehicul</th>
                 <th>Proprietar</th>
                 <th>Autor</th>
                 <th>Print</th>

@@ -135,7 +135,7 @@ class Certificate
             'title' => $title,
             'variables' => [
                 'certificate' => $certificate ?? null,
-                'userId' => $author['id'] ?? null,
+                'userId' => $author->id ?? null,
                 'autos' => $autos ?? null
             ]
         ];

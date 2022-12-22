@@ -60,4 +60,10 @@ class Vehicles
         print json_encode($vehicle[0]?? []);
         die;
     }
+    public function likeList(){
+        $number = htmlspecialchars($_GET['number']);
+        $vehicle = $this->vehicleTable->findLike('numberplate', $number);
+        print json_encode($vehicle?? []);
+        die;
+    }
 }

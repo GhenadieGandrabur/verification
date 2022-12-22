@@ -67,6 +67,7 @@ class CertificatesRoutes implements \Main\Routes
             'vehicle/edit' =>    ['POST' => ['controller' => $vehicleController, 'action' => 'saveEdit'],
                                    'GET' => ['controller' => $vehicleController, 'action' => 'edit'],'login' => true ],
             'vehicle/detailes' =>['GET'=>['controller' => $vehicleController, 'action' => 'detailes'],'login' => true ],
+            'vehicle/likelist' =>['GET'=>['controller' => $vehicleController, 'action' => 'likeList'],'login' => true ],
             'vehiclesowners/list' =>   ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'list'], 'login' => true],
             'vehiclesowners/delete' => ['POST' =>  ['controller' => $vehiclesOwnersController, 'action' => 'delete'], 'login' => true],
             'vehiclesowners/edit' =>   ['POST' => ['controller' => $vehiclesOwnersController, 'action' => 'saveEdit'],

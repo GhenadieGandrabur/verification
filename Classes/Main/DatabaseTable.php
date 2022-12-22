@@ -133,4 +133,15 @@ class DatabaseTable {
 			$this->update( $record);
 		}
 	}
+	public function findLike($column, $value) {
+		$query = 'SELECT * FROM ' . $this->table . ' WHERE ' . $column . ' LIKE "%'.$value.'%"';
+
+		$parameters = [
+			//'value' => sprintf("%%s%",$value)
+		];
+
+		$query = $this->query($query, $parameters);
+
+		return $query->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
+	}
 }

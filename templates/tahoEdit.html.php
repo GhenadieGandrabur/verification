@@ -30,4 +30,3 @@
     <div class="col-2 col-s-2"></div>
 
  </div>
- 

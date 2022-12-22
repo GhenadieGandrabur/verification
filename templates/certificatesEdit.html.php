@@ -1,4 +1,3 @@
-
 <div class="row">
 <div class="col-12 col-s-12">
     <div class="row">
@@ -11,10 +10,12 @@
       <h2>Vehicle</h2>
       
       <form action="" method="POST" class="log"> 
-       <div style=" background-color:#ccc; padding:10px">
+       <div>
       <label for="find"><span style="font-weight:bold ;">Search a vehicle</span></label>
-      <input id="find" type="text" placeholder="Number or VIN of a vehicle">
-      
+      <div id="findcontainer">
+      <input id="find" type="text" placeholder="Number or VIN of a vehicle" autocomplete="off">
+      <div class="bookmarks"></div>
+      </div>
        </div>
        
     <p style="clear: left;"></p>
@@ -36,7 +37,10 @@
     <label for = "tahomesurement">Taho mesurement</label>
     <input id = "tahomesurement" name = "certificate[measurementRange]" value = "<?=$certificate->measurementRange ?? "" ?>"  readonly>
     <label for = "tahorecordtype">Taho record type</label>
-    <input id = "tahorecordtype" name = "certificate[recordertypeId]"  value = "<?=$certificate->recordertypeId ?? "" ?>" readonly>
+    
+    <input id = "tahorecordtype" name = "certificate[recordertypeId]"  value = "analor" readonly>
+   
+
     </div>
 
 <div class="col-4 col-s-4 p3 log">                  
@@ -92,27 +96,47 @@
         <script>
           document.getElementById("find").addEventListener("keyup",(event)=>{
             event.preventDefault()
-            fetch(`/vehicle/detailes?number=${event.target.value}`)
+            if(event.target.value.trim()=="")return;
+            fetch(`/vehicle/likelist?number=${event.target.value}`)
               .then(res=>res.json())
               .then(json=>{              
-                if(json&&json.numberplate){                  
-                  document.querySelector("input[id = vehicle]").value = json.numberplate
-                  document.querySelector("input[id = vin]").value = json.vin
-                  document.querySelector("input[id = owner]").value = json.owner
-                  document.querySelector("input[id = tyresize]").value = json.tyresize
-                  document.querySelector("input[id = vehicleyear]").value = json.yearproduction
-                  if(json.tahoId){
-                     fetch(`/taho/detailes?id=${json.tahoId}`)
-                      .then(res=>res.json())
-                      .then(json=>{    
-                        console.log(json)              
-                  document.querySelector("input[id  = tahonumber]").value = json.tahonumber
-                  document.querySelector("input[id = tahotype]").value =json.tahotypeId
-                  document.querySelector("input[id = tahomesurement]").value = json.measurementRange	
-                  document.querySelector("input[id = tahorecordtype]").value = json.recordertypeId
-                    })
-                  }
+                if(json&&json.length>0){                  
+                    const bookmarks = document.querySelector("#findcontainer .bookmarks")
+                    bookmarks.innerHTML = "";
+                    for(let bookmark of json){
+                      bookmarks.innerHTML += `<div class="bookmark">${bookmark.numberplate}</div>`
+                    }
                 }
               })          
           })
+          document.addEventListener("click",function(event){
+           // event.preventDefault()
+           //event.stopPropagation()
+            if(event.target.classList.contains("bookmark")){
+                const value = event.target.innerText 
+                fetch(`/vehicle/detailes?number=${value}`)
+                .then(res=>res.json())
+                .then(json=>{              
+                    if(json&&json.numberplate){                  
+                        document.querySelector("input[id = vehicle]").value = json.numberplate
+                        document.querySelector("input[id = vin]").value = json.vin
+                        document.querySelector("input[id = owner]").value = json.owner
+                        document.querySelector("input[id = tyresize]").value = json.tyresize
+                        document.querySelector("input[id = vehicleyear]").value = json.yearproduction
+                        if(json.tahoId){
+                            fetch(`/taho/detailes?id=${json.tahoId}`)
+                            .then(res=>res.json())
+                            .then(json=>{                                      
+                                document.querySelector("input[id  = tahonumber]").value = json.tahonumber
+                                document.querySelector("input[id = tahotype]").value =json.tahotypeId
+                                document.querySelector("input[id = tahomesurement]").value = json.measurementRange	
+                                document.querySelector("input[id = tahorecordtype]").value = json.recordertypeId
+                            })
+                        }
+                    }
+                    document.querySelector("#findcontainer .bookmarks").innerHTML = ""
+                })
+            }
+          })
+
         </script>
