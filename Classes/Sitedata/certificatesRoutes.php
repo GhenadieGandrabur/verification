@@ -15,6 +15,8 @@ class CertificatesRoutes implements \Main\Routes
     private $taholistTable;
     private $tahotypeTable;
     private $tyresizeTable;
+    private $brandsTable;
+    
     
 
     public function __construct()
@@ -30,6 +32,7 @@ class CertificatesRoutes implements \Main\Routes
         $this->vehicleTable = new \Main\DatabaseTable($pdo, 'vehicles', 'id');
         $this->vehiclesOwnersTable = new \Main\DatabaseTable($pdo, 'vehiclesowners', 'id');
         $this->authentication = new \Main\Authentication($this->authorsTable, 'email', 'password');
+        $this->brandsTable = new \Main\DatabaseTable($pdo, 'brands', 'id');
     }
 
     public function getRoutes(): array
@@ -43,6 +46,7 @@ class CertificatesRoutes implements \Main\Routes
         $vehiclesOwnersController = new \Sitedata\Controllers\VehiclesOwners($this->vehiclesOwnersTable);
         $tyresController = new \Sitedata\Controllers\Tyressize($this->tyresizeTable);
         $loginController = new \Sitedata\Controllers\Login($this->authentication);
+        $brandsController = new \Sitedata\Controllers\Brands($this->brandsTable);
 
         $routes = [
             'author/register' => ['GET' => ['controller' => $authorController,'action' => 'registrationForm' ],
@@ -66,18 +70,19 @@ class CertificatesRoutes implements \Main\Routes
             'vehicle/delete' =>  ['POST' => ['controller' => $vehicleController, 'action' => 'delete'], 'login' => true],
             'vehicle/edit' =>    ['POST' => ['controller' => $vehicleController, 'action' => 'saveEdit'],
                                    'GET' => ['controller' => $vehicleController, 'action' => 'edit'],'login' => true ],
-            'vehicle/detailes' =>['GET'=>['controller' => $vehicleController, 'action' => 'detailes'],'login' => true ],
-            'vehicle/likelist' =>['GET'=>['controller' => $vehicleController, 'action' => 'likeList'],'login' => true ],
-            'vehiclesowners/list' =>   ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'list'], 'login' => true],
-            'vehiclesowners/delete' => ['POST' =>  ['controller' => $vehiclesOwnersController, 'action' => 'delete'], 'login' => true],
-            'vehiclesowners/edit' =>   ['POST' => ['controller' => $vehiclesOwnersController, 'action' => 'saveEdit'],
+
+            'vehicle/detailes'      => ['GET '=>  ['controller' => $vehicleController, 'action' => 'detailes'],'login' => true ],
+            'vehicle/likelist'      => ['GET' =>  ['controller' => $vehicleController, 'action' => 'likeList'],'login' => true ],
+            'vehiclesowners/list'   => ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'list'], 'login' => true],
+            'vehiclesowners/delete' => ['POST' => ['controller' => $vehiclesOwnersController, 'action' => 'delete'], 'login' => true],
+            'vehiclesowners/edit'   => ['POST' => ['controller' => $vehiclesOwnersController, 'action' => 'saveEdit'],
                                          'GET' => ['controller' => $vehiclesOwnersController, 'action' => 'edit'],'login' => true ],
 
-            'taho/list' =>   ['GET' =>  ['controller' => $tahoController, 'action' => 'list'], 'login' => true],
-            'taho/detailes' =>   ['GET' =>  ['controller' => $tahoController, 'action' => 'detailes'], 'login' => true],
-            'taho/delete' => ['POST' =>  ['controller' => $tahoController, 'action' => 'delete'], 'login' => true],
-            'taho/edit' =>   ['POST' => ['controller' => $tahoController, 'action' => 'saveEdit'],
-                                         'GET' => ['controller' => $tahoController, 'action' => 'edit'],'login' => true ],
+            'taho/list' =>     ['GET'  => ['controller' => $tahoController, 'action' => 'list'], 'login' => true],
+            'taho/detailes' => ['GET'  => ['controller' => $tahoController, 'action' => 'detailes'], 'login' => true],
+            'taho/delete' =>   ['POST' => ['controller' => $tahoController, 'action' => 'delete'], 'login' => true],
+            'taho/edit' =>     ['POST' => ['controller' => $tahoController, 'action' => 'saveEdit'],
+                                'GET'  => ['controller' => $tahoController, 'action' => 'edit'],'login' => true ],
                                          
             'users/list' =>   ['GET' =>  ['controller' => $usersController, 'action' => 'list'], 'login' => true],
             'users/delete' => ['POST' => ['controller' => $usersController, 'action' => 'delete'], 'login' => true],
@@ -87,8 +92,13 @@ class CertificatesRoutes implements \Main\Routes
             'tyres/list' =>   ['GET' =>  ['controller' => $tyresController, 'action' => 'list'], 'login' => true],
             'tyres/delete' => ['POST' => ['controller' => $tyresController, 'action' => 'delete'], 'login' => true],
             'tyres/edit' =>   ['POST' => ['controller' => $tyresController, 'action' => 'saveEdit'],
-                              'GET' => ['controller' => $tyresController, 'action' => 'edit'],'login' => true ],
+                              'GET' =>   ['controller' => $tyresController, 'action' => 'edit'],'login' => true ],
                               
+            'brands/list' =>  ['GET' =>   ['controller'   => $brandsController, 'action' => 'list'], 'login' => true],
+            'brand/delete' => ['POST' =>  ['controller'   => $brandsController, 'action' => 'delete'], 'login' => true],
+            'brand/edit' =>   ['POST' =>  ['controller'   => $brandsController, 'action' => 'saveEdit'],
+                              'GET' =>    ['controller'   => $brandsController, 'action' => 'edit'],'login' => true ],
+
             'tahotype/list' =>   ['GET'  => ['controller' => $tahotypeController, 'action' => 'list'], 'login' => true],
             'tahotype/delete' => ['POST' => ['controller' => $tahotypeController, 'action' => 'delete'], 'login' => true],
             'tahotype/edit' =>   ['POST' => ['controller' => $tahotypeController, 'action' => 'saveEdit'],

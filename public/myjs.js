@@ -20,6 +20,9 @@ function newtahotype() {
     function newauthor() {
         location.href = "/author/register";
 }
+    function newbrand() {
+        location.href = "/brand/edit";
+}
 
 addEventListener("DOMContentLoaded", () => {
   const hintElement = "smart-table-hint";

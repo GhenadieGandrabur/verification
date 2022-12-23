@@ -3,6 +3,7 @@
 <?php if ($loggedIn?? false) : ?>
         <a href="/certificates/list" class="active">Certificate</a>
         <a href="/vehicles/list">Vehicles</a>
+        <a href="/brands/list">Brands</a>
         <a href="/vehiclesowners/list">Proprietari</a>
         <a href="/taho/list">Tahografe</a>
         <a href="/tahotype/list">Type taho</a>

@@ -7,42 +7,42 @@ use \Main\DatabaseTable;
 class Tyressize
 {
 
-    private $tyreTable;
+    private $tyresizeTable;
     
 
-    public function __construct(DatabaseTable $tyreTable)
+    public function __construct(DatabaseTable $tyresizeTable)
     {
-        $this->tyreTable = $tyreTable;        
+        $this->tyresizeTable = $tyresizeTable;        
        
     }
 
     public function list()
     {
                  
-        $tyres = $this->tyreTable->findAll();
-
-    
+        $tyres = $this->tyresizeTable->findAll();    
 
         $title = 'Tyres size';
 
-        $totalTyres = $this->tyreTable->total();
+        $totalTyres = $this->tyresizeTable->total();
 
         return [
                 'template' => 'tyressize.html.php',
                 'title' => $title,
-                'variables' => ['totalTyres' => $totalTyres, 'tyres' => $tyres ]];
+                'variables' => [
+                    'totalTyres' => $totalTyres, 
+                    'tyres' => $tyres 
+                    ]];
     }
 
     public function delete()
     {        
-        $this->tyreTable->delete($_POST['id']);
+        $this->tyresizeTable->delete($_POST['id']);
         header('location: /tyres/list');
     }
     public function saveEdit()
-    {
-        
+    {        
         $tyre = $_POST['tyre'];
-        $this->tyreTable->save($tyre);
+        $this->tyresizeTable->save($tyre);
         header('location: /tyres/list');
     }
 
@@ -50,7 +50,7 @@ class Tyressize
     {             
              if (isset($_GET['id']))
              {
-                $tyre = $this->tyreTable->findById($_GET['id']);
+                $tyre = $this->tyresizeTable->findById($_GET['id']);
             }
 
             $title = 'Edit tyres size';

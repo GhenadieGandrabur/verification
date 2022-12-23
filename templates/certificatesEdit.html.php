@@ -67,7 +67,7 @@
 <label for="name">presiune</label>                   
 <input   name="certificate[presiune]"   value="<?= $certificate ->presiune  ?? '' ?>">
 
-<label for="name">lungimea circomferentii  </label>
+<label for="name">L  </label>
 <input   name="certificate[lungimeacircomferentii]"  maxlength="4"  value="<?= $certificate->lungimeacircomferentii  ?? '' ?>">
 <label for="name">limitator de viteza  </label>
 <input   name="certificate[limitatordeviteza]"   value="<?= $certificate ->limitatordeviteza  ?? '' ?>">

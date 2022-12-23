@@ -1,0 +1,36 @@
+VEHICLES
+    1   id
+	2	date	
+	3	numberplate		
+	4	brandId	
+	5	model		
+	6	vin		
+	7	owner	
+	8	tahoId	
+	10	yearproduction	
+
+CERTIFICATE
+
+    1	id                              Primary	int(10)					 	
+	2	date	                        datetime							 	 	
+	3	vehicle	                        text							 	 	
+	4	vin	                            varchar(20)							 	 	
+	5	proprietar	                    varchar(30)							 	 	
+	6	k_vechi	                        varchar(5)							 	 	
+	7	k_nou                           varchar(5)							 	 	
+	8	w_vechi	                        varchar(5)							 	 	
+	9	w_nou	                        varchar(5)							 	 	
+	10	odometrupina	                varchar(7)							 	 	
+	11	odometrudupa	                varchar(7)							 	 	
+	12	presiune	                    varchar(3)							 	 	
+	13	lungimeacircomferentii	        varchar(4)							 	 	
+	14	limitatordeviteza	            varchar(3)							 	 	
+	15	valabilitate	                text							 	 	
+	16	baterea	                        int(1)							 	 	
+	17	authorId	                    int(5)							 	 	
+	18	tyresize	                    varchar(10)							 	 	
+	19	yearproduction	                varchar(4)							 	 	
+	20	tahoId	                        varchar(10)							 	 	
+	21	tahotype	                    varchar(20)							 	 	
+	22	measurementRange	            varchar(3)							 	 	
+	23	recordertypeId	                int(1)			

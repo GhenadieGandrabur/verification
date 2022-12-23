@@ -14,6 +14,8 @@
     <th>Number</th>
     <th>VIN</th>
     <th>Y/P</th>    
+    <th>Brand</th>    
+    <th>Modele</th>    
     <th>Taho nr.</th>
     <th>Tyresize</th>
     <th>Owner</th>
@@ -26,6 +28,8 @@
             <td><?= $vehicle->id ?></td>
             <td><?= $vehicle->numberplate?></td>
             <td><?= $vehicle->vin ?></td>   
+            <td><?= $vehicle->brandId?></td>   
+            <td><?= $vehicle->model?></td>   
             <td><?= $vehicle->yearproduction ?></td>   
             <td><?= $vehicle->tahoId ?></td>   
             <td><?= $vehicle->tyresize ?></td>   

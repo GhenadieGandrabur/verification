@@ -11,11 +11,10 @@
             <th>Delete</th>
             <tr>
                 <?php foreach ($tyres as $tyre) : ?>
-                    <td> <?= $tyre ->id  ?></td>
-                    <td> <?= $tyre ->size ?></td> 
+                    <td> <?= $tyre->id  ?></td>
+                    <td> <?= $tyre->size ?></td> 
                     <td>               
-                        <a href="/tyres/edit?id=<?= $tyre ->id  ?>"> Edit</a>
-                        
+                        <a href="/tyres/edit?id=<?= $tyre->id  ?>"> Edit</a>                        
                     </td>
                     <td>
                         <form action="/tyres/delete" method="post">

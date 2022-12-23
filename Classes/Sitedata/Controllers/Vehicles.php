@@ -51,7 +51,7 @@ class Vehicles
     
     $title = "vehicle edit";
         return [
-            'template' => 'vehicleedit.html.php', 
+            'template' => 'vehicleEdit.html.php', 
             'title' => $title,
             'variables' => [
                 'vehicle' => $vehicle ??  [],
