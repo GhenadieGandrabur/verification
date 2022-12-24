@@ -17,7 +17,7 @@
             <input  id="vin" name = 'vehicle[vin]' value="<?=$vehicle->vin ??""?>">
 
             <label  for="brand">Brand</label>
-            <input  id="brand" name = 'vehicle[brandId]' value="<?=$vehicle->brandId ??""?>">
+            <input  id="brand" name = 'vehicle[]' value="<?=$vehicle-> ??""?>">
 
             <label  for="modele">Model</label>
             <input  id="model" name = 'vehicle[model]' value="<?=$vehicle->model ??""?>">

@@ -64,7 +64,7 @@
 .log label {
     float: left;
     width: 10em;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     padding: 0.5em;
     clear: left;
     
@@ -75,12 +75,9 @@
 text-align: center;
 }
 
-.log input,
-select,
-textarea {
-    
+.log input,select,textarea {    
     width: 15em;
-    margin-bottom: 8px;
+    margin-bottom: 3px;
     padding: 0.5em;
     font-size: 14px;
 }

@@ -1,34 +1,49 @@
 <div class="row">
 <div class="col-12 col-s-12">
-    <div class="row">
-    <div class="col-12 col-s-12">
-    <h2 class="p">Certificat de verificare  nr: <?=$certificate ->id ??""?> din: <?= date("d.m.Y")  ?? '' ?></h2>   
+    <div class="row" style="padding:0; margin:0;">
+    <div class="col-12 col-s-12" style="padding:0; margin:0;">
+    <h2 style="padding:0; margin:0;">Certificat de verificare  nr: <?=$certificate ->id ??""?> din: <?= date("d.m.Y")  ?? '' ?></h2>   
     </div>
     </div>
-    <div class="col-4 col-s-4 p3 ">
+    <div class="col-4 col-s-4">
      
-      <h2>Vehicle</h2>
+      <h2 style="padding:0; margin:0;">Vehicle</h2>
       
       <form action="" method="POST" class="log"> 
        <div>
       <label for="find"><span style="font-weight:bold ;">Search a vehicle</span></label>
-      <div id="findcontainer">
+      <div id="findcontainer" class="bgg">
       <input id="find" type="text" placeholder="Number or VIN of a vehicle" autocomplete="off">
+      <!--Open vehicle for edit if exists else new vehicle -->
+      <button><a href="/vehicle/edit?id='<?=$certificate->id ?? ""?>'">edit</a></button>
+
       <div class="bookmarks"></div>
       </div>
        </div>
        
     <p style="clear: left;"></p>
     <input  type="hidden" id = "id" name = "certificate[id]" value="<?=$certificate->id ?? ""?>">
+
     <label for = "vehicle">Number</label>
     <input id = "vehicle" name = "certificate[vehicle]" value="<?=$certificate->vehicle ?? ""?>"  readonly >
-    <label for = "vin">VIN</label><input id = "vin" name = "certificate[vin]" value = "<?=$certificate->vin ?? ""?>">
-    <label for = "owner">Owner</label><input id = "owner" name = "certificate[proprietar]" value = "<?=$certificate->proprietar ?? ""?>"  readonly >    
+
+    <label for = "vin">VIN</label>
+    <input id = "vin" name = "certificate[vin]" value = "<?=$certificate->vin ?? ""?>" readonly>
+
+    <label for = "brand">Brand</label>
+    <input id = "brand" name = "certificate[brand]" value = "<?=$certificate->brand ?? ""?>" readonly>
+
+    <label for = "model">Model</label>
+    <input id = "model" name = "certificate[model]" value = "<?=$certificate->model ?? ""?>" readonly>
+
+    <label for = "owner">Owner</label><input id = "owner" name = "certificate[proprietar]" value = "<?=$certificate->proprietar ?? ""?>"  readonly > 
     <label for = "tyresize">Tyre size</label>
+
     <input id = "tyresize" name = "certificate[tyresize]" value = "<?=$certificate->tyresize ?? ""?>"  readonly >
     <label for = "vehicleyear">Year production</label><input id = "vehicleyear" name = "certificate[yearproduction]" value ="<?=$certificate->yearproduction  ?? "" ?>" readonly >
+
     <p style="clear: left;"></p>
-    <h2>Tahograf</h2>
+    <h2 style="padding:0; margin:0;">Tahograf</h2>
 
     <label for = "tahonumber">Taho number</label>
     <input id = "tahonumber" name = "certificate[tahoId]" value="<?=$certificate->tahoId ?? "" ?>"  readonly>
@@ -44,7 +59,7 @@
     </div>
 
 <div class="col-4 col-s-4 p3 log">                  
-<h2>Verificare</h2>
+<h2 style="padding:0; margin:0;">Verificare</h2>
 
 <label for="k_vechi">K vechi</label>
 <input  id="k_vechi" name="certificate[k_vechi]"   value="<?= $certificate ->k_vechi  ?? '' ?>">
@@ -120,10 +135,12 @@
                     if(json&&json.numberplate){                  
                         document.querySelector("input[id = vehicle]").value = json.numberplate
                         document.querySelector("input[id = vin]").value = json.vin
+                        document.querySelector("input[id = brand]").value = json.namebrand
+                        document.querySelector("input[id = model]").value = json.model
                         document.querySelector("input[id = owner]").value = json.owner
                         document.querySelector("input[id = tyresize]").value = json.tyresize
                         document.querySelector("input[id = vehicleyear]").value = json.yearproduction
-                        if(json.tahoId){
+                    if(json.tahoId){
                             fetch(`/taho/detailes?id=${json.tahoId}`)
                             .then(res=>res.json())
                             .then(json=>{                                      

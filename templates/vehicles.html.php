@@ -28,9 +28,9 @@
             <td><?= $vehicle->id ?></td>
             <td><?= $vehicle->numberplate?></td>
             <td><?= $vehicle->vin ?></td>   
-            <td><?= $vehicle->brandId?></td>   
-            <td><?= $vehicle->model?></td>   
             <td><?= $vehicle->yearproduction ?></td>   
+            <td><?= $vehicle->brand?></td>   
+            <td><?= $vehicle->model?></td>   
             <td><?= $vehicle->tahoId ?></td>   
             <td><?= $vehicle->tyresize ?></td>   
             <td><?= $vehicle->owner ?></td>   
