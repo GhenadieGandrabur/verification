@@ -1,4 +1,4 @@
- <div class="row">
+<div class="row">
 <div class="col-2 col-s-2"></div>
 <div class="col-8 col-s-8">  
     
@@ -29,7 +29,7 @@
             <td><?= $vehicle->numberplate?></td>
             <td><?= $vehicle->vin ?></td>   
             <td><?= $vehicle->yearproduction ?></td>   
-            <td><?= $vehicle->brand?></td>   
+            <td><?= $vehicle->brandId?></td>   
             <td><?= $vehicle->model?></td>   
             <td><?= $vehicle->tahoId ?></td>   
             <td><?= $vehicle->tyresize ?></td>   

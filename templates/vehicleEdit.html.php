@@ -17,13 +17,13 @@
             <input  id="vin" name = 'vehicle[vin]' value="<?=$vehicle->vin ??""?>">
 
             <label  for="brand">Brand</label>
-            <input  id="brand" name = 'vehicle[]' value="<?=$vehicle-> ??""?>">
+            <input  id="brand" name = 'vehicle[brandId]' value="<?=$vehicle->brandId ??""?>">
 
             <label  for="modele">Model</label>
             <input  id="model" name = 'vehicle[model]' value="<?=$vehicle->model ??""?>">
             
             <label  for="yearProduction">Year production</label>
-            <input  id="yearProduction" name = 'vehicle[yearProduction]' value="<?=$vehicle->yearProduction ??""?>">
+            <input  id="yearProduction" name = 'vehicle[yearProduction]' value="<?=$vehicle->yearproduction ??""?>">
 
 
             <label  for="tahoId">Taho number</label>
