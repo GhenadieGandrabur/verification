@@ -22,7 +22,7 @@
                 <td>
                     <form action="/vehiclesowners/delete" method="post">
                         <input type="hidden" name="id" value="<?= $owner-> id ?>">
-                        <input type="submit"  formaction ="/vehiclesowners/delete"   value="Delete">
+                        <input type="submit"  formaction ="/vehiclesowners/delete"   value="❌">
                     </form>                    
             </td>
     </tr>

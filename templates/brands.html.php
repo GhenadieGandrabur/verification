@@ -16,10 +16,10 @@
                     <td>               
                         <a href="/brand/edit?id=<?= $brand ->id  ?>"> Edit</a>                        
                     </td>
-                    <td>
+                    <td class="tc">
                         <form action="/brand/delete" method="post">
                         <input type="hidden" name="id" value="<?= $brand->id  ?>">
-                        <input type="submit" value="X">
+                        <input type="submit" value="❌">
                     </td>
                 </tr>
                 <?php endforeach; ?>
