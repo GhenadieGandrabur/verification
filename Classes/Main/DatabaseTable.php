@@ -134,7 +134,7 @@ class DatabaseTable {
 		}
 	}
 	public function findLike($column, $value) {
-		$query = 'SELECT * FROM ' . $this->table . ' WHERE ' . $column . ' LIKE "%'.$value.'%"';
+		$query = 'SELECT * FROM ' . $this->table . ' WHERE ' . $column . ' LIKE "'.$value.'%" LIMIT 10';
 
 		$parameters = [
 			//'value' => sprintf("%%s%",$value)

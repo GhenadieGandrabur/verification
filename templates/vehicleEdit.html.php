@@ -27,8 +27,11 @@
 
 
             <label  for="tahoId">Taho number</label>
-            <input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId ??""?>" placeholder="from taholist">            
-            
+            <div id="findtaho">
+            <input  id="tahoId" name = "vehicle[tahoId]" value="" placeholder="from taholist" autocomplete="off">
+            <div class="hints"></div>
+            </div>
+
             <label  for="tyresize">Tyre size</label>
             <select name="vehicle[tyresize]">
                <option disabled selected></option>
@@ -47,3 +50,21 @@
         </div>
           <div class="col-4 col-s-4"></div>
 </div>
+<script>
+            document.getElementById("tahoId").addEventListener("keyup",(event)=>{
+            event.preventDefault() 
+            console.log(event.target.value)
+            if(event.target.value.trim()=="")return;
+            fetch(`/taho/likelist?number=${event.target.value}`)
+              .then(res=>res.json())
+              .then(json=>{              
+                if(json&&json.length>0){                  
+                    const hints = document.querySelector("#findtaho .hints")
+                    hints.innerHTML = "";
+                    for(let hint of json){
+                      hints.innerHTML += `<div class="hint">${hint.tahonumber}</div>`
+                    }
+                }
+              })          
+          })
+</script>

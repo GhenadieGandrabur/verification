@@ -53,7 +53,7 @@
     <input id = "tahomesurement" name = "certificate[measurementRange]" value = "<?=$certificate->measurementRange ?? "" ?>"  readonly>
     <label for = "tahorecordtype">Taho record type</label>
     
-    <input id = "tahorecordtype" name = "certificate[recordertypeId]"  value = "analor" readonly>
+    <input id = "tahorecordtype" name = "certificate[recordertypeId]"  readonly>
    
 
     </div>
@@ -147,7 +147,7 @@
                                 document.querySelector("input[id  = tahonumber]").value = json.tahonumber
                                 document.querySelector("input[id = tahotype]").value =json.tahotypeId
                                 document.querySelector("input[id = tahomesurement]").value = json.measurementRange	
-                                document.querySelector("input[id = tahorecordtype]").value = json.recordertypeId
+                                document.querySelector("input[id = tahorecordtype]").value = json.recordertypeId 
                             })
                         }
                     }

@@ -80,6 +80,7 @@ class CertificatesRoutes implements \Main\Routes
 
             'taho/list' =>     ['GET'  => ['controller' => $tahoController, 'action' => 'list'], 'login' => true],
             'taho/detailes' => ['GET'  => ['controller' => $tahoController, 'action' => 'detailes'], 'login' => true],
+            'taho/likelist' => ['GET'  => ['controller' => $tahoController, 'action' => 'likeList'], 'login' => true],
             'taho/delete' =>   ['POST' => ['controller' => $tahoController, 'action' => 'delete'], 'login' => true],
             'taho/edit' =>     ['POST' => ['controller' => $tahoController, 'action' => 'saveEdit'],
                                 'GET'  => ['controller' => $tahoController, 'action' => 'edit'],'login' => true ],

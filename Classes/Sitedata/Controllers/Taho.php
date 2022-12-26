@@ -89,4 +89,10 @@ class Taho
         print json_encode($taho);
         die;
     }
+    public function likeList(){
+        $number = htmlspecialchars($_GET['number']);
+        $taholist = $this->taholistTable->findLike('tahonumber', $number);
+        print json_encode($taholist?? []);
+        die;
+    }
 }

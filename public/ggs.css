@@ -15,18 +15,10 @@
 
 
 
-.findcontainer{
-   position: relative;
-   display: inline-block;
-}
+.findcontainer{ position: relative; display: inline-block;}
 .bookmarks {display: block;}
-
-.bookmarks .bookmark:hover {
-    background-color: #ddd;
-}
-
-.bookmarks{
-    
+.bookmarks .bookmark:hover {background-color: #ddd;}
+.bookmarks{    
     position: absolute;
     margin-left:240px;
     background-color: #f1f1f1;
@@ -40,5 +32,21 @@
     padding: 12px 16px;
     text-decoration: none;
     cursor: pointer;
-
 }
+#findtaho{ background-color: coral;}
+
+.hints{    
+      height: 20px;
+    background-color: #f1f1f1;
+    z-index: 1;
+    border: 1px red solid;    
+}
+
+.hint{
+    border: 1px green solid;
+    position: absolute;
+}
+
+
+
+

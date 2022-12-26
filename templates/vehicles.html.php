@@ -1,6 +1,6 @@
 <div class="row">
-<div class="col-2 col-s-2"></div>
-<div class="col-8 col-s-8">  
+<div class="col-1 col-s-1"></div>
+<div class="col-10 col-s-10">  
     
      <h1 class="inlin" style="width:200px">Vehicles</h1>
      <h1 class="inlin"  style="float: right; font-size:small">In BD sunt <b><?= $totalvehicles ?></b>  vehicole. </h1>
@@ -48,5 +48,5 @@
         <?php endforeach;?>
     </table>
 </div>
-    <div class="col-2 col-s-2"></div>
+    <div class="col-1 col-s-1"></div>
 </div>
