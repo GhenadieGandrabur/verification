@@ -61,7 +61,7 @@ div.sticky {
 
 .fortable {border-collapse: collapse;}
 .fortable th{padding:10px 16px; background-color:#f0f5f5; color:#000000; text-align: center; border: 2px #ddd solid;}
-.fortable td{ border: 2px #ccc solid;  padding: 10px 10px;}
+.fortable td{ border: 1px #ccc solid;  padding: 1px 1px;}
 .fortable tr:hover{background-color: yellow;color: blue;}
 
 
