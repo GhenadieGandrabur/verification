@@ -16,36 +16,60 @@
 
 
 .findcontainer{ position: relative; display: inline-block;}
-.bookmarks {display: block;}
-.bookmarks .bookmark:hover {background-color: #ddd;}
+
+.bookmark:hover {background-color: #ddd; cursor: pointer;}
+
 .bookmarks{    
+    
+    cursor: pointer;
     position: absolute;
-    margin-left:240px;
+    left: 200px;
     background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 .bookmark{
-    display: block;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    cursor: pointer;
+    background-color: #f1f1f1;    
+    padding: 5px;
+    font-size: 12px;
+    border: none; 
+    text-align: right;
 }
-#findtaho{ background-color: coral;}
+
+
+#findtaho{ 
+    position: relative;
+    display: inline-block;    
+}
+
+.hint{    
+    background-color: #f1f1f1;    
+    padding: 5px;
+    font-size: 12px;
+    border: none; 
+    text-align: right;
+}
+
+.hint:hover{    
+    background-color: yellow;    
+    
+}
+
+
 
 .hints{    
-      height: 20px;
+    float: right;
+    cursor: pointer;
+    position: absolute;
+    left:100px;
+    top:35px;
     background-color: #f1f1f1;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    border: 1px red solid;    
 }
 
-.hint{
-    border: 1px green solid;
-    position: absolute;
-}
 
 
 

@@ -28,7 +28,7 @@
 
             <label  for="tahoId">Taho number</label>
             <div id="findtaho">
-            <input  id="tahoId" name = "vehicle[tahoId]" value="" placeholder="from taholist" autocomplete="off">
+            <input style="text-align: right;" id="tahoId" name = "vehicle[tahoId]" value="" placeholder="from taholist" autocomplete="off">
             <div class="hints"></div>
             </div>
 

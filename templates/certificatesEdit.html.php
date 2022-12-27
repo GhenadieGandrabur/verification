@@ -31,7 +31,7 @@
     <input id = "vin" name = "certificate[vin]" value = "<?=$certificate->vin ?? ""?>" readonly>
 
     <label for = "brand">Brand</label>
-    <input id = "brand" name = "certificate[brand]" value = "<?=$certificate->brand ?? ""?>" readonly>
+    <input id = "brand" name = "certificate[brandId]" value = "<?=$certificate->brandId ?? ""?>" readonly>
 
     <label for = "model">Model</label>
     <input id = "model" name = "certificate[model]" value = "<?=$certificate->model ?? ""?>" readonly>
