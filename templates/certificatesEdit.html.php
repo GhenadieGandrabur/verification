@@ -12,7 +12,7 @@
       <form action="" method="POST" class="log"> 
        <div>
       <label for="find"><span style="font-weight:bold ;">Search a vehicle</span></label>
-      <div id="findcontainer" class="bgg">
+      <div id="findcontainer" class="bgg p">
       <input id="find" type="text" placeholder="Number or VIN of a vehicle" autocomplete="off">
       <!--Open vehicle for edit if exists else new vehicle -->
       <button><a href="/vehicle/edit?id='<?=$certificate->id ?? ""?>'">edit</a></button>
