@@ -15,7 +15,9 @@
 
 
 
-.findcontainer{ position: relative; display: inline-block;}
+.findcontainer{
+ position: absolute;
+}
 
 .bookmark:hover {background-color: #ddd; cursor: pointer;}
 
@@ -48,12 +50,13 @@
 .hints{    
     
     cursor: pointer;
-    position: absolute;    
+    position: absolute;   
+    left: 0;
     background-color: white;
     min-width: 200px;    
     z-index: 1;
     border: 1px #999 solid;
-    margin-top: 32px;
+
 }
 .hint{       
     padding: 5px;
@@ -64,6 +67,10 @@
 
 .hint:hover{    
     background-color: yellow;    
+}
+
+#test{
+    
 }
 
 

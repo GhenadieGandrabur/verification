@@ -74,6 +74,7 @@ class CertificatesRoutes implements \Main\Routes
             'vehicle/detailes'      => ['GET'=>  ['controller' => $vehicleController, 'action' => 'detailes'],'login' => true ],
             'vehicle/likelist'      => ['GET' =>  ['controller' => $vehicleController, 'action' => 'likeList'],'login' => true ],
             'vehiclesowners/list'   => ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'list'], 'login' => true],
+            'vehiclesowners/likelist'   => ['GET' =>  ['controller' => $vehiclesOwnersController, 'action' => 'likeList'], 'login' => true],
             'vehiclesowners/delete' => ['POST' => ['controller' => $vehiclesOwnersController, 'action' => 'delete'], 'login' => true],
             'vehiclesowners/edit'   => ['POST' => ['controller' => $vehiclesOwnersController, 'action' => 'saveEdit'],
                                          'GET' => ['controller' => $vehiclesOwnersController, 'action' => 'edit'],'login' => true ],
@@ -91,6 +92,7 @@ class CertificatesRoutes implements \Main\Routes
                                  'GET' => ['controller' => $usersController, 'action' => 'edit'],'login' => true ],
                                  
             'tyres/list' =>   ['GET' =>  ['controller' => $tyresController, 'action' => 'list'], 'login' => true],
+            'tyres/likelist' =>   ['GET' =>  ['controller' => $tyresController, 'action' => 'likeList'], 'login' => true],
             'tyres/delete' => ['POST' => ['controller' => $tyresController, 'action' => 'delete'], 'login' => true],
             'tyres/edit' =>   ['POST' => ['controller' => $tyresController, 'action' => 'saveEdit'],
                               'GET' =>   ['controller' => $tyresController, 'action' => 'edit'],'login' => true ],

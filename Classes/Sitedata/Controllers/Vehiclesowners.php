@@ -70,4 +70,11 @@ class VehiclesOwners
             ]
         ];
     }
+    public function likeList(){
+        $name = htmlspecialchars($_GET['name']);
+        $owners = $this->vehiclesownersTable->findLike('name', $name);
+        print json_encode($owners?? []);
+        die;
+    }
+    
 }

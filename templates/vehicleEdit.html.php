@@ -27,18 +27,14 @@
 
 
             <label  for="tahoId">Taho number</label>
-            <div id="findtaho">
-            <input  id="tahoId" name = "vehicle[tahoId]" value="" placeholder="from taholist" autocomplete="off">
-            <div class="hints"></div>
+            <div id="test">
+            <input  id="tahoId" name = "vehicle[tahoId]" value=""  autocomplete="off">
             </div>
-
-            <label  for="tyresize">Tyre size</label>
-            <select name="vehicle[tyresize]">
-               <option disabled selected></option>
-               <?php foreach($tyresizes as $tyresize):?>
-                  <option value="<?=$tyresize->size?>" <?= $tyresize->size ===( $vehicle->tyresize?? null) ?"checked selected ": "" ?>><?=$tyresize->size?></option>
-               <?php endforeach;?>
-            </select>
+            
+            <label  for="tyresize">Tyre size</label>               
+            <input  id="tyresize" name = "vehicle[tyresize]" value=""  autocomplete="off">
+             
+            
               
                   
             <label  for="owner">Owner</label>
@@ -51,20 +47,41 @@
           <div class="col-4 col-s-4"></div>
 </div>
 <script>
-            document.getElementById("tahoId").addEventListener("keyup",(event)=>{
-            event.preventDefault() 
-            console.log(event.target.value)
-            if(event.target.value.trim()=="")return;
-            fetch(`/taho/likelist?number=${event.target.value}`)
-              .then(res=>res.json())
-              .then(json=>{              
-                if(json&&json.length>0){                  
-                    const hints = document.querySelector("#findtaho .hints")
-                    hints.innerHTML = "";
-                    for(let hint of json){
-                      hints.innerHTML += `<div class="hint">${hint.tahonumber}</div>`
-                    }
-                }
-              })          
-          })
+  function hintInit(elementId,url,property){   
+    const input =document.getElementById(elementId)
+    const hintsContainer = document.createElement("div")
+    hintsContainer.setAttribute("class","findcontainer")
+    const hints = document.createElement("div")
+    hints.setAttribute("class","hints") 
+    hintsContainer.append(hints)
+    input.after(hintsContainer)
+    input.addEventListener("keyup",(event)=>{
+      event.preventDefault() 
+      console.log(event.target.value)
+      if(event.target.value.trim()=="")return;
+      fetch(`${url}${event.target.value}`)
+        .then(res=>res.json())
+        .then(json=>{                     
+          hints.innerHTML = "";
+          if(json&&json.length>0){                  
+              for(let hint of json){
+                hints.innerHTML += `<div class="hint">${hint[property]}</div>`
+              }
+          }                
+        })          
+    })
+    document.addEventListener("click",function(event){           
+      if(event.target.classList.contains("hint")){
+        const value = event.target.innerText 
+       event.target.parentElement.parentElement.previousSibling.value = value
+       // document.getElementById(elementId).value = value
+        hints.innerHTML = ""                
+      }else{
+        hints.innerHTML = "" 
+      }
+    })
+  }
+  hintInit("tahoId","/taho/likelist?number=", "tahonumber")
+  hintInit("owner","/vehiclesowners/likelist?name=", "name")
+  hintInit("tyresize","/tyres/likelist?size?=", "size")
 </script>

@@ -125,8 +125,7 @@
               })          
           })
           document.addEventListener("click",function(event){
-           // event.preventDefault()
-           //event.stopPropagation()
+           
             if(event.target.classList.contains("bookmark")){
                 const value = event.target.innerText 
                 fetch(`/vehicle/detailes?number=${value}`)
