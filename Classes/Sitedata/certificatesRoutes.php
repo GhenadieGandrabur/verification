@@ -91,11 +91,11 @@ class CertificatesRoutes implements \Main\Routes
             'users/edit' =>   ['POST' => ['controller' => $usersController, 'action' => 'saveEdit'],
                                  'GET' => ['controller' => $usersController, 'action' => 'edit'],'login' => true ],
                                  
-            'tyres/list' =>   ['GET' =>  ['controller' => $tyresController, 'action' => 'list'], 'login' => true],
-            'tyres/likelist' =>   ['GET' =>  ['controller' => $tyresController, 'action' => 'likeList'], 'login' => true],
-            'tyres/delete' => ['POST' => ['controller' => $tyresController, 'action' => 'delete'], 'login' => true],
-            'tyres/edit' =>   ['POST' => ['controller' => $tyresController, 'action' => 'saveEdit'],
-                              'GET' =>   ['controller' => $tyresController, 'action' => 'edit'],'login' => true ],
+            'tyres/list'     => ['GET' =>  ['controller' => $tyresController, 'action' => 'list'], 'login' => true],
+            'tyres/likelist' => ['GET' =>  ['controller' => $tyresController, 'action' => 'likeList'], 'login' => true],
+            'tyres/delete'   => ['POST' => ['controller' => $tyresController, 'action' => 'delete'], 'login' => true],
+            'tyres/edit'     => ['POST' => ['controller' => $tyresController, 'action' => 'saveEdit'],
+                                 'GET' =>  ['controller' => $tyresController, 'action' => 'edit'],'login' => true ],
                               
             'brands/list' =>  ['GET' =>   ['controller'   => $brandsController, 'action' => 'list'], 'login' => true],
             'brand/delete' => ['POST' =>  ['controller'   => $brandsController, 'action' => 'delete'], 'login' => true],

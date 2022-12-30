@@ -61,5 +61,12 @@ class Tyressize
             'variables' => ['tyre' => $tyre ?? null ]
         ];
     }
+
+    public function likeList(){
+        $number = htmlspecialchars($_GET['size']);
+        $tyresizeTable = $this->tyresizeTable->findLike('size', $number);
+        print json_encode($tyresizeTable?? []);
+        die;
+    }
     
 }

@@ -83,5 +83,5 @@
   }
   hintInit("tahoId","/taho/likelist?number=", "tahonumber")
   hintInit("owner","/vehiclesowners/likelist?name=", "name")
-  hintInit("tyresize","/tyres/likelist?size?=", "size")
+  hintInit("tyresize","/tyres/likelist?size=", "size")
 </script>
