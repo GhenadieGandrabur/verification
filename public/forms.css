@@ -76,6 +76,11 @@
 text-align: center;
 }
 
+#submit {
+    
+    padding: 5px;
+}    
+
 .log input,select,textarea {    
     width: 15em;
     margin-bottom: 3px;

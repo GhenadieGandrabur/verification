@@ -59,5 +59,10 @@ class Brands
             'variables' => ['brand' => $brand ?? null ]
         ];
     }
-    
+    public function likeList(){
+        $brand = htmlspecialchars($_GET['name']);
+        $brandlist = $this->brandsTable->findLike('brand', $brand);
+        print json_encode($brandlist?? []);
+        die;
+    }    
 }

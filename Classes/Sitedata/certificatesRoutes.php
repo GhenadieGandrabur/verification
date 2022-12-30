@@ -98,6 +98,7 @@ class CertificatesRoutes implements \Main\Routes
                                  'GET' =>  ['controller' => $tyresController, 'action' => 'edit'],'login' => true ],
                               
             'brands/list' =>  ['GET' =>   ['controller'   => $brandsController, 'action' => 'list'], 'login' => true],
+            'brands/likelist' =>  ['GET' =>   ['controller'   => $brandsController, 'action' => 'likelist'], 'login' => true],
             'brand/delete' => ['POST' =>  ['controller'   => $brandsController, 'action' => 'delete'], 'login' => true],
             'brand/edit' =>   ['POST' =>  ['controller'   => $brandsController, 'action' => 'saveEdit'],
                               'GET' =>    ['controller'   => $brandsController, 'action' => 'edit'],'login' => true ],

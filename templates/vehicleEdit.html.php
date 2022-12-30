@@ -25,17 +25,11 @@
             <label  for="yearProduction">Year production</label>
             <input  id="yearProduction" name = 'vehicle[yearProduction]' value="<?=$vehicle->yearproduction ??""?>">
 
-
-            <label  for="tahoId">Taho number</label>
-            <div id="test">
-            <input  id="tahoId" name = "vehicle[tahoId]" value=""  autocomplete="off">
-            </div>
+            <label  for="tahoId">Taho number</label>            
+            <input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId??""?>"  autocomplete="off">           
             
             <label  for="tyresize">Tyre size</label>               
-            <input  id="tyresize" name = "vehicle[tyresize]" value=""  autocomplete="off">
-             
-            
-              
+            <input  id="tyresize" name = "vehicle[tyresize]" value="<?=$vehicle->tyresize??""?>"  autocomplete="off">              
                   
             <label  for="owner">Owner</label>
             <input  id="owner" name = "vehicle[owner]" value="<?=$vehicle->owner ??""?>" placeholder="from owner">  
@@ -84,4 +78,5 @@
   hintInit("tahoId","/taho/likelist?number=", "tahonumber")
   hintInit("owner","/vehiclesowners/likelist?name=", "name")
   hintInit("tyresize","/tyres/likelist?size=", "size")
+  hintInit("brandId","/brand/likelist?brandId=", "namebrand")
 </script>
