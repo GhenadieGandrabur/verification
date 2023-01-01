@@ -60,8 +60,8 @@ class Brands
         ];
     }
     public function likeList(){
-        $brand = htmlspecialchars($_GET['name']);
-        $brandlist = $this->brandsTable->findLike('brand', $brand);
+        $brand = htmlspecialchars($_GET['brandId']);
+        $brandlist = $this->brandsTable->findLike('namebrand', $brand);
         print json_encode($brandlist?? []);
         die;
     }    

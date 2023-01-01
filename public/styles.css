@@ -82,20 +82,9 @@ div.sticky {
        box-shadow: -1000px 0 0 #f7f7f7, 1000px 0 0 #f7f7f7;
        padding-top: 20px;
    }
-
-
-
-
-   
-
-   
-
-   
-
-
-.smart-table tr:not(.selected):hover {
+/*.smart-table tr:not(.selected):hover {
     background: rgba(0, 0, 0, 0.05);
-}
+}*/
 
 .smart-table tr.selected {
     background: rgba(0, 0, 0, 0.2);
@@ -148,7 +137,7 @@ div.sticky {
 .errors{
     color:red; padding: 10px; border: 1px red solid; background-color: yellow; text-align: center;
 }
-
+table th,td{font-size: 12px;}
 
 /*
 .row::after {

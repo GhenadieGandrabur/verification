@@ -78,8 +78,14 @@ text-align: center;
 
 #submit {
     
-    padding: 5px;
-}    
+    padding: 5px 10px;
+    border: 1px #000 solid;
+    border-radius: 5px;
+}
+#submit:hover{
+    background-color: #333;
+     color:white;
+}
 
 .log input,select,textarea {    
     width: 15em;

@@ -35,7 +35,7 @@
 .bookmark{
     background-color: white;    
     padding: 5px;
-    font-size: 16px;
+    font-size: 12px;
     border: none; 
     text-align: left;
 
@@ -50,28 +50,22 @@
 .hints{    
     
     cursor: pointer;
-    position: absolute;   
-    left: 0;
-    background-color: white;
-    min-width: 200px;    
+    background-color: white;    
     z-index: 1;
     border: 1px #999 solid;
 
 }
-.hint{       
+.hint{      
     padding: 5px;
-    font-size: 16px;
-    border: none; 
-    
+    font-size: 12px;
+    border: none;    
 }
 
 .hint:hover{    
-    background-color: yellow;    
+    background-color: #ccc;       
 }
 
-#test{
-    
-}
+
 
 
 
