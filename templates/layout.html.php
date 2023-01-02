@@ -10,18 +10,16 @@
     <link rel="stylesheet" href="/ggs.css">    
     <link rel="stylesheet" href="/main.css">    
     <link rel="stylesheet" href="/forms.css">    
-    <link rel="stylesheet" href="/table.css">    
+    <link rel="stylesheet" href="/table.css">  
     <script src="/myjs.js"></script>
     <script src="/js/smartTable.js"></script>
     <title><?= $title ?></title>
-</head>
 
 <body>
            
         <div class="p">  <?php include 'adminmenu.html.php'?></div>
         <?= $output ?>
     
-
 
 </body>
 
