@@ -19,7 +19,7 @@
                  </ul>
           
             <div class="col-6 col-s-6" style="margin:0; padding:0;">
-                 <span style="float: right;"> <input type="text" id="myInput" onkeyup="findaword()" placeholder="Search" title="find" style="padding:5px ; width:300px; font-size:18px"></span>
+                 <span style="float: right;"> <input type="text" id="myInput" onkeyup="findaword()" placeholder="Search" title="find" style="padding:3px ; width:300px; font-size:14px"></span>
             </div>
         
     </div>

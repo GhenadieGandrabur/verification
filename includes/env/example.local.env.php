@@ -1,5 +1,5 @@
 <?php
 $mysqlHost = "localhost";
 $mysqlDbName = "verification";
-$mysqlUser = "root";
-$mysqlPassword = "";
+$mysqlUser = "admintaho";
+$mysqlPassword = "Cni336$$";

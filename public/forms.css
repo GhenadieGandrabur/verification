@@ -87,13 +87,13 @@ text-align: center;
      color:white;
 }
 
-.log input,select,textarea {    
+/*.log input,select,textarea {    
     width: 15em;
     margin-bottom: 3px;
     padding: 0.5em;
     font-size: 14px;
    
-}
+}*/
 
 .log form {
     overflow: auto;

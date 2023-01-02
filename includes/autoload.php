@@ -3,9 +3,10 @@ function autoloader($className)
 {
     $fileName = str_replace('\\', '/', $className) . '.php';
 
-    $file = __DIR__ . '/../classes/' . $fileName;
+    $file = __DIR__ . '/../Classes/' . $fileName;
+	
 
-    include $file;
+    include_once $file;
 }
 
 spl_autoload_register('autoloader');

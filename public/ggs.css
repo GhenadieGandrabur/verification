@@ -15,21 +15,18 @@
 
 
 
-.findcontainer{
- position: absolute;
-}
+/*.findcontainer{
+    position: relative;
+    display: inline-block;  
+}*/
 
 .bookmark:hover {background-color: #ddd; cursor: pointer;}
 
 .bookmarks{    
-    
     cursor: pointer;
-    position: absolute;   
-    margin-top:-3px; 
-    left: 200px;
-    background-color:white;
-    min-width: 200px;
-    border:1px #ccc solid;    
+    position: absolute;  
+    background-color: #ccc;
+    min-width: 170px;      
     z-index: 1;
 }
 .bookmark{
@@ -42,27 +39,28 @@
 }
 
 
-#findtaho{ 
-    position: relative;
-    display: inline-block;    
+.findtaho{ 
+    position:relative;
+    z-index: 1;   
 }
 
 .hints{    
-    
-    cursor: pointer;
-    background-color: white;    
+    position:absolute;
+    left:0px;    
+    background-color:#ccc;    
     z-index: 1;
-    border: 1px #999 solid;
+     min-width:170px;
 
 }
-.hint{      
+.hint{  
+    cursor: pointer;    
     padding: 5px;
     font-size: 12px;
     border: none;    
 }
 
 .hint:hover{    
-    background-color: #ccc;       
+    background-color:white;       
 }
 
 

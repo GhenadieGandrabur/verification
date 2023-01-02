@@ -1,109 +1,94 @@
 <div class="row">
-  <div class="col-12 col-s-12">
+  <div class="col-12 col-s-12 ">
     <div class="row" style="padding:0; margin:0;">
-      <div class="col-12 col-s-12" style="padding:0; margin:0;">
-        <h2 style="padding:0; margin:0;">Certificat de verificare nr: <?= $certificate->id ?? "" ?> din: <?= date("d.m.Y")  ?? '' ?></h2>
+      <div class="col-12 col-s-12 " style="padding:0; margin:0;">
+        <h3 style="padding:0; margin:0;">Certificat de verificare nr: <?= $certificate->id ?? "" ?> din: <?= date("d.m.Y")  ?? '' ?></h3>
       </div>
     </div>
-    <div class="col-4 col-s-4">
+    <div class="col-3 col-s-3 ">
+      <form action="" method="POST" >
+<table class="tableedit">
+     <tr><th>Vehicle</th></tr>
+  <tr><td>Search a vehicle</td></tr>
+   <tr><td id="findcontainer"> <input style="border:2px red solid;" id="find" type="text" placeholder="Number or VIN of a vehicle" autocomplete="off">
+   <div class="bookmarks"></div></td></tr> 
+   <tr><td><input type="hidden" id="id" name="certificate[id]" value="<?= $certificate->id ?? "" ?>"></td></tr>
+   <tr><td><label for="vehicle">Number</label></td></tr>
+   <tr><td><input id="vehicle" name="certificate[vehicle]" value="<?= $certificate->vehicle ?? "" ?>" readonly></td></tr>
+   <tr><td><label for="vin">VIN</label></td></tr>
+   <tr><td><input id="vin" name="certificate[vin]" value="<?= $certificate->vin ?? "" ?>" readonly></td></tr>
+   <tr><td><label for="brand">Brand</label></td></tr> 
+   <tr><td><input id="brand" name="certificate[brandId]" value="<?= $certificate->brandId ?? "" ?>" readonly></td></tr>
+   <tr><td><label for="model">Model</label></td></tr>
+   <tr><td><input id="model" name="certificate[model]" value="<?= $certificate->model ?? "" ?>" readonly></td></tr>  
+   <tr><td><label for="owner">Owner</label></td></tr>
+   <tr><td><input id="owner" name="certificate[proprietar]" value="<?= $certificate->proprietar ?? "" ?>" readonly></td></tr>
+   <tr><td><label for="tyresize">Tyre size</label></td></tr> 
+   <tr><td><input id="tyresize" name="certificate[tyresize]" value="<?= $certificate->tyresize ?? "" ?>" readonly></td></tr>
+   <tr><td><label for="vehicleyear">Year production</label></td></tr>
+   <tr><td><input id="vehicleyear" name="certificate[yearproduction]" value="<?= $certificate->yearproduction  ?? "" ?>" readonly></td></tr> 
+   </table>
+   </div>
+   <div class="col-3 col-s-3">
+   <table class="tableedit"> 
+   <tr><th>Tahograf</th></tr>
+   <tr><td><label for="tahonumber">Taho number</label></td></tr>
+   <tr><td><input id="tahonumber" name="certificate[tahoId]" value="<?= $certificate->tahoId ?? "" ?>" readonly></td></tr>
+   <tr><td><label for="tahotype">Taho type</label></td></tr>
+   <tr><td><input id="tahotype" name="certificate[tahotype]" value="<?= $certificate->tahotype ?? "" ?>" readonly></td></tr>
+   <tr><td><label for="tahomesurement">Taho mesurement</label></td></tr>
+   <tr><td><input id="tahomesurement" name="certificate[measurementRange]" value="<?= $certificate->measurementRange ?? "" ?>" readonly></td></tr>
+   <tr><td><label for="tahorecordtype">Taho record type</label></td></tr>
+   <tr><td><input id="tahorecordtype" name="certificate[recordertypeId]" readonly></td></tr>   
+  </tr>  
+</table>
 
-      <h2 style="padding:0; margin:0;">Vehicle</h2>
-
-      <form action="" method="POST" class="log">
-        <div>
-          <label for="find"><span style="font-weight:bold ;">Search a vehicle</span></label>
-          <div id="findcontainer" class="bgg p">
-            <input id="find" type="text" placeholder="Number or VIN of a vehicle" autocomplete="off">
-            <!--Open vehicle for edit if exists else new vehicle -->
-            <button><a href="/vehicle/edit?id='<?= $certificate->id ?? "" ?>'">edit</a></button>
-
-            <div class="bookmarks"></div>
-          </div>
-        </div>
-
-        <p style="clear: left;"></p>
-        <input type="hidden" id="id" name="certificate[id]" value="<?= $certificate->id ?? "" ?>">
-
-        <label for="vehicle">Number</label>
-        <input id="vehicle" name="certificate[vehicle]" value="<?= $certificate->vehicle ?? "" ?>" readonly>
-
-        <label for="vin">VIN</label>
-        <input id="vin" name="certificate[vin]" value="<?= $certificate->vin ?? "" ?>" readonly>
-
-        <label for="brand">Brand</label>
-        <input id="brand" name="certificate[brandId]" value="<?= $certificate->brandId ?? "" ?>" readonly>
-
-        <label for="model">Model</label>
-        <input id="model" name="certificate[model]" value="<?= $certificate->model ?? "" ?>" readonly>
-
-        <label for="owner">Owner</label><input id="owner" name="certificate[proprietar]" value="<?= $certificate->proprietar ?? "" ?>" readonly>
-        <label for="tyresize">Tyre size</label>
-
-        <input id="tyresize" name="certificate[tyresize]" value="<?= $certificate->tyresize ?? "" ?>" readonly>
-        <label for="vehicleyear">Year production</label><input id="vehicleyear" name="certificate[yearproduction]" value="<?= $certificate->yearproduction  ?? "" ?>" readonly>
-
-        <p style="clear: left;"></p>
-        <h2 style="padding:0; margin:0;">Tahograf</h2>
-
-        <label for="tahonumber">Taho number</label>
-        <input id="tahonumber" name="certificate[tahoId]" value="<?= $certificate->tahoId ?? "" ?>" readonly>
-        <label for="tahotype">Taho type</label>
-        <input id="tahotype" name="certificate[tahotype]" value="<?= $certificate->tahotype ?? "" ?>" readonly>
-        <label for="tahomesurement">Taho mesurement</label>
-        <input id="tahomesurement" name="certificate[measurementRange]" value="<?= $certificate->measurementRange ?? "" ?>" readonly>
-        <label for="tahorecordtype">Taho record type</label>
-
-        <input id="tahorecordtype" name="certificate[recordertypeId]" readonly>
-
-
-    </div>
-
-    <div class="col-4 col-s-4 p3 log">
-      <h2 style="padding:0; margin:0;">Verificare</h2>
-
-      <label for="k_vechi">K vechi</label>
-      <input id="k_vechi" name="certificate[k_vechi]" value="<?= $certificate->k_vechi  ?? '' ?>">
-
-      <label for="k_now">K nou </label>
-      <input id="k_now" name="certificate[k_nou]" value="<?= $certificate->k_now  ?? '' ?>">
-
-      <label for="w_vechi">w vechi </label>
-      <input id="w_vechi" name="certificate[w_vechi]" value="<?= $certificate->w_vechi  ?? '' ?>">
-
-      <label for="w nou">w nou </label>
-      <input id="w_now" name="certificate[w_nou]" value="<?= $certificate->w_now  ?? '' ?>">
-
-      <label for="name">odometru pina </label>
-      <input id="odometrupina" name="certificate[odometrupina]" value="<?= $certificate->odometrupina  ?? '' ?>">
-
-      <label for="name">odometru dupa </label>
-      <input id="odometrudupa" name="certificate[odometrudupa]" value="<?= $certificate->odometrudupa  ?? '' ?>">
-
-      <label for="name">presiune</label>
-      <input name="certificate[presiune]" value="<?= $certificate->presiune  ?? '' ?>">
-
-      <label for="name">L </label>
-      <input name="certificate[lungimeacircomferentii]" maxlength="4" value="<?= $certificate->lungimeacircomferentii  ?? '' ?>">
-      <label for="name">limitator de viteza </label>
-      <input name="certificate[limitatordeviteza]" value="<?= $certificate->limitatordeviteza  ?? '' ?>">
-      <label for="name">Valabilitate </label>
-      <input name="certificate[valabilitate]" value="<?= $certificate->valabilitate  ?? '' ?>">
-      <label for="name">Baterea </label>
-      <select name="certificate[baterea]">
-        <option selected disabled></option>
-        <option value="1" <?= $certificate->baterea ? "selected checked" : "" ?>>Yes</option>
-        <option value="0" <?= $certificate->baterea ? "" : "selected checked" ?>>No</option>
-      </select>
-      <label for="submit"></label>
-
-      <input class="but_save" type="submit" name="submit" value="Save" id="submit">
+</div>
+    <div class="col-3 col-s-3">
+    <table class="tableedit ">
+        <tr><th>Verificare</th></tr>
+          <tr><td><label for="k_vechi">K old</label></td></tr>
+          <tr>  <td><input id="k_vechi" name="certificate[k_vechi]" value="<?= $certificate->k_vechi  ?? '' ?>"></td></tr> 
+          <tr><td><label for="k_now">K new </label></td></tr>
+          <tr><td><input id="k_now" name="certificate[k_nou]" value="<?= $certificate->k_now  ?? '' ?>"></td></tr>
+          <tr><td><label for="w_vechi">w old </label></td></tr>
+          <tr><td><input id="w_vechi" name="certificate[w_vechi]" value="<?= $certificate->w_vechi  ?? '' ?>"></td></tr> 
+          <tr><td><label for="w nou">w new </label></td></tr>
+          <tr><td><input id="w_now" name="certificate[w_nou]" value="<?= $certificate->w_now  ?? '' ?>"></td></tr>   
+          <tr><td><label for="name">Km before</label></td></tr>
+          <tr><td><input id="odometrupina" name="certificate[odometrupina]" value="<?= $certificate->odometrupina  ?? '' ?>"></td></tr>
+          <tr><td><label for="name">Km after </label></td></tr>
+          <tr><td><input id="odometrudupa" name="certificate[odometrudupa]" value="<?= $certificate->odometrudupa  ?? '' ?>"></td></tr>
+          <tr><td><label for="name">Pressure</label></td></tr>     
+          <tr><td><input name="certificate[presiune]" value="<?= $certificate->presiune  ?? '' ?>"></td></tr>
+          <tr><td><label for="name">L </label></td></tr>     
+          <tr><td><input name="certificate[lungimeacircomferentii]" maxlength="4" value="<?= $certificate->lungimeacircomferentii  ?? '' ?>" autocomplete="off"></td></tr>
+          <tr><td><label for="name">Speed limit</label></td></tr>>
+          <tr><td><input name="certificate[limitatordeviteza]" value="<?= $certificate->limitatordeviteza  ?? '' ?>"></td></tr>
+          <tr><td><label for="name">Validity</label></td></tr>
+          <tr><td><input name="certificate[valabilitate]" value="<?= $certificate->valabilitate  ?? '' ?>"></td></tr>
+          <tr> <td><label for="name">Batery </label></td></tr>  
+          <tr>
+          </tr>
+          <td>
+            <select name="certificate[baterea]">
+            <option selected disabled></option>
+            <option value="1" <?= $certificate->baterea ? "selected checked" : "" ?>>Yes</option>
+            <option value="0" <?= $certificate->baterea ? "" : "selected checked" ?>>No</option>
+            </select>
+          </td>          
+        </tr>
+        <tr>         
+          <td><input class="but_save" type="submit" name="submit" value="Save" id="submit"></td>
+        </tr>
+      </table>     
       </form>
     </div>
-    <div class="col-4 col-s-4 ">
+
+    <div class="col-3 col-s-3">
       <div style="text-align: center;margin-top:50px">
         <img src="/images/truck.jpg" width="100%">
       </div>
-
     </div>
   </div>
 
@@ -169,4 +154,5 @@
       document.getElementById("odometrudupa").value = ""
     }
   })
+  
 </script>

@@ -19,7 +19,7 @@
   </tr>
   <tr>
     <td><label  for="brandId">Brand</label></td>
-    <td><input  id="brandId" name = 'vehicle[brandId]' value="<?=$vehicle->brandId ??""?>" autocomplete="off"></td>
+    <td class="inpos"><input  id="brandId" name = 'vehicle[brandId]' value="<?=$vehicle->brandId ??""?>" autocomplete="off"></td>
   </tr>
   <tr>
     <td><label  for="modele">Model</label></td>
@@ -31,7 +31,7 @@
   </tr>
   <tr>
     <td><label  for="tahoId">Taho number</label> </td>
-    <td><input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId??""?>"  autocomplete="off"></td>
+    <td ><input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId??""?>"  autocomplete="off"></td>
   </tr>
   <tr>
     <td><label  for="tyresize">Tyre size</label></td>
@@ -39,7 +39,7 @@
   </tr>
   <tr>
     <td><label  for="owner">Owner</label></td>
-    <td><input  id="owner" name = "vehicle[owner]" value="<?=$vehicle->owner ??""?>" ></td>
+    <td><input  id="owner" name = "vehicle[owner]" value="<?=$vehicle->owner ??""?>" autocomplete="off"></td>
   </tr>
   <tr>
     <td><label  for="submit"></label></td>
@@ -55,7 +55,7 @@
   function hintInit(elementId,url,property){   
     const input =document.getElementById(elementId)
     const hintsContainer = document.createElement("div")
-    hintsContainer.setAttribute("class","findcontainer")
+    hintsContainer.setAttribute("class","findtaho")
     const hints = document.createElement("div")
     hints.setAttribute("class","hints") 
     hintsContainer.append(hints)

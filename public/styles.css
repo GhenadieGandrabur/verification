@@ -17,9 +17,9 @@ div.sticky {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 14px;
   }
   
   .topnav a:hover {
@@ -60,7 +60,7 @@ div.sticky {
 
 
 .fortable {border-collapse: collapse;}
-.fortable th{padding:10px 16px; background-color:#f0f5f5; color:#000000; text-align: center; border: 1px #ddd solid;}
+.fortable th{padding:5px; background-color:#f0f5f5; color:#000000; text-align: center; border: 1px #ddd solid;}
 .fortable td{ border: 1px #ccc solid;  padding: 1px 1px;}
 .fortable tr:hover{background-color: yellow;color: blue;}
 
@@ -137,7 +137,7 @@ div.sticky {
 .errors{
     color:red; padding: 10px; border: 1px red solid; background-color: yellow; text-align: center;
 }
-table th,td{font-size: 12px;}
+
 
 /*
 .row::after {
