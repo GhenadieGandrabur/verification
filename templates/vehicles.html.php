@@ -1,15 +1,15 @@
 <div class="row">
-<div class="col-1 col-s-1"></div>
-<div class="col-10 col-s-10">  
+<div class="col-3 col-s-3"></div>
+<div class="col-6 col-s-6 ">  
+     <div>
+     <h3 class="inlin" style="width:200px">Vehicles</h3>
+     <h3 class="inlin"  style="float: right; font-size:small">In BD sunt <b><?= $totalvehicles ?></b>  vehicole. </h3>
     
-     <h1 class="inlin" style="width:200px">Vehicles</h1>
-     <h1 class="inlin"  style="float: right; font-size:small">In BD sunt <b><?= $totalvehicles ?></b>  vehicole. </h1>
-    
-     <br>
-    <div ><button class="button_edit"  onclick="newvehicle()"> New vehicle </button></div> 
+     
+   <button class="button_edit"  onclick="newvehicle()"> New vehicle </button></div> 
 
-    <table class="fortable">
-        <tr>
+    <table class="fortable tc">
+    <tr>
     <th>Id</th>
     <th>Number</th>
     <th>VIN</th>
@@ -21,8 +21,7 @@
     <th>Owner</th>
     <th>Edit</th>
     <th>Delite</th>
-
-        </tr>
+    </tr>
     <?php foreach($vehicles as $vehicle):?>
         <tr>
             <td><?= $vehicle->id ?></td>
@@ -48,5 +47,5 @@
         <?php endforeach;?>
     </table>
 </div>
-    <div class="col-1 col-s-1"></div>
+    <div class="col-3 col-s-3"></div>
 </div>
