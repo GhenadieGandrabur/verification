@@ -29,6 +29,7 @@
                 <th>Vehicul</th>
                 <th>Proprietar</th>
                 <th>Autor</th>
+                <th>Validity</th>
                 <th>Print</th>
                 <th>Delete</th>
 
@@ -42,6 +43,7 @@
                         <td> <?= $certificate->vehicle  ?></td>
                         <td> <?= $certificate->proprietar  ?></td>
                         <td> <?= $authorname->name     ?></td>
+                        <td> <?= $certificate->validity;?></td>
                         <td><a href="/certificates/print?id=<?= $certificate->id  ?>" target="_blank">🖨</a></td>
                         <td>
                             <form action="/certificate/delete" method="post">

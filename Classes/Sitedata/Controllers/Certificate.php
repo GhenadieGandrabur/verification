@@ -84,7 +84,7 @@ class Certificate
 
         $certificate = $_POST['certificate'];
         $certificate['date'] = new \DateTime();
-        $certificate['valabilitate'] = date("d.m.Y",strtotime('+2 Years')-1);
+        $certificate['validity'] = date("d.m.Y",strtotime('+2 Years')-1);
         $certificate['authorId'] = $author->id;
 
         $this->certificatesTable->save($certificate);

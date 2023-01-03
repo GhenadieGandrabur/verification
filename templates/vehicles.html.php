@@ -1,14 +1,13 @@
 <div class="row">
-<div class="col-3 col-s-3"></div>
-<div class="col-6 col-s-6 ">  
-     <div>
-     <h3 class="inlin" style="width:200px">Vehicles</h3>
-     <h3 class="inlin"  style="float: right; font-size:small">In BD sunt <b><?= $totalvehicles ?></b>  vehicole. </h3>
+<div class="col-2 col-s-2"></div>
+<div class="col-8 col-s-8 ">  
+     
+     <p><b>Vehicles</b><span style="float:right">In BD sunt <?= $totalvehicles ?>  vehicole. </span></p>
     
      
-   <button class="button_edit"  onclick="newvehicle()"> New vehicle </button></div> 
+   <button id="submit" class="button_edit"  onclick="newvehicle()"> New vehicle </button>
 
-    <table class="fortable tc">
+    <table class="fortable">
     <tr>
     <th>Id</th>
     <th>Number</th>
@@ -47,5 +46,5 @@
         <?php endforeach;?>
     </table>
 </div>
-    <div class="col-3 col-s-3"></div>
+    <div class="col-2 col-s-2"></div>
 </div>

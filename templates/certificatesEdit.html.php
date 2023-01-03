@@ -66,7 +66,7 @@
           <tr><td><label for="name">Speed limit</label></td></tr>>
           <tr><td><input name="certificate[limitatordeviteza]" value="<?= $certificate->limitatordeviteza  ?? '' ?>"></td></tr>
           <tr><td><label for="name">Validity</label></td></tr>
-          <tr><td><input name="certificate[valabilitate]" value="<?= $certificate->valabilitate  ?? '' ?>"></td></tr>
+          <tr><td><input  name="certificate[validity]" value="<?= $certificate->validity  ?? '' ?>"></td></tr>
           <tr> <td><label for="name">Batery </label></td></tr>  
           <tr>
           </tr>
