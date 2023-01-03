@@ -1,13 +1,13 @@
 <div class="row">    
         <div class="col-4 col-s-4"></div>
-        <div class="col-4 col-s-4">
+        <div class="col-4 col-s-4 ">
                 <?php
                 if (isset($error)) :
                 echo '<div class="errors">' . $error . '</div>';
                 endif;
                 ?>
 
-        <table>
+        <table style="margin: auto;">
         <form method="post" action="" >      
         <tr><td><label for="email"></label></td></tr>
         <tr><td><input type="text" id="email" name="email"> </td></tr>

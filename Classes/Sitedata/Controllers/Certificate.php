@@ -33,7 +33,8 @@ class Certificate
 
         $totalCertificates = $this->certificatesTable->total();
 
-        $holder = $this->authentication->getUser();
+        $authorname = $this->authentication->getUser();
+       
 
         return [
             'template' => 'certificates.html.php',
@@ -41,7 +42,7 @@ class Certificate
             'variables' => [
             'totalCertificates' => $totalCertificates,
             'certificates' => $certificates,
-            'userId' => $holder->id ?? null,
+            'authorname' => $authorname ?? null,
             'autos' =>$autos
             ]
         ];

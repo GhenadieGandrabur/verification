@@ -1,17 +1,15 @@
 <div class="row" style="padding-left:10px; padding-right:10px">
     <div class="col-12 col-s-12 " style="margin:0; padding:0;">
     
-     <div class="col-6 col-s-6 " style="margin:0; padding:0;">   
-        <h2 style="margin:0 ;">Certificate de verificare a tahografelor</h2> 
-     </div>
-     <div class="col-6 col-s-6 " style="margin:0; padding:0;">
-      <h4 style="text-align:right ; margin:0;"><?= $totalCertificates ?> certificate in BD</h4>
+     <div class="col-12 col-s-12 " style="margin:0; padding:0;">   
+        <p><b>Certificate de verificare a tahografelor</b>   
+<span style="float: right;"><?= $totalCertificates ?> certificate in BD</p></span>
        <!-- <div class="d-flex justify-content-between " style=" margin-bottom:10px;"></div>-->
      </div>
     
       <div class="col-12 col-s-12" style="margin:0; padding:0;">
             <div class="col-6 col-s-6" style="margin:0; padding:0;">
-                 <a href="/certificates/edit"><button class="button_edit"> New certificate</button></a>    </div>          
+                 <a href="/certificates/edit"><button id="submit"> New certificate</button></a>    </div>          
                  <ul style="display:none" class="smart-table-hint">
                  <li><kbd>↑</kbd> - previous row</li>
                  <li><kbd>↓</kbd> - next row</li>
@@ -43,12 +41,12 @@
                                 echo $date->format('d.m. Y H:i:s'); ?></td>
                         <td> <?= $certificate->vehicle  ?></td>
                         <td> <?= $certificate->proprietar  ?></td>
-                        <td> <?= $certificate->authorId      ?></td>
+                        <td> <?= $authorname->name     ?></td>
                         <td><a href="/certificates/print?id=<?= $certificate->id  ?>" target="_blank">🖨</a></td>
                         <td>
                             <form action="/certificate/delete" method="post">
                                 <input type="hidden" name="id" value="<?= $certificate->id  ?>">
-                                <input type="submit" value="X">
+                                <input type="submit" value="❌" id="submit" style="font-size:6px">
                             </form>
                         </td>
                     </tr>

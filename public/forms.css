@@ -1,5 +1,5 @@
 *:focus {
-   background-color:#ccc;
+   background-color:lightgreen;
 }
 .formwork textarea {
     float: left;
@@ -76,16 +76,6 @@
 text-align: center;
 }
 
-#submit {
-    
-    padding: 5px 10px;
-    border: 1px #000 solid;
-    border-radius: 5px;
-}
-#submit:hover{
-    background-color: #333;
-     color:white;
-}
 
 /*.log input,select,textarea {    
     width: 15em;
@@ -101,10 +91,17 @@ text-align: center;
     display: block;
 }
 
-.button_edit{
-    padding: 5px 18px;
-    font-size: 16px;
+#submit {
+    padding: 3px 5px;
+    font-size: 12px;
     margin-bottom: 5px;
+    cursor: pointer;
+    color: #000;
+    background-color:#ccc;
+    border-radius: 5px;
+}
+#submit:hover{
+    background-color:#04AA6D;
+    color: white;
 }
 
-input[type="submit"]{ padding: 0; border: none; cursor: pointer; text-align: center;}
