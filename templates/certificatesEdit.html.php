@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="col-3 col-s-3 ">
-      <form action="" method="POST" >
+      <form action="" method="POST">
 <table class="tableedit">
      <tr><th>Vehicle</th></tr>
   <tr><td>Search a vehicle</td></tr>
@@ -38,51 +38,46 @@
    <tr><td><input id="tahotype" name="certificate[tahotype]" value="<?= $certificate->tahotype ?? "" ?>" readonly></td></tr>
    <tr><td><label for="tahomesurement">Taho mesurement</label></td></tr>
    <tr><td><input id="tahomesurement" name="certificate[measurementRange]" value="<?= $certificate->measurementRange ?? "" ?>" readonly></td></tr>
-   <tr><td><label for="tahorecordtype">Taho record type</label></td></tr>
-   <tr><td><input id="tahorecordtype" name="certificate[recordertypeId]" readonly></td></tr>   
+   <tr><td><label for="tahorecordtype">Taho recorder type</label></td></tr>
+   <tr><td><input id="tahorecordtype" name="certificate[recordertypeId]" value="<?= $certificate->recordertypeId ?? "" ?>" readonly></td></tr>   
   </tr>  
 </table>
-
 </div>
-    <div class="col-3 col-s-3">
-    <table class="tableedit ">
-        <tr><th>Verificare</th></tr>
-          <tr><td><label for="k_vechi">K old</label></td></tr>
-          <tr>  <td><input id="k_vechi" name="certificate[k_vechi]" value="<?= $certificate->k_vechi  ?? '' ?>"></td></tr> 
-          <tr><td><label for="k_now">K new </label></td></tr>
-          <tr><td><input id="k_now" name="certificate[k_nou]" value="<?= $certificate->k_now  ?? '' ?>"></td></tr>
-          <tr><td><label for="w_vechi">w old </label></td></tr>
-          <tr><td><input id="w_vechi" name="certificate[w_vechi]" value="<?= $certificate->w_vechi  ?? '' ?>"></td></tr> 
-          <tr><td><label for="w nou">w new </label></td></tr>
-          <tr><td><input id="w_now" name="certificate[w_nou]" value="<?= $certificate->w_now  ?? '' ?>"></td></tr>   
-          <tr><td><label for="name">Km before</label></td></tr>
-          <tr><td><input id="odometrupina" name="certificate[odometrupina]" value="<?= $certificate->odometrupina  ?? '' ?>"></td></tr>
-          <tr><td><label for="name">Km after </label></td></tr>
-          <tr><td><input id="odometrudupa" name="certificate[odometrudupa]" value="<?= $certificate->odometrudupa  ?? '' ?>"></td></tr>
-          <tr><td><label for="name">Pressure</label></td></tr>     
-          <tr><td><input name="certificate[presiune]" value="<?= $certificate->presiune  ?? '' ?>"></td></tr>
-          <tr><td><label for="name">L </label></td></tr>     
-          <tr><td><input name="certificate[lungimeacircomferentii]" maxlength="4" value="<?= $certificate->lungimeacircomferentii  ?? '' ?>" autocomplete="off"></td></tr>
-          <tr><td><label for="name">Speed limit</label></td></tr>>
-          <tr><td><input name="certificate[limitatordeviteza]" value="<?= $certificate->limitatordeviteza  ?? '' ?>"></td></tr>
-          <tr><td><label for="name">Validity</label></td></tr>
-          <tr><td><input  name="certificate[validity]" value="<?= $certificate->validity  ?? '' ?>"></td></tr>
-          <tr> <td><label for="name">Batery </label></td></tr>  
-          <tr>
-          </tr>
-          <td>
-            <select name="certificate[baterea]">
-            <option selected disabled></option>
-            <option value="1" <?= $certificate->baterea ? "selected checked" : "" ?>>Yes</option>
-            <option value="0" <?= $certificate->baterea ? "" : "selected checked" ?>>No</option>
-            </select>
-          </td>          
-        </tr>
-        <tr>         
-          <td><input class="but_save" type="submit" name="submit" value="Save" id="submit"></td>
-        </tr>
-      </table>     
-      </form>
+
+<div class = "col-3 col-s-3"> 
+  <table class = "tableedit">
+    <tr><th>Verification</th></tr>      
+    <tr><td><label for="k_vechi">K old</label></td></tr>
+    <tr><td><input id="k_vechi" name="certificate[k_vechi]" value="<?= $certificate->k_vechi  ?? '' ?>"></td></tr> 
+    <tr><td><label for="k_now">K new </label></td></tr>
+    <tr><td><input id="k_now" name="certificate[k_nou]" value="<?= $certificate->k_now  ?? '' ?>"></td></tr>
+    <tr><td><label for="w_vechi">w old </label></td></tr>
+    <tr><td><input id="w_vechi" name="certificate[w_vechi]" value="<?= $certificate->w_vechi  ?? '' ?>"></td></tr> 
+    <tr><td><label for="w nou">w new </label></td></tr>
+    <tr><td><input id="w_now" name="certificate[w_nou]" value="<?= $certificate->w_now  ?? '' ?>"></td></tr>   
+    <tr><td><label for="name">Km before</label></td></tr> 
+    <tr><td><input id="odometrupina" name="certificate[odometrupina]" value="<?= $certificate->odometrupina  ?? '' ?>"></td></tr>
+    <tr><td><label for="name">Km after </label></td></tr>
+    <tr><td><input id="odometrudupa" name="certificate[odometrudupa]" value="<?= $certificate->odometrudupa  ?? '' ?>"></td></tr>
+    <tr><td><label for="name">Pressure</label></td></tr>     
+    <tr><td><input name="certificate[presiune]" value="<?= $certificate->presiune  ?? '' ?>"></td></tr>
+    <tr><td><label for="name">L </label></td></tr>     
+    <tr><td><input name="certificate[lungimeacircomferentii]" maxlength="4" value="<?= $certificate->lungimeacircomferentii  ?? '' ?>" autocomplete="off"></td></tr>
+    <tr><td><label for="name">Speed limit</label></td></tr>           
+    <tr><td><input name="certificate[limitatordeviteza]" value="<?= $certificate->limitatordeviteza  ?? '' ?>"></td></tr>
+    <tr><td><label for="name">Validity</label></td></tr>
+    <tr><td><input  name="certificate[validity]" value="<?= $certificate->validity  ?? '' ?>"></td></tr>
+    <tr> <td><label for="name">Batery </label></td></tr>        
+    <tr><td>      
+          <select name="certificate[baterea]">
+          <option selected disabled></option>
+            <option value="1" <?= $certificate->baterea ? "selected checked" : "" ?> >Yes</option>
+            <option value="0" <?= $certificate->baterea ? "" : "selected checked" ?> >No</option>
+          </select>
+    </td></tr>
+    <tr><td><input class="but_save" type="submit" name="submit" value="Save" id="submit"></td></tr>
+    </table>     
+    </form>    
     </div>
 
     <div class="col-3 col-s-3">
@@ -116,19 +111,20 @@
       fetch(`/vehicle/detailes?number=${value}`)
         .then(res => res.json())
         .then(json => {
-          if (json && json.numberplate) {
+          if (json && json.numberplate) {           
             document.querySelector("input[id = vehicle]").value = json.numberplate
             document.querySelector("input[id = vin]").value = json.vin
-            document.querySelector("input[id = brand]").value = json.namebrand
+            document.querySelector("input[id = brand]").value = json.brandId
             document.querySelector("input[id = model]").value = json.model
             document.querySelector("input[id = owner]").value = json.owner
             document.querySelector("input[id = tyresize]").value = json.tyresize
             document.querySelector("input[id = vehicleyear]").value = json.yearproduction
             if (json.tahoId) {
+              console.log(json.tahoId)
               fetch(`/taho/detailes?id=${json.tahoId}`)
                 .then(res => res.json())
                 .then(json => {
-                  document.querySelector("input[id  = tahonumber]").value = json.tahonumber
+                  document.querySelector("input[id  = tahonumber]").value = json.tahoId
                   document.querySelector("input[id = tahotype]").value = json.tahotypeId
                   document.querySelector("input[id = tahomesurement]").value = json.measurementRange
                   document.querySelector("input[id = tahorecordtype]").value = json.recordertypeId

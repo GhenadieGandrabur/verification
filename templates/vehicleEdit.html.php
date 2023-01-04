@@ -66,7 +66,8 @@
       if(event.target.value.trim()=="")return;
       fetch(`${url}${event.target.value}`)
         .then(res=>res.json())
-        .then(json=>{                     
+        .then(json=>{   
+          console.log(json)                  
           hints.innerHTML = "";
           if(json&&json.length>0){                  
               for(let hint of json){
