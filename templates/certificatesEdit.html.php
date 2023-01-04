@@ -10,7 +10,7 @@
 <table class="tableedit">
      <tr><th>Vehicle</th></tr>
   <tr><td>Search a vehicle</td></tr>
-   <tr><td id="findcontainer"> <input style="border:2px red solid;" id="find" type="text" placeholder="Number or VIN of a vehicle" autocomplete="off">
+   <tr><td id="findcontainer"> <input style="border:2px red solid;" id="find" type="text" placeholder="Number or VIN of a vehicle" autocomplete="off" autofocus>
    <div class="bookmarks"></div></td></tr> 
    <tr><td><input type="hidden" id="id" name="certificate[id]" value="<?= $certificate->id ?? "" ?>"></td></tr>
    <tr><td><label for="vehicle">Number</label></td></tr>
@@ -120,10 +120,10 @@
             document.querySelector("input[id = tyresize]").value = json.tyresize
             document.querySelector("input[id = vehicleyear]").value = json.yearproduction
             if (json.tahoId) {
-              console.log(json.tahoId)
               fetch(`/taho/detailes?id=${json.tahoId}`)
-                .then(res => res.json())
-                .then(json => {
+              .then(res => res.json())
+              .then(json => {
+                  
                   document.querySelector("input[id  = tahonumber]").value = json.tahoId
                   document.querySelector("input[id = tahotype]").value = json.tahotypeId
                   document.querySelector("input[id = tahomesurement]").value = json.measurementRange

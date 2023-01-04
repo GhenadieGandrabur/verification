@@ -13,7 +13,7 @@
     width: 15em;
     margin-bottom: 1em;
     padding: 0.5em;
-  
+    text-transform: uppercase;
 }
 
 .formwork label {
@@ -77,13 +77,10 @@ text-align: center;
 }
 
 
-/*.log input,select,textarea {    
-    width: 15em;
-    margin-bottom: 3px;
-    padding: 0.5em;
-    font-size: 14px;
+.log input {    
+text-transform: uppercase;
    
-}*/
+}
 
 .log form {
     overflow: auto;
@@ -105,3 +102,6 @@ text-align: center;
     color: white;
 }
 
+.classic input{
+text-transform: uppercase;
+}

@@ -3,7 +3,7 @@
         <div class="col-4 col-s-4">   
           
           <h3>Vehicle edit</h3>
-          <form action="" method="POST">   
+<form action="" method="POST" class="classic">   
 <table class="tableedit">
   <tr>
     <td><label   for="id"></label></td>
@@ -11,11 +11,11 @@
   </tr>
   <tr>
     <td><label  for="number">Number</label></td>
-    <td><input  id="number" name = 'vehicle[numberplate]' value="<?=$vehicle->numberplate ??""?>"></td>
+    <td><input  id="number" name = 'vehicle[numberplate]' value="<?=strtoupper($vehicle->numberplate) ??""?>"></td>
   </tr>
   <tr>
     <td><label  for="vin">VIN</label></td>
-    <td><input  id="vin" name = 'vehicle[vin]' value="<?=$vehicle->vin ??""?>"></td>
+    <td><input  id="vin" name = 'vehicle[vin]' value="<?=strtoupper($vehicle->vin) ??""?>"></td>
   </tr>
   <tr>
     <td><label  for="brandId">Brand</label></td>
@@ -23,11 +23,11 @@
   </tr>
   <tr>
     <td><label  for="modele">Model</label></td>
-    <td><input  id="model" name = 'vehicle[model]' value="<?=$vehicle->model ??""?>"></td>
+    <td><input  id="model" name = 'vehicle[model]' value="<?=strtoupper($vehicle->model) ??""?>"></td>
   </tr>
   <tr>
     <td><label  for="yearProduction">Year production</label></td>
-    <td><input  id="yearProduction" name = 'vehicle[yearProduction]' value="<?=$vehicle->yearproduction ??""?>"></td>
+    <td><input size="4"  maxlength="4" id="yearProduction" name = 'vehicle[yearProduction]' value="<?=$vehicle->yearproduction ??""?>"></td>
   </tr>
   <tr>
     <td><label  for="tahoId">Taho number</label> </td>
@@ -39,7 +39,7 @@
   </tr>
   <tr>
     <td><label  for="owner">Owner</label></td>
-    <td><input  id="owner" name = "vehicle[owner]" value="<?=$vehicle->owner ??""?>" autocomplete="off"></td>
+    <td><input  id="owner" name = "vehicle[owner]" value="<?=strtoupper($vehicle->owner) ??""?>" autocomplete="off"></td>
   </tr>
   <tr>
     <td><label  for="submit"></label></td>
@@ -90,5 +90,5 @@
   hintInit("tahoId","/taho/likelist?number =", "tahonumber")
   hintInit("owner","/vehiclesowners/likelist?name=", "name")
   hintInit("tyresize","/tyres/likelist?size=", "size")
-  hintInit("brandId","/brands/likelist?brandId=", "namebrand")
+  hintInit("brandId","/brands/likelist?brandId=", "namebrand")  
 </script>
