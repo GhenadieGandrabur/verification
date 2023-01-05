@@ -105,3 +105,4 @@ text-transform: uppercase;
 .classic input{
 text-transform: uppercase;
 }
+.classic label{ float: right; padding-right: 5px; font-size: 14px;}

@@ -1,7 +1,8 @@
 .tableedit{
-    width: 100%;
+    width: 80%;
+    margin: auto;
 
 }
-.tableedit select{width:50%; padding: 3px;}
-.tableedit td{font-size: 10px;}
-.tableedit th{font-size: 12px; text-align: left;}
+.tableedit select{width:50%; padding: 3px; background-color: aliceblue;}
+.tableedit td{font-size: 12px;}
+.tableedit th{font-size: 12px; text-align:center;}

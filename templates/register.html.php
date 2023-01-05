@@ -19,7 +19,7 @@ endif;
 <div class="row">
 <div class="col-4 col-s-4"></div>
 <div class="col-4 col-s-4">
-    <h1 class="text-center">Register an account</h1>
+    <h1 class="text-center">Register an account</h3>
     <form action="" method="post" class="formwork">
         <label for="author[email]">Your email address</label>
         <input name="author[email]" value="<?= $author['email'] ?? '' ?>">

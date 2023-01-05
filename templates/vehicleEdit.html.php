@@ -2,20 +2,22 @@
         <div class="col-4 col-s-4"></div>
         <div class="col-4 col-s-4">   
           
-          <h3>Vehicle edit</h3>
+          
 <form action="" method="POST" class="classic">   
-<table class="tableedit">
+<table class="tableedit b">
+  <tr><th colspan="2" class="bgg tc "><h3 >Vehicle edit</h3></th></tr>
+  
   <tr>
     <td><label   for="id"></label></td>
     <td><input type="hidden" id="id" name = "vehicle[id]" value="<?=$vehicle->id ??""?>"></td>
   </tr>
   <tr>
     <td><label  for="number">Number</label></td>
-    <td><input  id="number" name = 'vehicle[numberplate]' value="<?=strtoupper($vehicle->numberplate) ??""?>"></td>
+    <td><input  id="number" name = 'vehicle[numberplate]' value="<?=$vehicle->numberplate ??""?>" autofocus></td>
   </tr>
   <tr>
     <td><label  for="vin">VIN</label></td>
-    <td><input  id="vin" name = 'vehicle[vin]' value="<?=strtoupper($vehicle->vin) ??""?>"></td>
+    <td><input  id="vin" name = 'vehicle[vin]' value="<?=  $vehicle->vin ??""?>"></td>
   </tr>
   <tr>
     <td><label  for="brandId">Brand</label></td>
@@ -23,7 +25,7 @@
   </tr>
   <tr>
     <td><label  for="modele">Model</label></td>
-    <td><input  id="model" name = 'vehicle[model]' value="<?=strtoupper($vehicle->model) ??""?>"></td>
+    <td><input  id="model" name = 'vehicle[model]' value="<?=$vehicle->model ??""?>"></td>
   </tr>
   <tr>
     <td><label  for="yearProduction">Year production</label></td>
@@ -39,13 +41,13 @@
   </tr>
   <tr>
     <td><label  for="owner">Owner</label></td>
-    <td><input  id="owner" name = "vehicle[owner]" value="<?=strtoupper($vehicle->owner) ??""?>" autocomplete="off"></td>
+    <td><input  id="owner" name = "vehicle[owner]" value="<?=$vehicle->owner ??""?>" autocomplete="off"></td>
   </tr>
   <tr>
-    <td><label  for="submit"></label></td>
-    <td><input  id="submit" type="submit" value=" Save "> </td>
+   
+    <td colspan="2" class="tc"><input  id="submit" type="submit" value=" Save "> </td>
   </tr>
-</table>    
+</table>
 </form>
 </div>
           <div class="col-4 col-s-4"></div>

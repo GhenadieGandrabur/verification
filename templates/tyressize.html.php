@@ -2,7 +2,7 @@
 <div class="col-4 col-s-4"></div>
 <div class="col-4 col-s-4">
     <div class="lt">
-        <h1>Tyres size list</h1>
+        <h3>Tyres size list</h3>
         <p><button class="button_edit" onclick="newtyresize()">New tyressize</button> <?= $totalTyres  ?> sizes in DB</p>
         <table class="fortable">
             <th>ID</th>

@@ -1,3 +1,3 @@
 <div class="lt">
-<h1>Login success</h1>
+<h3>Login success</h3>
 </div>

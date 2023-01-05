@@ -2,7 +2,7 @@
 <div class="col-4 col-s-4"></div>
 <div class="col-4 col-s-4">
     <div class="lt">
-        <h1>Brands list</h1>
+        <h3>Brands list</h3>
         <p><button class="button_edit" onclick="newbrand()">New brand</button> <?= $totalbrands  ?> sizes in DB</p>
         <table class="fortable">
             <th>ID</th>

@@ -1,7 +1,7 @@
 <div class="row">
 <div class="col-2 col-s-2"></div>
 <div class="col-8 col-s-8">
-<h1>Tahograf edit</h1>
+<h3>Tahograf edit</h3>
 <p><button class="button_edit" onclick="newtaho()">New tahograf</button>  <?= $totaltaho ?> tachograps in DB</p>
 <table class="fortable">
     
