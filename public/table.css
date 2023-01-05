@@ -6,3 +6,31 @@
 .tableedit select{width:50%; padding: 3px; background-color: aliceblue;}
 .tableedit td{font-size: 12px;}
 .tableedit th{font-size: 12px; text-align:center;}
+
+.fortable {
+    border-collapse: collapse;
+    width: 100%;
+    position: relative;
+}
+
+.fortable th {
+position: sticky;
+top: 40px;   
+box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+border: 1px #000 solid;
+background-color: #ccc;
+font-size: 10px;
+padding: 5px;
+}
+
+.fortable td {
+    border: 1px #ccc solid;
+    padding: 1px 1px;
+    font-size: 12px;
+    padding: 1px;
+}
+
+.fortable tr:hover {
+    background-color: yellow;
+    color: blue;
+}

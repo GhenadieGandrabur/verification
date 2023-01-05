@@ -3,10 +3,9 @@
         <div class="col-4 col-s-4">   
           
           
-<form action="" method="POST" class="classic">   
+<form action="" method="POST" class="classic">  
 <table class="tableedit b">
-  <tr><th colspan="2" class="bgg tc "><h3 >Vehicle edit</h3></th></tr>
-  
+  <tr><th colspan="2" class="bgg tc "><h3 >Vehicle edit</h3></th></tr>  
   <tr>
     <td><label   for="id"></label></td>
     <td><input type="hidden" id="id" name = "vehicle[id]" value="<?=$vehicle->id ??""?>"></td>

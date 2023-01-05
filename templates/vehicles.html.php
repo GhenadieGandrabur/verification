@@ -1,26 +1,28 @@
 <div class="row">
 <div class="col-2 col-s-2"></div>
-<div class="col-8 col-s-8 ">  
-     
-     <p><b>Vehicles</b><span style="float:right">In BD sunt <?= $totalvehicles ?>  vehicole. </span></p>
-    
-     
+<div class="col-8 col-s-8 ">
+    <br>
+    <br>
+    <br>
+     <p><b>Vehicles</b><span style="float:right">In BD sunt <?= $totalvehicles ?>  vehicole. </span></p>     
    <button id="submit" class="button_edit"  onclick="newvehicle()"> New vehicle </button>
+   
+   <table class="fortable">
+       <tr>
+           <th>Id</th>
+           <th>Number</th>
+           <th>VIN</th>
+           <th>Y/P</th>    
+           <th>Brand</th>    
+           <th>Modele</th>    
+           <th>Taho nr.</th>
+           <th>Tyresize</th>
+           <th>Owner</th>
+           <th>Edit</th>
+           <th>Delite</th>
+        </tr>
 
-    <table class="fortable">
-    <tr>
-    <th>Id</th>
-    <th>Number</th>
-    <th>VIN</th>
-    <th>Y/P</th>    
-    <th>Brand</th>    
-    <th>Modele</th>    
-    <th>Taho nr.</th>
-    <th>Tyresize</th>
-    <th>Owner</th>
-    <th>Edit</th>
-    <th>Delite</th>
-    </tr>
+
     <?php foreach($vehicles as $vehicle):?>
         <tr>
             <td><?= $vehicle->id ?></td>

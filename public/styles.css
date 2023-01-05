@@ -2,14 +2,20 @@
 div.sticky {
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
-    padding: 5px;
-    border: #FFC9A7 1px solid;
+    
     
 }
+
+.fix{
+    position: fixed;
+    width: 100%;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
 .topnav {
     overflow: hidden;
-    background-color:#ff9900;
+    background-color:#333;
   }
   
   .topnav a {
@@ -59,10 +65,7 @@ div.sticky {
   }
 
 
-.fortable {border-collapse: collapse; width:100%}
-.fortable th{padding:5px; background-color:#f0f5f5; color:#000000; text-align: center; border: 1px #ddd solid; font-size: 12px;}
-.fortable td{ border: 1px #ccc solid;  padding: 1px 1px; font-size: 12px; padding: 1px;}
-.fortable tr:hover{background-color: yellow;color: blue;}
+
 
 
 
