@@ -6,10 +6,10 @@
       </div>
     </div>
     <div class="col-3 col-s-3 ">
-      <form action="" method="POST">
-<table class="tableedit">
-     <tr><th>Vehicle</th></tr>
-  <tr><td>Search a vehicle</td></tr>
+      <form action="" method="POST" class="classic">
+<table class="tableedit b">
+   <tr><th>Vehicle</th></tr>
+   <tr><td>Search a vehicle</td></tr>
    <tr><td id="findcontainer"> <input style="border:2px red solid;" id="find" type="text" placeholder="Number or VIN of a vehicle" autocomplete="off" autofocus>
    <div class="bookmarks"></div></td></tr> 
    <tr><td><input type="hidden" id="id" name="certificate[id]" value="<?= $certificate->id ?? "" ?>"></td></tr>
@@ -27,6 +27,8 @@
    <tr><td><input id="tyresize" name="certificate[tyresize]" value="<?= $certificate->tyresize ?? "" ?>" readonly></td></tr>
    <tr><td><label for="vehicleyear">Year production</label></td></tr>
    <tr><td><input id="vehicleyear" name="certificate[yearproduction]" value="<?= $certificate->yearproduction  ?? "" ?>" readonly></td></tr> 
+   <tr><td><label for="vehicletotalweight">Masa totala</label></td></tr>
+   <tr><td><input id="vehicletotalweight" name="certificate[vehicletotalweight]" value="<?= $certificate->vehicletotalweight  ?? "" ?>" readonly></td></tr> 
    </table>
    </div>
    <div class="col-3 col-s-3">
@@ -71,8 +73,8 @@
     <tr><td>      
           <select name="certificate[baterea]">
           <option selected disabled></option>
-            <option value="1" <?= $certificate->baterea ? "selected checked" : "" ?> >Yes</option>
-            <option value="0" <?= $certificate->baterea ? "" : "selected checked" ?> >No</option>
+            <option value=1 <?= $certificate->baterea ? "selected checked" : "1" ?> >Yes</option>
+            <option value=0 <?= $certificate->baterea ? "0" : "selected checked" ?> >No</option>
           </select>
     </td></tr>
     <tr><td><input class="but_save" type="submit" name="submit" value="Save" id="submit"></td></tr>

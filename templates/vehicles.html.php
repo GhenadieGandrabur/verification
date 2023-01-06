@@ -1,9 +1,7 @@
 <div class="row">
 <div class="col-2 col-s-2"></div>
 <div class="col-8 col-s-8 ">
-    <br>
-    <br>
-    <br>
+   
      <p><b>Vehicles</b><span style="float:right">In BD sunt <?= $totalvehicles ?>  vehicole. </span></p>     
    <button id="submit" class="button_edit"  onclick="newvehicle()"> New vehicle </button>
    

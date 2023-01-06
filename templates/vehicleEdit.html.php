@@ -1,8 +1,6 @@
-<div class="row">
+ <div class="row">
         <div class="col-4 col-s-4"></div>
-        <div class="col-4 col-s-4">   
-          
-          
+        <div class="col-4 col-s-4">         
 <form action="" method="POST" class="classic">  
 <table class="tableedit b">
   <tr><th colspan="2" class="bgg tc "><h3 >Vehicle edit</h3></th></tr>  
@@ -31,8 +29,12 @@
     <td><input size="4"  maxlength="4" id="yearProduction" name = 'vehicle[yearProduction]' value="<?=$vehicle->yearproduction ??""?>"></td>
   </tr>
   <tr>
-    <td><label  for="tahoId">Taho number</label> </td>
-    <td ><input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId??""?>"  autocomplete="off"></td>
+    <td><label  for="tahoId">Taho id</label> </td>
+    <td ><input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId??""?>" size="11" autocomplete="off"></td>
+  </tr>
+  <tr>
+    <td><label  for="totalweight">Total weight</label> </td>
+    <td ><input  id="totalweight" name = "vehicle[totalweight]" value="<?=$vehicle->totalweight??""?>" size="6" maxlength="6" autocomplete="off"></td>
   </tr>
   <tr>
     <td><label  for="tyresize">Tyre size</label></td>

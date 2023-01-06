@@ -1,4 +1,4 @@
-<div class="row" style="padding-left:10px; padding-right:10px">
+<div class="row">
     <div class="col-12 col-s-12 " style="margin:0; padding:0;">
     
      <div class="col-12 col-s-12 " style="margin:0; padding:0;">   

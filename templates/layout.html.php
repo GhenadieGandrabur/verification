@@ -17,7 +17,9 @@
 
 <body>
            
-        <div class="fix">  <?php include 'adminmenu.html.php'?></div>
+        <div class="fix"><?php include 'adminmenu.html.php'?></div>
+        <br>
+        <br>
         <?= $output ?>
     
 
