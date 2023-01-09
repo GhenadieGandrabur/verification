@@ -18,7 +18,7 @@
             </td>
             </tr>
             <tr>
-                <td colspan="2" class="tc bgg"><input type="submit" name="submit" value="Save"></td>
+                <td colspan="2" class="tc"><input type="submit" name="submit" value="Save"></td>
             </tr>
         </table>       
         </form>

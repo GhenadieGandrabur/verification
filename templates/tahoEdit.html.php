@@ -3,8 +3,8 @@
 <div class="col-4 col-s-4">
 
     
-    <form action="" method="post" class="classic" > 
-    <table class="tableedit b">
+    <form action="" method="post" class="classic " > 
+    <table class="tableedit">
     <tr>
         <td colspan="2" class="bgg tc"><h3>Tahograf edit</h3></td>
     </tr>
@@ -20,8 +20,9 @@
         <td>
             <select name="taho[tahotypeId]">
             <option disabled selected></option>
-            <?php foreach($tahotypes as $tahotype):?>
+            <?php foreach($tahotypes as $tahotype):?>                
             <option value="<?=$tahotype->id?>" <?= $tahotype->id ===( $taho->tahotypeId?? null) ?"checked selected ": "" ?>><?=$tahotype->typetaho?></option>
+        
             <?php endforeach;?>
             </select>
         </td>
@@ -41,6 +42,11 @@
             </select>
         </td>
     </tr>
+    <tr>
+        <td><label for="recordertypeId"></label></td>
+        <td><input id="recordertypeId" name="recordertypeId" value="<?=$taho->recordertypeId??""?>"> </td>
+    </tr>
+    
     <tr>
         <td colspan="2" class="tc"><input type="submit" value="save"> </td>
     </tr>

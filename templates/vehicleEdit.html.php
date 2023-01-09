@@ -33,8 +33,8 @@
     <td ><input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId??""?>" size="11" autocomplete="off"></td>
   </tr>
   <tr>
-    <td><label  for="totalweight">Total weight</label> </td>
-    <td ><input  id="totalweight" name = "vehicle[totalweight]" value="<?=$vehicle->totalweight??""?>" size="6" maxlength="6" autocomplete="off"></td>
+    <td><label  for="massa">Total weight</label> </td>
+    <td ><input  id="massa" name = "vehicle[massa]" value="<?=$vehicle->massa??""?>" size="6" maxlength="6" autocomplete="off"></td>
   </tr>
   <tr>
     <td><label  for="tyresize">Tyre size</label></td>

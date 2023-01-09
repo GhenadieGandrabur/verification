@@ -20,15 +20,16 @@ class Taho
     }
 
     function list() {
-        $tahos = $this->taholistTable->findAll();
-
+        $tahos = $this->taholistTable->findAll();        
+        
         $title = 'tahografe';
-
+        
         $totaltaho = $this->taholistTable->total();
         $tahotitles = [];
         $tahotypes = $this->tahotypeTable->findAll() ?? [];
+        
         foreach ($tahotypes as $tahotype) {
-            $tahotitles[$tahotype->id] = $tahotype->typetaho;        
+            $tahotitles[$tahotype->id] = $tahotype->typetaho;            
         }
 
         return [

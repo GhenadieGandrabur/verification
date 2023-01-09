@@ -1,12 +1,9 @@
-.tableedit{
-    width: 80%;
-    margin: auto;
 
-}
-.tableedit select{width:50%; padding: 3px; background-color: aliceblue;}
+
+.tableedit select{width:150px; padding: 3px; background-color: aliceblue;}
 .tableedit td{font-size: 12px;}
 .tableedit th{font-size: 12px; text-align:center;}
-
+.tableedit {margin: auto; padding: 10px;}
 
 
 .fortable {

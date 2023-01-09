@@ -5,9 +5,9 @@
         <h3 style="padding:0; margin:0;">Certificat de verificare nr: <?= $certificate->id ?? "" ?> din: <?= date("d.m.Y")  ?? '' ?></h3>
       </div>
     </div>
-    <div class="col-3 col-s-3 ">
+    <div class="col-3 col-s-3">
       <form action="" method="POST" class="classic">
-<table class="tableedit b">
+<table class="tableedit ">
    <tr><th>Vehicle</th></tr>
    <tr><td>Search a vehicle</td></tr>
    <tr><td id="findcontainer"> <input style="border:2px red solid;" id="find" type="text" placeholder="Number or VIN of a vehicle" autocomplete="off" autofocus>
@@ -27,8 +27,8 @@
    <tr><td><input id="tyresize" name="certificate[tyresize]" value="<?= $certificate->tyresize ?? "" ?>" readonly></td></tr>
    <tr><td><label for="vehicleyear">Year production</label></td></tr>
    <tr><td><input id="vehicleyear" name="certificate[yearproduction]" value="<?= $certificate->yearproduction  ?? "" ?>" readonly></td></tr> 
-   <tr><td><label for="vehicletotalweight">Masa totala</label></td></tr>
-   <tr><td><input id="vehicletotalweight" name="certificate[vehicletotalweight]" value="<?= $certificate->vehicletotalweight  ?? "" ?>" readonly></td></tr> 
+   <tr><td><label for="massa">Masa totala</label></td></tr>
+   <tr><td><input id="massa" name="certificate[massa]" value="<?= $certificate->massa  ?? "" ?>" readonly></td></tr> 
    </table>
    </div>
    <div class="col-3 col-s-3">
