@@ -104,6 +104,7 @@ class CertificatesRoutes implements \Main\Routes
                               'GET' =>    ['controller'   => $brandsController, 'action' => 'edit'],'login' => true ],
 
             'tahotype/list' =>   ['GET'  => ['controller' => $tahotypeController, 'action' => 'list'], 'login' => true],
+            'tahotype/detailes' =>   ['GET'  => ['controller' => $tahotypeController, 'action' => 'detailes'], 'login' => true],
             'tahotype/delete' => ['POST' => ['controller' => $tahotypeController, 'action' => 'delete'], 'login' => true],
             'tahotype/edit' =>   ['POST' => ['controller' => $tahotypeController, 'action' => 'saveEdit'],
                                    'GET' => ['controller' => $tahotypeController, 'action' => 'edit'],'login' => true ],

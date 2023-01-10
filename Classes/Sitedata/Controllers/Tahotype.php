@@ -65,7 +65,12 @@ class Tahotype
             'variables' => ['tahotype' => $tahotype ?? null ]
         ];
     }
-
+    public function detailes(){
+        $number = htmlspecialchars($_GET['tahotype']);
+        $vehicle = $this->tahotypesTable->find('typetaho', $number);
+        print json_encode($vehicle[0]?? []);
+        die;
+    }
    
     
 }

@@ -3,7 +3,7 @@
         <div class="col-4 col-s-4">         
 <form action="" method="POST" class="classic">  
 <table class="tableedit b">
-  <tr><th colspan="2" class="bgg tc "><h3 >Vehicle edit</h3></th></tr>  
+  <tr><th colspan="3" class="bgg tc "><h3 >Vehicle edit</h3></th></tr>  
   <tr>
     <td><label   for="id"></label></td>
     <td><input type="hidden" id="id" name = "vehicle[id]" value="<?=$vehicle->id ??""?>"></td>
@@ -19,34 +19,40 @@
   <tr>
     <td><label  for="brandId">Brand</label></td>
     <td class="inpos"><input  id="brandId" name = 'vehicle[brandId]' value="<?=$vehicle->brandId ??""?>" autocomplete="off"></td>
+    <td></td>
   </tr>
   <tr>
     <td><label  for="modele">Model</label></td>
     <td><input  id="model" name = 'vehicle[model]' value="<?=$vehicle->model ??""?>"></td>
+    <td></td>
   </tr>
   <tr>
     <td><label  for="yearProduction">Year production</label></td>
     <td><input size="4"  maxlength="4" id="yearProduction" name = 'vehicle[yearProduction]' value="<?=$vehicle->yearproduction ??""?>"></td>
+    <td></td>
   </tr>
   <tr>
-    <td><label  for="tahoId">Taho id</label> </td>
-    <td ><input  id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId??""?>" size="11" autocomplete="off"></td>
+    <td><label  for="tahoId">Taho number(id)</label> </td>
+    <td><input style="float:left" id="tahoId" name = "vehicle[tahoId]" value="<?=$vehicle->tahoId??""?>" size="11" autocomplete="off"><button style="float:right"><span style="font-size: 10px;">New taho </span></button></div></td>
+    <td></td>
   </tr>
   <tr>
     <td><label  for="massa">Total weight</label> </td>
     <td ><input  id="massa" name = "vehicle[massa]" value="<?=$vehicle->massa??""?>" size="6" maxlength="6" autocomplete="off"></td>
+    <td></td>
   </tr>
   <tr>
     <td><label  for="tyresize">Tyre size</label></td>
     <td><input  id="tyresize" name = "vehicle[tyresize]" value="<?=$vehicle->tyresize??""?>"  autocomplete="off"></td>
+    <td></td>
   </tr>
   <tr>
     <td><label  for="owner">Owner</label></td>
     <td><input  id="owner" name = "vehicle[owner]" value="<?=$vehicle->owner ??""?>" autocomplete="off"></td>
+    <td></td>
   </tr>
-  <tr>
-   
-    <td colspan="2" class="tc"><input  id="submit" type="submit" value=" Save "> </td>
+  <tr>   
+    <td colspan="3" class="tc"><input  id="submit" type="submit" value=" Save "> </td>
   </tr>
 </table>
 </form>

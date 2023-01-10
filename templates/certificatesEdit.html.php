@@ -125,11 +125,16 @@
               fetch(`/taho/detailes?id=${json.tahoId}`)
               .then(res => res.json())
               .then(json => {
-                  
-                  document.querySelector("input[id  = tahonumber]").value = json.tahoId
-                  document.querySelector("input[id = tahotype]").value = json.tahotypeId
-                  document.querySelector("input[id = tahomesurement]").value = json.measurementRange
-                  document.querySelector("input[id = tahorecordtype]").value = json.recordertypeId
+                 console.log(json) 
+                  document.querySelector("input[id=tahonumber]").value = json.tahonumber
+                  document.querySelector("input[id=tahotype]").value = json.tahotypeId
+                  document.querySelector("input[id=tahomesurement]").value = json.measurementRange
+                  //document.querySelector("input[id = tahorecordtype]").value = json.recordertypeId
+                  fetch(`/tahotype/detailes?tahotype=${json.tahotypeId}`)
+                  .then(res => res.json())
+                  .then(json => {
+                    document.querySelector("input[id = tahorecordtype]").value = json.recordertype
+                  })
                 })
             }
           }

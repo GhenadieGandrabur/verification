@@ -4,7 +4,7 @@
 
     
     <form action="" method="post" class="classic " > 
-    <table class="tableedit">
+    <table class="tableedit b">
     <tr>
         <td colspan="2" class="bgg tc"><h3>Tahograf edit</h3></td>
     </tr>
@@ -42,10 +42,7 @@
             </select>
         </td>
     </tr>
-    <tr>
-        <td><label for="recordertypeId"></label></td>
-        <td><input id="recordertypeId" name="recordertypeId" value="<?=$taho->recordertypeId??""?>"> </td>
-    </tr>
+   
     
     <tr>
         <td colspan="2" class="tc"><input type="submit" value="save"> </td>

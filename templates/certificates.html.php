@@ -42,7 +42,7 @@
                                 echo $date->format('d.m. Y H:i:s'); ?></td>
                         <td> <?= $certificate->vehicle  ?></td>
                         <td> <?= $certificate->proprietar  ?></td>
-                        <td> <?= $authorname->name     ?></td>
+                        <td> <?= $authorname->name?></td>
                         <td> <?= $certificate->validity;?></td>
                         <td><a href="/certificates/print?id=<?= $certificate->id  ?>" target="_blank">🖨</a></td>
                         <td>
@@ -65,7 +65,6 @@
         if (["TEXTAREA", "INPUT", "SELECT"].includes(event.target.tagName)) {
             return;
         }
-
         if (event.code === "Insert") {
             event.preventDefault();
             document.location.href = '/certificates/edit';

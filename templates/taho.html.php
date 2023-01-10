@@ -9,7 +9,7 @@
     <th>Taho number</th>
     <th>Type taho</th>    
       
-    <th>Recorder type</th>    
+  
     <th>Measurement</th>    
     <th>Edit</th>
     <th>Delete</th>
@@ -18,10 +18,7 @@
             <td> <?= $taho ->id ?></td>
             <td> <?= $taho -> tahonumber ?></td>
             <td> <?=$tahotitles[$taho->tahotypeId]?? $taho->tahotypeId ?></td>
-            <td>
-                <?=$tahotitles[$taho->recordertypeId]?? $taho->recordertypeId?>
-     
-            </td>                               
+                              
             <td> <?= $taho->measurementRange ?></td>  
             <td>
                 <a href="/taho/edit?id=<?= $taho->id  ?>"> Edit</a>
